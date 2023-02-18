@@ -26,7 +26,7 @@
                 </div>
                 
                 <button class="w-72 h-12 text-center shadow rounded-lg">Login</button>
-                <p class="small">Don’t have an account? <a href="">Register here</a></p>
+                <p class="small">Don’t have an account? <a href="/Registration">Register here</a></p>
             </form>
             
         </div>
