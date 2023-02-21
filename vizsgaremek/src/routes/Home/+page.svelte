@@ -1,25 +1,25 @@
 <script>
 // @ts-nocheck
-
-
+import 'https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js' ;
+import 'https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js'
 
 </script>
 
-<div class="allCenter flex">
-    <div class="sideBar">
-        <div class="Logo">CV</div>
+<div class="allCenter flex w-full min-h-screen">
+    <div class="sideBar h-screen p-5 bg-transparent">
+        <div class="Logo pb-5 text-white">CV</div>
 
         <div class="menu">
-            <ul>
-                <p class="menuTitle">Menu</p>
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#">Discovery</a></li>
-                <li><a href="#">Tickets</a></li>
+            <ul class="p-2">
+                <p class="menuTitle text-gray-400">Menu</p>
+                <li><a href="#" class="active text-gray-400"><ion-icon name="home-outline"></ion-icon>Home</a></li>
+                <li><a href="#" class="text-gray-400"><ion-icon name="flash-outline"></ion-icon>Discovery</a></li>
+                <li><a href="#" class="text-gray-400"><ion-icon name="home-outline"></ion-icon>Tickets</a></li>
             </ul>
             <hr>
-            <ul>
-                <li><a href="#">Settings</a></li>
-                <li><a href="#">Logout</a></li>
+            <ul class="p-2">
+                <li><a href="#" class="text-gray-400"><ion-icon name="settings-outline"></ion-icon>Settings</a></li>
+                <li><a href="#" class="text-gray-400">Logout</a></li>
             </ul>
         </div>
         <div class="profile flex items-center">
@@ -51,22 +51,22 @@
     <div class="upComing">
         <h3 class="up">Upcoming Movies</h3>
         <div class="upcard">
+            <p class="cim pt-16">Avatar 2</p>
+            <div class="coming pb-5">2023/03/10</div>
+            <div class="desc text-center">
+                asdasd dsajd nwfieun iewgi uneinweinf iwnefi wenniunb
+            </div>
+        </div>
+        <div class="upcard">
             <p class="cim">Avatar 2</p>
-            <div class="coming">2023/03/10</div>
+            <div class="coming pb-5">2023/03/10</div>
             <div class="desc">
                 asdasd dsajd nwfieun iewgi uneinweinf iwnefi wenniunb
             </div>
         </div>
         <div class="upcard">
             <p class="cim">Avatar 2</p>
-            <div class="coming">2023/03/10</div>
-            <div class="desc">
-                asdasd dsajd nwfieun iewgi uneinweinf iwnefi wenniunb
-            </div>
-        </div>
-        <div class="upcard">
-            <p class="cim">Avatar 2</p>
-            <div class="coming">2023/03/10</div>
+            <div class="coming pb-5">2023/03/10</div>
             <div class="desc">
                 asdasd dsajd nwfieun iewgi uneinweinf iwnefi wenniunb
             </div>
@@ -88,46 +88,30 @@
     flex-direction: column;
     align-items: center;
    }
-   .cim{
-    padding-top: 60px;
-   }
+   
    .coming{
     font-size: 13px;
-    padding-bottom: 20px;
    }
    .desc{
-    text-align: center;
     font-size: 10px;
    }
 
     .allCenter{
-        width: 100%;
-        min-height: 100vh;
-        background: rgb(43,50,58);
         background: linear-gradient(180deg, rgba(43,50,58,1) 0%, rgba(23,28,33,1) 100%);
     }
     .sideBar{
         width: 300px;
-        min-height: 100vh;
-        background-color: transparent;
-        padding: 20px;
     }
     .Logo{
         font-family: normalFont;
-        color: white;
         font-size: 26px;
-        padding-bottom: 20px;
     }
     .menuTitle{
         font-size: 13px;
-        color: gray;
     }
-    ul{
-        padding: 10px;
-    }
+    
     li{
         padding: 10px;
-        color: gray;
         border-radius: 10px;
         width: 200px;
         transition: all 0.5s;
@@ -238,5 +222,8 @@
     }
     .up{
         padding-bottom: 5px;
+    }
+    ion-icon{
+        
     }
 </style>

@@ -3,12 +3,12 @@
 </script>
 <div class="allCenter flex w-full justify-center min-h-screen">
    
-<div class="cont flex-col items-center gap-3 bg-transparent">
+<div class="cont flex-col items-center gap-3 bg-transparent pt-1.5">
     <img src='src\routes\cinemalogo.png' alt="Logo" class="kep">
     <h1 class="cin font-bold">
         CINEMAVIEW
    </h1> 
-   <div class="blurs rounded-t-2xl shadow backdrop-blur-sm">
+   <div class="blurs rounded-2xl shadow backdrop-blur-sm">
         <div class="form gap-5 h-full w-full">
             <h1>Login</h1>
 
@@ -58,11 +58,11 @@
         background-repeat: no-repeat;
      }
      .cont{
-      padding-top: 5px;
         display: flex;
         align-items: center;
         width:410px;
         min-height: 100vh;
+        justify-content: center;
      }
      .kep{
         width: 120px;
@@ -93,13 +93,15 @@
      }
      input{
       font-family: italicFont;
+      width: 90%;
      }
      a{
       font-family: italicFont;
      }
      button{
       background: rgb(43,50,58);
-background: linear-gradient(180deg, rgba(43,50,58,1) 0%, rgba(23,28,33,1) 100%);
+      background: linear-gradient(180deg, rgba(43,50,58,1) 0%, rgba(23,28,33,1) 100%);
+      width: 90%;
      }
      .cin{
       font-size: 34px;
@@ -123,32 +125,5 @@ background: linear-gradient(180deg, rgba(43,50,58,1) 0%, rgba(23,28,33,1) 100%);
       background-color: gray;
      }
 
-     @media (max-width:420px){
-      .cont{
-         display: flex;
-         flex-direction: column;
-         align-items: center;
-         gap:50px;
-         padding-top: 30px;
-      }
-      .kep{
-         width: 150px;
-         height: 150px;
-      }
-      .blurs{
-         border-top-left-radius: 40px;
-         border-top-right-radius: 40px;
-         position: absolute;
-         bottom: 0;
-         height: 60%;
-      }
-      .form{
-         gap: 40px;
-      }
-      form{
-         gap: 50px;
-      }
-     }
-     
-     
+    
   </style>
