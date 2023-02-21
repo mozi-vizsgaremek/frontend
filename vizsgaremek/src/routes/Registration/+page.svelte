@@ -12,7 +12,7 @@
     </h1> 
     <div class="blurs rounded-t-2xl shadow backdrop-blur-sm">
          <div class="form gap-5 h-full w-full">
-             <h1>Login</h1>
+             <h1>Registration</h1>
  
              <form action="">
                  <input class="h-12 outline-0 bg-transparent p-4 placeholder:text-sm placeholder:text-white text-xs w-72 border-2 rounded-lg" type="text" placeholder="Username">
