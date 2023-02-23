@@ -1,25 +1,32 @@
 <script>
 // @ts-nocheck
-import 'https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js' ;
-import 'https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js'
+
 
 </script>
 
 <div class="allCenter flex w-full min-h-screen">
+    <div class="resp-hamburger">
+        <ul>
+            <li><a href="#" class="active text-gray-400">Home</a></li>
+            <li><a href="#" class="text-gray-400">Discover</a></li>
+            <li><a href="#" class="text-gray-400">Tickets</a></li>
+            <li><a href="#" class="text-gray-400">Profil</a></li>
+        </ul>
+    </div>
     <div class="sideBar h-screen p-5 bg-transparent">
         <div class="Logo pb-5 text-white">CV</div>
 
         <div class="menu">
             <ul class="p-2">
-                <p class="menuTitle text-gray-400">Menu</p>
-                <li><a href="#" class="active text-gray-400"><ion-icon name="home-outline"></ion-icon>Home</a></li>
-                <li><a href="#" class="text-gray-400"><ion-icon name="flash-outline"></ion-icon>Discovery</a></li>
-                <li><a href="#" class="text-gray-400"><ion-icon name="home-outline"></ion-icon>Tickets</a></li>
+                <p class="menuTitle text-gray-400 pb-2.5">Menu</p>
+                <li class="p-2.5 rounded-xl"><a href="./Home" class="active text-gray-400">Home</a></li>
+                <li class="p-2.5 rounded-xl"><a href="./Discover" class="text-gray-400">Discovery</a></li>
+                <li class="p-2.5 rounded-xl"><a href="./Tickets" class="text-gray-400">Tickets</a></li>
             </ul>
             <hr>
             <ul class="p-2">
-                <li><a href="#" class="text-gray-400"><ion-icon name="settings-outline"></ion-icon>Settings</a></li>
-                <li><a href="#" class="text-gray-400">Logout</a></li>
+                <li class="p-2.5 rounded-xl"><a href="./Settings" class="text-gray-400">Settings</a></li>
+                <li class="p-2.5 rounded-xl"><a href="./" class="text-gray-400">Logout</a></li>
             </ul>
         </div>
         <div class="profile flex items-center">
@@ -27,16 +34,16 @@ import 'https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js'
             <h3>lenfear23</h3>
         </div>
     </div>
-    <div class="content">
-        <h2>Popular Movies</h2>
+    <div class="content pt-2.5 min-h-screen">
+        <h2 class="p-2.5">Popular Movies</h2>
         <hr>
         <div class="carousel">
 
         </div>
-        <h2>Top Rated</h2>
+        <h2 class="p-2.5">Top Rated</h2>
         <hr>
         <div class="cardcontainer">
-        <div class="cards">
+        <div class="cards p-2.5">
             <div class="card"></div>
             <div class="card"></div>
             <div class="card"></div>
@@ -111,8 +118,6 @@ import 'https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js'
     }
     
     li{
-        padding: 10px;
-        border-radius: 10px;
         width: 200px;
         transition: all 0.5s;
     }
@@ -120,9 +125,7 @@ import 'https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js'
         cursor: pointer;
         background-color: rgba(232, 232, 232, 0.218);
     }
-    p{
-        padding-bottom: 10px;
-    }
+    
     .active{
         color: white;
     }
@@ -148,18 +151,18 @@ import 'https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js'
     }
 
 
-
+    .resp-hamburger{
+        visibility: hidden;
+        position: absolute;
+    }
 
 
     .content{
         width: 80%;
-        min-height: 100vh;
-        padding-top: 10px;
     }
     h2{
         color: white;
         font-size: 23px;
-        padding: 10px;
     }
     .cardcontainer{
         display: flex;
@@ -167,21 +170,19 @@ import 'https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js'
         align-items: center;
     }
     .cards{
-        padding: 10px;
         display: flex;
         flex-wrap: wrap;
         gap: 50px;
         
     }
     .card{
-        
+        border-radius: 10px;
         width: 170px;
         height: 250px;
         background-image: url('../../lib/images/avatar.jpg');
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        border-radius: 10px;
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
         transition: all 0.5s;
     }
@@ -223,7 +224,45 @@ import 'https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js'
     .up{
         padding-bottom: 5px;
     }
-    ion-icon{
-        
+   
+   @media (max-width:1200px){
+    .upComing{
+       visibility: collapse;
+       position: absolute;
     }
+   
+
+   }
+   @media (max-width:670px){
+    .sideBar{
+        position: absolute;
+        visibility: collapse;
+
+    }
+    .content{
+        width: 100%;
+    }
+    .resp-hamburger{
+        visibility: visible;
+        position: fixed;
+        bottom: 10px;
+        width: 100%;
+        background: rgba(4, 4, 4, 0.613);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        backdrop-filter: blur( 4px );
+        -webkit-backdrop-filter:blur( 4px );
+        border-radius: 10px;
+        padding: 20px;
+    }
+    .resp-hamburger ul{
+        display: flex;
+        justify-content: center;
+        gap:30px;
+    }
+    .resp-hamburger ul li{
+        width: fit-content;
+        color: white;
+    }
+    
+   }
 </style>

@@ -1,8 +1,5 @@
 <script>
-    import { getStores } from "$app/stores";
-
-
-    let logosrc= '';
+    
  </script>
 
  <div class="allCenter flex w-full justify-center min-h-screen">

@@ -1,5 +1,13 @@
-<script>
+<script lang="ts">
+   import type { ActionData, PageData } from "./$types";
+
    let logosrc= '';
+
+   export let data: ActionData;
+   if (data?.code == 200) {
+      alert("buzi vagy");
+   };
+   
 </script>
 <div class="allCenter flex w-full justify-center min-h-screen">
    
@@ -12,9 +20,9 @@
         <div class="form gap-5 h-full w-full">
             <h1>Login</h1>
 
-            <form action="">
-                <input class="h-12 outline-0 bg-transparent p-4 placeholder:text-sm placeholder:text-white text-xs w-72 border-2 rounded-lg" type="text" placeholder="Username">
-                <input class="h-12 outline-0 bg-transparent p-4 placeholder:text-sm placeholder:text-white text-xs w-72 border-2 rounded-lg" type="password" placeholder="Password">
+            <form method="POST" >
+                <input class="h-12 outline-0 bg-transparent p-4 placeholder:text-sm placeholder:text-white text-xs w-72 border-2 rounded-lg" type="text" placeholder="Username" name="username">
+                <input class="h-12 outline-0 bg-transparent p-4 placeholder:text-sm placeholder:text-white text-xs w-72 border-2 rounded-lg" type="password" placeholder="Password" name="password">
                 <div class="check flex justify-between w-72">
                   <div class="stay flex gap-2">
                   <input type="checkbox" id="helper-checkbox" aria-describedby="helper-checkbox-text" class="ch">
@@ -25,7 +33,7 @@
                </div>
                 </div>
                 
-                <button class="w-72 h-12 text-center shadow rounded-lg">Login</button>
+                <button class="w-72 h-12 text-center shadow rounded-lg" >Login</button>
                 <p class="small">Don’t have an account? <a href="/Registration">Register here</a></p>
             </form>
             

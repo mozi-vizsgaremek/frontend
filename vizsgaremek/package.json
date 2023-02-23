@@ -23,5 +23,8 @@
 		"typescript": "^4.9.5",
 		"vite": "^4.1.3"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"felte": "^1.2.7"
+	}
 }
