@@ -1,12 +1,4 @@
-<script lang="ts">
-   import type { ActionData, PageData } from "./$types";
-
-   let logosrc= '';
-
-   export let data: ActionData;
-   if (data?.code == 200) {
-      alert("buzi vagy");
-   };
+<script >
    
 </script>
 <div class="allCenter flex w-full justify-center min-h-screen">

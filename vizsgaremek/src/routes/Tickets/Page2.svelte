@@ -46,6 +46,7 @@
        }
        *{
         font-family: normalFont;
+        color: gray;
        }
        .alma{
             border-bottom: 2px solid gray;
@@ -57,6 +58,7 @@
         }
         .active_mini{
             border-color: white;
+            color: white;
         }
        .desccont{
             padding-top: 10px;
@@ -81,14 +83,11 @@
             display: flex;
             justify-content: space-between;
             font-size: 8px;
-            color: white;
         }
         .titlecont{
             text-align: center;
-            padding-top: 100px;
+            padding-top: 150px;
         }
-        h2{
-            color: white;
-        }
+        
         
 </style>

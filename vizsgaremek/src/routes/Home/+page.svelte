@@ -1,7 +1,5 @@
 <script>
 // @ts-nocheck
-
-
 </script>
 
 <div class="allCenter flex w-full min-h-screen">

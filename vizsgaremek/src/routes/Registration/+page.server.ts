@@ -1,6 +1,6 @@
 import { baseUrl } from '$lib/config';
 import type { Actions } from './$types';
-
+import { redirect } from '@sveltejs/kit';
 
 
 export const actions: Actions = {
@@ -20,8 +20,13 @@ export const actions: Actions = {
         },
         body: reqBody
     });
-    console.log(res);
-    console.log(reqBody);
+   
+    if(res.ok){
+      throw redirect(301,'/')
+    }
+    else{
+      throw new Error();
+    }
     
     console.log(await res.json());
   }

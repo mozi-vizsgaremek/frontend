@@ -1,6 +1,7 @@
 import { goto } from '$app/navigation';
 import { baseUrl } from '$lib/config';
 import type { Actions } from './$types';
+import { redirect } from '@sveltejs/kit';
 
 export const actions: Actions = {
   default: async (event) => {
@@ -19,6 +20,15 @@ export const actions: Actions = {
         body: reqBody
         
     });
+
+    if(res.ok){
+        throw redirect(301,'/Home')
+        
+       
+    }else{
+      throw new Error('Wrong details');
+      
+    }
 
     return { code: res.status }
   }
