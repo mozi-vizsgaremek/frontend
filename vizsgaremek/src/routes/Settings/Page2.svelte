@@ -21,16 +21,16 @@
         <form use:form>
             <h3 class="alma "><button on:click={() => onBack($data)}>2FA</h3>
             <h3 class="alma active_mini"><button >Password</button></h3>
-            <h3 class="alma "><button type="submit">Language</h3>
+            <h3 class="alma "><button >Language</h3>
         </form>
         
         </div>
         <div class="pasres">
-        <form >
-            <input type="password" class="h-10 outline-0 bg-transparent p-4 placeholder:text-sm placeholder:text-white text-xs w-72 border-2 rounded-lg" placeholder="Old password">
-            <input type="password" class="h-10 outline-0 bg-transparent p-4 placeholder:text-sm placeholder:text-white text-xs w-72 border-2 rounded-lg" placeholder="New password">
+        <form method="POST">
+            <input type="password" class="h-10 outline-0 bg-transparent p-4 placeholder:text-sm placeholder:text-white text-xs w-72 border-2 rounded-lg" placeholder="Old password" name="oldpass">
+            <input type="password" class="h-10 outline-0 bg-transparent p-4 placeholder:text-sm placeholder:text-white text-xs w-72 border-2 rounded-lg" placeholder="New password" name="newpass">
             <input type="password" class="h-10 outline-0 bg-transparent p-4 placeholder:text-sm placeholder:text-white text-xs w-72 border-2 rounded-lg" placeholder="New re-password">
-            <button type="submit" class="save">Save</button>
+            <button class="save">Save</button>
         </form>
     </div>
     <style>
@@ -57,6 +57,7 @@
            }
            .alma{
                 border-bottom: 2px solid gray;
+                color: gray;
             }
             .mininav{
                 display: flex;
@@ -65,6 +66,7 @@
             }
             .active_mini{
                 border-color: white;
+                color: white;
             }
             form{
                 display: flex;

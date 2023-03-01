@@ -25,6 +25,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"felte": "^1.2.7"
+		"felte": "^1.2.7",
+		"svelte-icons-pack": "^2.0.0"
 	}
 }

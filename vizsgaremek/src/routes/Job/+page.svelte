@@ -1,68 +1,14 @@
 <script>
- // We import our page components (similar to the one above).
- import Page1 from './Page1.svelte';
-  import Page2 from './Page2.svelte';
-
-  
-  import Icon from 'svelte-icons-pack/Icon.svelte';
-  // @ts-ignore
-  import IoAccessibilityOutline from 'svelte-icons-pack/io/IoPlanet';
-  
-  // @ts-ignore
-  import compass from 'svelte-icons-pack/io/IoCompass';
     
-    
-  // @ts-ignore
-  import ticket from 'svelte-icons-pack/io/IoTicket';
-
-  
-  // @ts-ignore
-  import settings from 'svelte-icons-pack/io/IoSettings';
-
-  const pages = [Page1, Page2];
-
-  // The current page of our form.
-  let page = 0;
-
-  // The state of all of our pages
-  // @ts-ignore
-  /**
-     * @type {any[]}
-     */
-  let pagesState = [];
-
-  // Our handlers
-  // @ts-ignore
-  function onSubmit(values) {
-    if (page === pages.length - 1) {
-      // On our final page with POST our data somewhere
-      // @ts-ignore
-      console.log('Submitted data: ', pagesState)
-    } else {
-      // If we're not on the last page, store our data and increase a step
-      pagesState[page] = values;
-      // @ts-ignore
-      pagesState = pagesState; // Triggering update
-      page +=1;
-    }
-  }
-// @ts-ignore
-  function onBack(values) {
-    if (page === 0) return;
-		pagesState[page] = values;
-        // @ts-ignore
-    pagesState = pagesState; // Triggering update
-    page -= 1;
-  }
-</script>
+    </script>
     
     <div class="allCenter flex w-full min-h-screen">
         <div class="resp-hamburger">
             <ul>
-                <li><a href="/Home" class="active text-gray-400"><Icon src={IoAccessibilityOutline} color="white" size="25"/></a></li>
-                <li><a href="/Discover" class="text-gray-400"><Icon src={compass} color="white" size="25"/></a></li>
-                <li><a href="/Tickets" class="text-gray-400"><Icon src={ticket} color="white" size="25"/></a></li>
-                <li><a href="/Settings" class="text-gray-400"><Icon src={settings} color="white" size="25"/></a></li>
+                <li><a href="#" class="active text-gray-400">Home</a></li>
+                <li><a href="#" class="text-gray-400">Discover</a></li>
+                <li><a href="#" class="text-gray-400">Tickets</a></li>
+                <li><a href="#" class="text-gray-400">Profil</a></li>
             </ul>
         </div>
         <div class="sideBar h-screen p-5 bg-transparent">
@@ -71,9 +17,10 @@
             <div class="menu">
                 <ul class="p-2">
                     <p class="menuTitle text-gray-400 pb-2.5">Menu</p>
-                    <li class="p-2.5 rounded-xl"><a href="./Home" class=" text-gray-400">Home</a></li>
+                    <li class="p-2.5 rounded-xl"><a href="./Home" class="text-gray-400">Home</a></li>
                     <li class="p-2.5 rounded-xl"><a href="./Discover" class="text-gray-400">Discovery</a></li>
-                    <li class="p-2.5 rounded-xl"><a href="./Tickets" class="active text-gray-400">Tickets</a></li>
+                    <li class="p-2.5 rounded-xl"><a href="./Tickets" class="text-gray-400">Tickets</a></li>
+                    <li class="p-2.5 rounded-xl"><a href="./Job" class="active text-gray-400">Job</a></li>
                 </ul>
                 <hr>
                 <ul class="p-2">
@@ -87,20 +34,19 @@
             </div>
         </div>
         <div class="content pt-2.5 min-h-screen">
-            <h2 class="p-2.5">My tickets</h2>
+            <h2 class="p-2.5">Job</h2>
             <hr>
             
-            
             <div class="cardcontainer">
-              <!-- We display the current step here -->
-<svelte:component
-this={pages[page]}
-{onSubmit}
-{onBack}
-initialValues={pagesState[page]}
-/>
             <div class="cards p-2.5">
-                
+                <div class="card">
+                    
+                    <div class="title" ><a href="./SelectShift">Book your shift</a></div>
+              
+                </div>
+                <div class="card">
+                    <div class="title">Overview</div>
+                </div>
             </div>
         </div>
         </div>
@@ -204,17 +150,10 @@ initialValues={pagesState[page]}
             visibility: hidden;
             position: absolute;
         }
-       
+    
     
         .content{
             width: 80%;
-        }
-        h3{
-            font-size: 15px;
-        }
-        .mininav{
-            display: flex;
-            gap: 10px;
         }
         h2{
             color: white;
@@ -223,21 +162,32 @@ initialValues={pagesState[page]}
         .cardcontainer{
             display: flex;
             flex-direction: column;
-            padding: 10px;
+            align-items: center;
         }
         .cards{
             display: flex;
             flex-wrap: wrap;
             gap: 50px;
+        }
+        .card{
+            padding: 20px;
+            color: white;
+            width: 350px;
+            min-height: 200px;
+            border-radius: 10px;
             
+        background: linear-gradient(90deg, rgba(43,50,58,1) 0%, rgba(23,28,33,1) 100%);
+            box-shadow:  20px 20px 60px #252b31,
+             -20px -20px 60px #313a43;
+             transition: all .5s;
         }
-        .alma{
-            border-bottom: 2px solid gray;
+        .card:hover{
+            transform: scale(1.1);
+            cursor: pointer;
         }
-        .active_mini{
-            border-color: white;
-        }
-       
+    
+    
+    
     
     
     

@@ -1,68 +1,38 @@
 <script>
- // We import our page components (similar to the one above).
- import Page1 from './Page1.svelte';
-  import Page2 from './Page2.svelte';
+    // @ts-nocheck
 
-  
-  import Icon from 'svelte-icons-pack/Icon.svelte';
-  // @ts-ignore
-  import IoAccessibilityOutline from 'svelte-icons-pack/io/IoPlanet';
-  
-  // @ts-ignore
-  import compass from 'svelte-icons-pack/io/IoCompass';
-    
-    
-  // @ts-ignore
-  import ticket from 'svelte-icons-pack/io/IoTicket';
+    let dates =[
+        {day:'WE', nu:'02'},
+        {day:'TH', nu:'03'},
+        {day:'TR', nu:'04'},
+        {day:'SA', nu:'05'},
+        {day:'SU', nu:'06'},
+        {day:'MO', nu:'07'},
+        {day:'TO', nu:'08'},
+        {day:'WE', nu:'09'},
+        {day:'TH', nu:'10'},
+        {day:'TR', nu:'11'},
+        {day:'SA', nu:'12'},
+        {day:'SU', nu:'13'},
+        {day:'MO', nu:'14'},
+        {day:'TO', nu:'13'},
+        {day:'WE', nu:'15'},
+        {day:'TH', nu:'16'},
+        {day:'TR', nu:'17'},
+        {day:'SA', nu:'18'},
+        {day:'SU', nu:'19'},
+        
 
-  
-  // @ts-ignore
-  import settings from 'svelte-icons-pack/io/IoSettings';
-
-  const pages = [Page1, Page2];
-
-  // The current page of our form.
-  let page = 0;
-
-  // The state of all of our pages
-  // @ts-ignore
-  /**
-     * @type {any[]}
-     */
-  let pagesState = [];
-
-  // Our handlers
-  // @ts-ignore
-  function onSubmit(values) {
-    if (page === pages.length - 1) {
-      // On our final page with POST our data somewhere
-      // @ts-ignore
-      console.log('Submitted data: ', pagesState)
-    } else {
-      // If we're not on the last page, store our data and increase a step
-      pagesState[page] = values;
-      // @ts-ignore
-      pagesState = pagesState; // Triggering update
-      page +=1;
-    }
-  }
-// @ts-ignore
-  function onBack(values) {
-    if (page === 0) return;
-		pagesState[page] = values;
-        // @ts-ignore
-    pagesState = pagesState; // Triggering update
-    page -= 1;
-  }
-</script>
+    ]
+    </script>
     
     <div class="allCenter flex w-full min-h-screen">
         <div class="resp-hamburger">
             <ul>
-                <li><a href="/Home" class="active text-gray-400"><Icon src={IoAccessibilityOutline} color="white" size="25"/></a></li>
-                <li><a href="/Discover" class="text-gray-400"><Icon src={compass} color="white" size="25"/></a></li>
-                <li><a href="/Tickets" class="text-gray-400"><Icon src={ticket} color="white" size="25"/></a></li>
-                <li><a href="/Settings" class="text-gray-400"><Icon src={settings} color="white" size="25"/></a></li>
+                <li><a href="#" class="active text-gray-400">Home</a></li>
+                <li><a href="#" class="text-gray-400">Discover</a></li>
+                <li><a href="#" class="text-gray-400">Tickets</a></li>
+                <li><a href="#" class="text-gray-400">Profil</a></li>
             </ul>
         </div>
         <div class="sideBar h-screen p-5 bg-transparent">
@@ -71,9 +41,10 @@
             <div class="menu">
                 <ul class="p-2">
                     <p class="menuTitle text-gray-400 pb-2.5">Menu</p>
-                    <li class="p-2.5 rounded-xl"><a href="./Home" class=" text-gray-400">Home</a></li>
+                    <li class="p-2.5 rounded-xl"><a href="./Home" class="text-gray-400">Home</a></li>
                     <li class="p-2.5 rounded-xl"><a href="./Discover" class="text-gray-400">Discovery</a></li>
-                    <li class="p-2.5 rounded-xl"><a href="./Tickets" class="active text-gray-400">Tickets</a></li>
+                    <li class="p-2.5 rounded-xl"><a href="./Tickets" class="text-gray-400">Tickets</a></li>
+                    <li class="p-2.5 rounded-xl"><a href="./Job" class="active text-gray-400">Job</a></li>
                 </ul>
                 <hr>
                 <ul class="p-2">
@@ -87,53 +58,54 @@
             </div>
         </div>
         <div class="content pt-2.5 min-h-screen">
-            <h2 class="p-2.5">My tickets</h2>
+            <h2 class="p-2.5">Job</h2>
             <hr>
             
-            
             <div class="cardcontainer">
-              <!-- We display the current step here -->
-<svelte:component
-this={pages[page]}
-{onSubmit}
-{onBack}
-initialValues={pagesState[page]}
-/>
             <div class="cards p-2.5">
-                
+                {#each dates as {day, nu}}
+                <div class="dateCard">
+                    <div class="word">{day}</div>
+                    <div class="number">{nu}</div>
+                    <div class="status"></div>
+                </div>
+                {/each}
             </div>
         </div>
         </div>
-        <div class="upComing">
-            <h3 class="up">Upcoming Movies</h3>
-            <div class="upcard">
-                <p class="cim pt-16">Avatar 2</p>
-                <div class="coming pb-5">2023/03/10</div>
-                <div class="desc text-center">
-                    asdasd dsajd nwfieun iewgi uneinweinf iwnefi wenniunb
-                </div>
-            </div>
-            <div class="upcard">
-                <p class="cim">Avatar 2</p>
-                <div class="coming pb-5">2023/03/10</div>
-                <div class="desc">
-                    asdasd dsajd nwfieun iewgi uneinweinf iwnefi wenniunb
-                </div>
-            </div>
-            <div class="upcard">
-                <p class="cim">Avatar 2</p>
-                <div class="coming pb-5">2023/03/10</div>
-                <div class="desc">
-                    asdasd dsajd nwfieun iewgi uneinweinf iwnefi wenniunb
-                </div>
-            </div>
-        </div>
+       
     </div>
     
     <style>
         @font-face {
          font-family: normalFont;
          src: url(../../lib/fonts/Sequel100Black-55.ttf);
+       }
+       .status{
+        width: 70%;
+        min-height: 5px;
+        background-color: #00FF47;
+        border-radius: 2px;
+       }
+       .dateCard{
+        padding: 20px;
+            color: white;
+            width: 90px;
+            min-height: 50px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(90deg, rgba(43,50,58,0.3) 0%, rgba(23,28,33,0.6) 100%);
+            box-shadow:  10px 10px 60px #252b31,
+             -10px -10px 60px #1c1a1a;
+             transition: all .5s;
+       }
+       .dateCard:hover{
+        cursor: pointer;
+        transform: scale(1.05);
        }
        *{
         font-family: normalFont;
@@ -204,17 +176,10 @@ initialValues={pagesState[page]}
             visibility: hidden;
             position: absolute;
         }
-       
+    
     
         .content{
             width: 80%;
-        }
-        h3{
-            font-size: 15px;
-        }
-        .mininav{
-            display: flex;
-            gap: 10px;
         }
         h2{
             color: white;
@@ -223,21 +188,18 @@ initialValues={pagesState[page]}
         .cardcontainer{
             display: flex;
             flex-direction: column;
-            padding: 10px;
+            align-items: center;
         }
         .cards{
             display: flex;
+            justify-content: center;
             flex-wrap: wrap;
             gap: 50px;
-            
         }
-        .alma{
-            border-bottom: 2px solid gray;
-        }
-        .active_mini{
-            border-color: white;
-        }
-       
+        
+    
+    
+    
     
     
     

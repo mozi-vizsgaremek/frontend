@@ -52,6 +52,8 @@
            }
            .alma{
                 border-bottom: 2px solid gray;
+                color: gray;
+                transition: all 1s;
             }
             .mininav{
                 display: flex;
@@ -60,6 +62,9 @@
             }
             .active_mini{
                 border-color: white;
+                color: white;
+                
+                transition: all 1s;
             }
            .desccont{
                 padding-top: 10px;

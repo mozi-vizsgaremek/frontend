@@ -46,11 +46,12 @@
        }
        *{
         font-family: normalFont;
-        color: gray;
        }
        .alma{
             border-bottom: 2px solid gray;
+            color: gray;
         }
+
         .mininav{
             display: flex;
             gap: 10px;
@@ -83,10 +84,12 @@
             display: flex;
             justify-content: space-between;
             font-size: 8px;
+            color: white;
         }
         .titlecont{
             text-align: center;
             padding-top: 150px;
+            color: white;
         }
         
         

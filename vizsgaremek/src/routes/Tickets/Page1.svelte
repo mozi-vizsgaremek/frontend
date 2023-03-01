@@ -43,9 +43,11 @@
        }
        .alma{
             border-bottom: 2px solid gray;
+            color: gray;
         }
         .active_mini{
             border-color: white;
+            color: white;
         }
         .mininav{
             display: flex;

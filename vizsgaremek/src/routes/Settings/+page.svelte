@@ -1,6 +1,21 @@
 <script>
     // We import our page components (similar to the one above).
+    import Icon from 'svelte-icons-pack/Icon.svelte';
+  // @ts-ignore
+  import IoAccessibilityOutline from 'svelte-icons-pack/io/IoPlanet';
+  
+  // @ts-ignore
+  import compass from 'svelte-icons-pack/io/IoCompass';
     
+    
+  // @ts-ignore
+  import ticket from 'svelte-icons-pack/io/IoTicket';
+
+  
+  // @ts-ignore
+  import settings from 'svelte-icons-pack/io/IoSettings';
+
+
     import Page1 from './Page1.svelte';
      import Page2 from './Page2.svelte';
      import Page3 from './Page3.svelte';
@@ -68,12 +83,12 @@
        
        <div class="allCenter flex w-full min-h-screen">
            <div class="resp-hamburger">
-               <ul>
-                   <li><a href="#" class=" text-gray-400">Home</a></li>
-                   <li><a href="#" class="text-gray-400">Discover</a></li>
-                   <li><a href="#" class="text-gray-400">Tickets</a></li>
-                   <li><a href="#" class="text-gray-400">Profil</a></li>
-               </ul>
+            <ul>
+                <li><a href="/Home" class="active text-gray-400"><Icon src={IoAccessibilityOutline} color="white" size="25"/></a></li>
+                <li><a href="/Discover" class="text-gray-400"><Icon src={compass} color="white" size="25"/></a></li>
+                <li><a href="/Tickets" class="text-gray-400"><Icon src={ticket} color="white" size="25"/></a></li>
+                <li><a href="/Settings" class="text-gray-400"><Icon src={settings} color="white" size="25"/></a></li>
+            </ul>
            </div>
            <div class="sideBar h-screen p-5 bg-transparent">
                <div class="Logo pb-5 text-white">CV</div>
