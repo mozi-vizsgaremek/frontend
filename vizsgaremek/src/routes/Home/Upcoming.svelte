@@ -1,26 +1,17 @@
 <script>
+    
+    // @ts-nocheck
+    export let MovieTitle;
+    export let date;
+    export let description;
 </script>
 
 <h3 class="up">Upcoming Movies</h3>
 <div class="upcard">
-    <p class="cim pt-16">Avatar 2</p>
-    <div class="coming pb-5">2023/03/10</div>
+    <p class="cim pt-16">{MovieTitle}</p>
+    <div class="coming pb-5">{date}</div>
     <div class="desc text-center">
-        asdasd dsajd nwfieun iewgi uneinweinf iwnefi wenniunb
-    </div>
-</div>
-<div class="upcard">
-    <p class="cim">Avatar 2</p>
-    <div class="coming pb-5">2023/03/10</div>
-    <div class="desc">
-        asdasd dsajd nwfieun iewgi uneinweinf iwnefi wenniunb
-    </div>
-</div>
-<div class="upcard">
-    <p class="cim">Avatar 2</p>
-    <div class="coming pb-5">2023/03/10</div>
-    <div class="desc">
-        asdasd dsajd nwfieun iewgi uneinweinf iwnefi wenniunb
+        {description}
     </div>
 </div>
 

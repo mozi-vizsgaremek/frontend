@@ -1,13 +1,15 @@
-<script> 
+<script>
+   
 
-    import MovieCard from "./MovieCard.svelte";
+
+    import {page} from '$app/stores';   
     import PhoneNav from "./PhoneNav.svelte";
-
+      const id = $page.url.searchParams.get('?/:id');
 </script>
 
 <div class="allCenter flex w-full min-h-screen">
     <div class="resp-hamburger">
-        <PhoneNav/>
+       <PhoneNav/>
     </div>
     <div class="sideBar h-screen p-5 bg-transparent">
         <div class="Logo pb-5 text-white">CV</div>
@@ -43,13 +45,11 @@
         </div>
     </div>
     <div class="content pt-2.5 min-h-screen">
-        <div class="searchInput pb-2.5 flex justify-center">
-            <input type="text" placeholder="Search..." class="search" />
-        </div>
+        <h1>Select Time</h1>
         <hr />
+        <h1>{id}</h1>
         <div class="cardcontainer">
             <div class="cards p-2.5">
-                <MovieCard title="Avatar" secondTitle="The way of water"/>
             </div>
         </div>
     </div>
@@ -82,23 +82,14 @@
 <style>
     @font-face {
         font-family: normalFont;
-        src: url(../../lib/fonts/Sequel100Black-55.ttf);
+        src: url(../../../lib/fonts/Sequel100Black-55.ttf);
     }
     * {
         font-family: normalFont;
     }
 
-    .search {
-        background-color: transparent;
-        border-bottom: 2px solid rgb(31, 31, 31);
-        font-size: 14px;
-        padding: 5px;
-        outline: none;
+    h1{
         color: white;
-        transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    }
-    .search:focus {
-        border-bottom: 2px solid #a3e583;
     }
 
     .upcard {
@@ -217,7 +208,7 @@
                 rgba(245, 246, 252, 0),
                 rgba(40, 40, 40, 0.73)
             ),
-            url("../../lib/images/avatar.jpg");
+            url("../../../lib/images/avatar.jpg");
     }
     .up {
         padding-bottom: 5px;

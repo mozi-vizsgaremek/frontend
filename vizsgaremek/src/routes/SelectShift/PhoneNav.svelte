@@ -44,6 +44,12 @@
         Settings</div>
         </a>
     </li>
+    <li>
+        <a href="./Settings" class="text-gray-400"
+        ><div class="icons"><Icon src={settings} color="white" size="25" />
+        Job</div>
+        </a>
+    </li>
 </ul>
 
 <style>

@@ -26,10 +26,10 @@
         
         </div>
         <div class="pasres">
-        <form method="POST">
-            <input type="password" class="h-10 outline-0 bg-transparent p-4 placeholder:text-sm placeholder:text-white text-xs w-72 border-2 rounded-lg" placeholder="Old password" name="oldpass">
-            <input type="password" class="h-10 outline-0 bg-transparent p-4 placeholder:text-sm placeholder:text-white text-xs w-72 border-2 rounded-lg" placeholder="New password" name="newpass">
-            <input type="password" class="h-10 outline-0 bg-transparent p-4 placeholder:text-sm placeholder:text-white text-xs w-72 border-2 rounded-lg" placeholder="New re-password">
+        <form method="POST" action="?/changePassword">
+            <input type="password"  placeholder="Old password" name="oldpass">
+            <input type="password"  placeholder="New password" name="newpass">
+            <input type="password"  placeholder="New re-password">
             <button class="save">Save</button>
         </form>
     </div>
@@ -55,23 +55,36 @@
       background: linear-gradient(180deg, rgba(43,50,58,1) 0%, rgba(23,28,33,1) 100%);
      color: white;
            }
-           .alma{
-                border-bottom: 2px solid gray;
-                color: gray;
-            }
+           
             .mininav{
                 display: flex;
                 gap: 10px;
                 color: white;
             }
             .active_mini{
-                border-color: white;
-                color: white;
-            }
+            border-color: white;
+            color: white;
+        }
+        .alma{
+            border-bottom: 2px solid gray;
+            color: gray;
+        }
+      
             form{
                 display: flex;
                 gap: 10px;
             }
-            
+            input {
+        background-color: transparent;
+        border-bottom: 2px solid rgb(31, 31, 31);
+        font-size: 8px;
+        padding: 5px;
+        outline: none;
+        color: white;
+        transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    }
+    input:focus {
+        border-bottom: 2px solid #a3e583;
+    }
             
     </style>

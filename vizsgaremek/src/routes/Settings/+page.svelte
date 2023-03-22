@@ -1,29 +1,25 @@
-<script>
-    // We import our page components (similar to the one above).
-    import Icon from 'svelte-icons-pack/Icon.svelte';
-  // @ts-ignore
-  import IoAccessibilityOutline from 'svelte-icons-pack/io/IoPlanet';
-  
-  // @ts-ignore
-  import compass from 'svelte-icons-pack/io/IoCompass';
+<script lang="ts">
     
-    
-  // @ts-ignore
-  import ticket from 'svelte-icons-pack/io/IoTicket';
+   import { page } from "$app/stores";
+   export const data = $page.form;
 
+    import { browser } from "$app/environment";
+    
   
-  // @ts-ignore
-  import settings from 'svelte-icons-pack/io/IoSettings';
 
 
     import Page1 from './Page1.svelte';
      import Page2 from './Page2.svelte';
      import Page3 from './Page3.svelte';
+    import PhoneNav from "./PhoneNav.svelte";
+
+    
+
    
      const pages = [Page1, Page2, Page3];
    
      // The current page of our form.
-     let page = 0;
+     let pagese = 0;
    
      // The state of all of our pages
      // @ts-ignore
@@ -31,64 +27,70 @@
         * @type {any[]}
         */
        
-     let pagesState = [];
+     let pagesState: any[] = [];
    
      // Our handlers
      // @ts-ignore
      function onSubmit(values) {
-       if (page === pages.length - 1) {
+       if (pagese === pages.length - 1) {
          // On our final page with POST our data somewhere
          // @ts-ignore
          console.log('Submitted data: ', pagesState)
        } else {
          // If we're not on the last page, store our data and increase a step
-         pagesState[page] = values;
+         pagesState[pagese] = values;
          // @ts-ignore
          pagesState = pagesState; // Triggering update
-         page +=1;
+         pagese +=1;
        }
      }
      // @ts-ignore
      function onSubmitDouble(values) {
-       if (page === pages.length - 1) {
+       if (pagese === pages.length - 1) {
          // On our final page with POST our data somewhere
          // @ts-ignore
          console.log('Submitted data: ', pagesState)
        } else {
          // If we're not on the last page, store our data and increase a step
-         pagesState[page] = values;
+         pagesState[pagese] = values;
          // @ts-ignore
          pagesState = pagesState; // Triggering update
-         page +=2;
+         pagese +=2;
        }
      }
    // @ts-ignore
      function onBack(values) {
-       if (page === 0) return;
-           pagesState[page] = values;
+       if (pagese === 0) return;
+           pagesState[pagese] = values;
            // @ts-ignore
        pagesState = pagesState; // Triggering update
-       page -= 1;
+       pagese -= 1;
      }
      // @ts-ignore
      function double(values){
-        if (page === 0) return;
-           pagesState[page] = values;
+        if (pagese === 0) return;
+           pagesState[pagese] = values;
            // @ts-ignore
        pagesState = pagesState; // Triggering update
-       page -= 2;
+       pagese -= 2;
      }
+
+     
+
+   if (data != null && data['chageOk'] && browser) {
+      // redir
+      window.location.pathname = '/Home';
+   }
+
+   
+   
+   
      
    </script>
        
        <div class="allCenter flex w-full min-h-screen">
            <div class="resp-hamburger">
-            <ul>
-                <li><a href="/Home" class="active text-gray-400"><Icon src={IoAccessibilityOutline} color="white" size="25"/></a></li>
-                <li><a href="/Discover" class="text-gray-400"><Icon src={compass} color="white" size="25"/></a></li>
-                <li><a href="/Tickets" class="text-gray-400"><Icon src={ticket} color="white" size="25"/></a></li>
-                <li><a href="/Settings" class="text-gray-400"><Icon src={settings} color="white" size="25"/></a></li>
-            </ul>
+            <PhoneNav/>
            </div>
            <div class="sideBar h-screen p-5 bg-transparent">
                <div class="Logo pb-5 text-white">CV</div>
@@ -118,12 +120,12 @@
                
                <div class="cardcontainer">
                    <svelte:component
-   this={pages[page]}
+   this={pages[pagese]}
    {onSubmit}
    {onSubmitDouble}
    {onBack}
    {double}
-   initialValues={pagesState[page]}
+   initialValues={pagesState[pagese]}
    />
 
                <div class="cards p-2.5">

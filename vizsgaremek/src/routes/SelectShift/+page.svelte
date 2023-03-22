@@ -1,6 +1,8 @@
 <script>
     // @ts-nocheck
 
+    import PhoneNav from "./PhoneNav.svelte";
+
     let dates =[
         {day:'WE', nu:'02'},
         {day:'TH', nu:'03'},
@@ -28,12 +30,7 @@
     
     <div class="allCenter flex w-full min-h-screen">
         <div class="resp-hamburger">
-            <ul>
-                <li><a href="#" class="active text-gray-400">Home</a></li>
-                <li><a href="#" class="text-gray-400">Discover</a></li>
-                <li><a href="#" class="text-gray-400">Tickets</a></li>
-                <li><a href="#" class="text-gray-400">Profil</a></li>
-            </ul>
+            <PhoneNav/>
         </div>
         <div class="sideBar h-screen p-5 bg-transparent">
             <div class="Logo pb-5 text-white">CV</div>
@@ -65,7 +62,7 @@
             <div class="cards p-2.5">
                 {#each dates as {day, nu}}
                 <div class="dateCard">
-                    <div class="word">{day}</div>
+                    <div class="word"> <a href="SelectShift/Time"> {day}</a></div>
                     <div class="number">{nu}</div>
                     <div class="status"></div>
                 </div>

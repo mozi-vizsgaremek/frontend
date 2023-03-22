@@ -1,4 +1,13 @@
-<script>
+<script lang="ts">
+    import { browser } from "$app/environment";
+   import { page } from "$app/stores";
+   export const data = $page.form;
+
+   if (data != null && data['loginOk'] && browser) {
+      // redir
+      window.location.pathname = '/Home';
+   }
+   
 </script>
 
 <div class="allCenter flex w-full justify-center min-h-screen">
@@ -9,7 +18,7 @@
 
       <!--Login Card-->
       <div class="blurs rounded-2xl shadow backdrop-blur-sm">
-         <div class="form gap-5 h-full w-full">
+         <div class="form gap-4 h-full w-full">
             <h1>Login</h1>
 
             <!--Login form-->
@@ -29,22 +38,16 @@
                   name="password"
                />
 
+               <input
+               class="h-12 outline-0 bg-transparent p-4 placeholder:text-sm placeholder:text-white text-xs w-72 border-2 rounded-lg"
+               type="text"
+               placeholder="TOTP"
+               name="totp"
+            />
+
                <!--Stay signed checkbox and forgott password link-->
                <div class="check flex justify-between w-72">
-                  <div class="stay flex gap-2">
-                     <input
-                        type="checkbox"
-                        id="helper-checkbox"
-                        aria-describedby="helper-checkbox-text"
-                        class="ch"
-                     />
-                     <h2 class="small">Stay signed</h2>
-                  </div>
-
-                  <!--????????????????????????????????????????-->
-                  <div class="forgot flex">
-                     <a href="" class="small">Forgott password?</a>
-                  </div>
+                  
                </div>
 
                <!--Submit button-->
@@ -81,6 +84,7 @@
       background-image: url("../lib/images/theme.jpg");
       background-position: center;
       background-repeat: no-repeat;
+      background-color: black;
    }
    .cont {
       display: flex;
@@ -103,7 +107,7 @@
       align-items: center;
       flex-direction: column;
       border-radius: 10px;
-      padding: 40px;
+      padding:40px;
    }
    h1 {
       font-size: 25px;
@@ -114,7 +118,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 30px;
+      gap: 20px;
    }
    input {
       font-family: italicFont;
@@ -137,20 +141,5 @@
    }
    .small {
       font-size: 10px;
-   }
-   .ch {
-      width: 12px;
-      height: 12px;
-      background-color: white;
-      border-radius: 50%;
-      vertical-align: middle;
-      border: none;
-      appearance: none;
-      -webkit-appearance: none;
-      outline: none;
-      cursor: pointer;
-   }
-   .ch:checked {
-      background-color: gray;
    }
 </style>

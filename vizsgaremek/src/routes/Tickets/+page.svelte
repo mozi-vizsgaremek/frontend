@@ -18,6 +18,7 @@
   
   // @ts-ignore
   import settings from 'svelte-icons-pack/io/IoSettings';
+    import PhoneNav from './PhoneNav.svelte';
 
   const pages = [Page1, Page2];
 
@@ -58,12 +59,7 @@
     
     <div class="allCenter flex w-full min-h-screen">
         <div class="resp-hamburger">
-            <ul>
-                <li><a href="/Home" class="active text-gray-400"><Icon src={IoAccessibilityOutline} color="white" size="25"/></a></li>
-                <li><a href="/Discover" class="text-gray-400"><Icon src={compass} color="white" size="25"/></a></li>
-                <li><a href="/Tickets" class="text-gray-400"><Icon src={ticket} color="white" size="25"/></a></li>
-                <li><a href="/Settings" class="text-gray-400"><Icon src={settings} color="white" size="25"/></a></li>
-            </ul>
+            <PhoneNav/>
         </div>
         <div class="sideBar h-screen p-5 bg-transparent">
             <div class="Logo pb-5 text-white">CV</div>

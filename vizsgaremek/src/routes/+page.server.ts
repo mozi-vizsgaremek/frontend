@@ -1,41 +1,43 @@
-import { goto } from '$app/navigation';
+
 import { baseUrl } from '$lib/config';
 import type { Actions } from './$types';
-import { redirect } from '@sveltejs/kit';
-
-import { login } from '$lib/login';
-import { USERNAME } from '$env/static/private';
-
 
 export const actions: Actions = {
   default: async (event) => {
     const body = await event.request.formData();
-    const reqBody = JSON.stringify({
-        username: body.get('username'),
-        password: body.get('password')
-    }
-   );
-   
-   const { error, token } = await login(username, password);
+    let reqBodyPayload: any = {
+      username: body.get('username'),
+      password: body.get('password')
+    };
+
+
+    const totp = body.get('totp');
+    if (totp != null && totp.length > 0)
+      reqBodyPayload.totp = totp;
+
+    const reqBody = JSON.stringify(reqBodyPayload);
+
+    console.log(reqBody);
 
     const res = await event.fetch(`${baseUrl}/auth/login`, {
-        method: 'POST',
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: reqBody
-        
-    });
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: reqBody
 
-    if(res.ok){
-        throw redirect(301,'/Home')
-        
-       
-    }else{
-      throw new Error('Wrong details');
-      
+    });   
+
+    const payload = await res.json();
+
+    if (res.ok) {
+      event.cookies.set("refresh_token", payload.refreshToken);
+      event.cookies.set("access_token", payload.accessToken);
     }
 
-    return { code: res.status }
+    return {
+      loginOk: res.ok,
+      errorMessage: payload.message ?? null
+    }
   }
 };

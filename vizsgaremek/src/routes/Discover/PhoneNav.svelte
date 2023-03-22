@@ -16,7 +16,7 @@
 
 <ul>
     <li>
-        <a href="/Home" class="active text-gray-400"
+        <a href="/Home" class="text-gray-400"
             >
             <div class="icons">
                 <Icon
@@ -27,7 +27,7 @@
         </div></a>
     </li>
     <li>
-        <a href="./Discover" class="text-gray-400"
+        <a href="./Discover" class="active text-gray-400"
             ><div class="icons"><Icon src={compass} color="white" size="25" />
             Discover</div>
             </a>

@@ -16,7 +16,7 @@
 
 <ul>
     <li>
-        <a href="/Home" class="active text-gray-400"
+        <a href="/Home" class=" text-gray-400"
             >
             <div class="icons">
                 <Icon
@@ -42,6 +42,12 @@
         <a href="./Settings" class="text-gray-400"
         ><div class="icons"><Icon src={settings} color="white" size="25" />
         Settings</div>
+        </a>
+    </li>
+    <li>
+        <a href="../Job" class="active text-gray-400"
+        ><div class="icons"><Icon src={settings} color="white" size="25" />
+        Job</div>
         </a>
     </li>
 </ul>

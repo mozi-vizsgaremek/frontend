@@ -24,20 +24,14 @@
         <hr />
         <div class="cardcontainer">
             <div class="cards p-2.5">
-                <MovieCard title="Avatar" secondTitle="The way of water" />
+                <MovieCard title="Avatar" secondTitle="The way of water" url="https://posters.movieposterdb.com/22_05/1984/88247/s_88247_2768cd72.jpg"/>
 
-                <MovieCard title="Avatar" secondTitle="The way of water" />
-
-                <MovieCard title="Avatar" secondTitle="The way of water" />
-
-                <MovieCard title="Avatar" secondTitle="The way of water" />
-
-                <MovieCard title="Avatar" secondTitle="The way of water" />
+               
             </div>
         </div>
     </div>
     <div class="upComing">
-        <Upcoming/>
+        <Upcoming MovieTitle="Alma" date="2030/10/02" description="Anyád meleg volt és megdugták"/>
     </div>
 </div>
 
@@ -49,7 +43,11 @@
     * {
         font-family: normalFont;
     }
-
+    .resp-hamburger {
+        visibility: hidden;
+        position: absolute;
+        z-index: 99;
+    }
    
     .allCenter {
         background: linear-gradient(
@@ -82,10 +80,7 @@
     
    
 
-    .resp-hamburger {
-        visibility: hidden;
-        position: absolute;
-    }
+    
 
     .content {
         width: 80%;
@@ -135,12 +130,10 @@
         }
 
         .resp-hamburger {
-            z-index: 99;
             visibility: visible;
             position: fixed;
             bottom: 10px;
             width: 100%;
-            background: rgba(4, 4, 4, 0.613);
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
             backdrop-filter: blur(4px);
             -webkit-backdrop-filter: blur(4px);

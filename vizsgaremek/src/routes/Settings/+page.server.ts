@@ -1,43 +1,124 @@
 import { baseUrl } from '$lib/config';
-import type { Actions } from './$types';
-import { redirect } from '@sveltejs/kit';
+import type { Actions } from '../$types';
 
 
 console.log("alma");
 
+
 export const actions: Actions = {
-  default: async (event) => {
+  
+
+  changePassword: async (event) => {
+    const body = await event.request.formData();
+    const reqBody = JSON.stringify({
+        oldPassword: body.get('oldpass'),
+        newPassword: body.get('newpass')
+    });
+    
+   
+    
+    const retok = event.cookies.get("refresh_token");
+    const acctok = event.cookies.get("access_token");
+   
+
+    const res = await event.fetch(`${baseUrl}/auth/password`, {
+      method: 'PUT',
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${acctok}`,
+      },
+      body: reqBody  
+    });
+
+    const payload = await res.json();
+
+    console.log(payload)
+
+    return {
+      chageOk: res.ok,
+      errorMessage: payload.message ?? null
+    }
+  },
+
+  startOnBoarding: async (event) => {
+    
+    const acctok = event.cookies.get("access_token");
+
     const body = await event.request.formData();
     const reqBody = JSON.stringify({
         oldPassword: body.get('oldpass'),
         newPassword: body.get('newpass')
     });
 
-   console.log("pite");
+    const resTotp = await event.fetch(`${baseUrl}/auth/totp`, {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${acctok}`,
+      },
+      body: reqBody
+    });
 
-    const res = await event.fetch(`${baseUrl}/auth/password`, {
-        method: 'PUT',
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: reqBody
-        
+    const payload = await resTotp.json();
+
+
+    return {
+      totpOk: payload.secret,
+      errorMessage: payload.message ?? null
+    }
+  },
+  
+  
+  completeOnboarding: async (event) => {
+    const body = await event.request.formData();
+    const reqBody = JSON.stringify({
+      password: body.get('password'),
+      totp: body.get('totp')
     });
 
     
+    const acctok = event.cookies.get("access_token");
 
-    if(res.ok){
-      console.log(res.status)
-        throw redirect(301,'/Home')
-        
-        
-       
-    }else{
-        
-        console.log(await res.json())
-      throw new Error('Wrong details');
-      
-      
+    const onBoard = await event.fetch(`${baseUrl}/auth/totp`, {
+      method: 'PUT',
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${acctok}`,
+      },
+      body: reqBody
+    });
+
+
+    
+    return {
+      onBoard: onBoard.ok
+    }
+  },
+  
+  deleteOnboarding: async (event) => {
+    const body = await event.request.formData();
+    const reqBody = JSON.stringify({
+      password: body.get('deletePassword'),
+      totp: body.get('deleteTotp')
+    });
+
+    const acctok = event.cookies.get("access_token");
+
+    const deleteOnBoard = await event.fetch(`${baseUrl}/auth/totp`, {
+      method: 'DELETE',
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${acctok}`,
+      },
+      body: reqBody
+    });
+
+    const payload = await deleteOnBoard.json();
+
+    
+    return {
+      deleteOnBoard: payload.ok
     }
   }
+
 };

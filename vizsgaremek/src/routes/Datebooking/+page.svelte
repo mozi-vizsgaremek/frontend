@@ -1,53 +1,11 @@
 <script>
-    // @ts-ignore
-    import Icon from "svelte-icons-pack/Icon.svelte";
-
-    // @ts-ignore
-    import IoAccessibilityOutline from "svelte-icons-pack/io/IoPlanet";
-
-    // @ts-ignore
-    import compass from "svelte-icons-pack/io/IoCompass";
-
-    // @ts-ignore
-    import ticket from "svelte-icons-pack/io/IoTicket";
-
-    // @ts-ignore
-    import settings from "svelte-icons-pack/io/IoSettings";
+    import PhoneNav from "./PhoneNav.svelte";
 </script>
 
 <div class="allCenter flex w-full min-h-screen">
     <!--Phone navigation-->
     <div class="resp-hamburger">
-        <ul>
-            <li>
-                <a href="/Home" class="active text-gray-400"
-                    >
-                    <div class="icons"><Icon
-                        src={IoAccessibilityOutline}
-                        color="white"
-                        size="25"
-                    />Home
-                </div></a>
-            </li>
-            <li>
-                <a href="/Discover" class="text-gray-400"
-                    ><div class="icons"><Icon src={compass} color="white" size="25" />
-                    Discover</div>
-                    </a>
-            </li>
-            <li>
-                <a href="/Discover" class="text-gray-400"
-                ><div class="icons"><Icon src={ticket} color="white" size="25" />
-                Tickets</div>
-                </a>
-            </li>
-            <li>
-                <a href="/Discover" class="text-gray-400"
-                ><div class="icons"><Icon src={settings} color="white" size="25" />
-                Settings</div>
-                </a>
-            </li>
-        </ul>
+        <PhoneNav/>
     </div>
     <!--Sidebar-->
     <div class="sideBar h-screen p-5 bg-transparent">
@@ -123,16 +81,6 @@
     }
     * {
         font-family: normalFont;
-    }
-
-    .upcard {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .coming {
-        font-size: 13px;
     }
     .desc {
         font-size: 10px;
@@ -262,12 +210,7 @@
         border-radius: 10px;
     }
 
-    @media (max-width: 1200px) {
-        .upComing {
-            visibility: collapse;
-            position: absolute;
-        }
-    }
+    
     @media (max-width: 670px) {
         .sideBar {
             position: absolute;
@@ -287,11 +230,7 @@
             border-radius: 10px;
             padding: 20px;
         }
-        .resp-hamburger ul {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-        }
+        
         .resp-hamburger ul li {
             width: fit-content;
             color: white;
@@ -301,12 +240,6 @@
             text-align: center;
             gap: 30px;
         }
-        .icons{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            font-size: 10px;
-        }
+       
     }
 </style>

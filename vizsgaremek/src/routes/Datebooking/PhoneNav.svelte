@@ -13,13 +13,11 @@
     // @ts-ignore
     import settings from "svelte-icons-pack/io/IoSettings";
 </script>
-
 <ul>
     <li>
-        <a href="/Home" class="active text-gray-400"
+        <a href="./Home" class=" text-gray-400"
             >
-            <div class="icons">
-                <Icon
+            <div class="icons"><Icon
                 src={IoAccessibilityOutline}
                 color="white"
                 size="25"
@@ -33,23 +31,24 @@
             </a>
     </li>
     <li>
-        <a href="./Tickets" class="text-gray-400"
+        <a href="./Tickets" class="active text-gray-400"
         ><div class="icons"><Icon src={ticket} color="white" size="25" />
         Tickets</div>
         </a>
     </li>
     <li>
-        <a href="./Settings" class="text-gray-400"
+        <a href="./Discover" class="text-gray-400"
         ><div class="icons"><Icon src={settings} color="white" size="25" />
         Settings</div>
         </a>
     </li>
 </ul>
-
 <style>
-    ul{
-        width: 100%;
-    }
+     ul {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+        }
     li {
         
         width: 100px;
@@ -64,6 +63,8 @@
         flex-direction: column;
         align-items: center;
         text-align: center;
+        
+        font-size: 10px;
     }
     .active {
         color: white;

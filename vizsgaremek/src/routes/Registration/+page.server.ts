@@ -28,6 +28,5 @@ export const actions: Actions = {
       throw new Error();
     }
     
-    console.log(await res.json());
   }
 };

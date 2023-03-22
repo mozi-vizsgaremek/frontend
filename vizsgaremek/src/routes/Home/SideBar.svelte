@@ -2,6 +2,9 @@
     // @ts-nocheck
 
     export let username;
+
+    
+
 </script>
 
 <div class="menu">
@@ -17,7 +20,7 @@
             <a href="./Tickets" class="text-gray-400">Tickets</a>
         </li>
         <li class="p-2.5 rounded-xl">
-            <a href="./Job" class="text-gray-400">Job</a>
+            <a href="./ManagerShifts" class="text-gray-400">Job</a>
         </li>
     </ul>
     <hr />
@@ -53,12 +56,19 @@
     .profile:hover {
         cursor: pointer;
     }
+   
     li {
         width: 200px;
         transition: all 0.5s;
+        
     }
     li:hover {
         cursor: pointer;
         background-color: rgba(232, 232, 232, 0.218);
+    }
+    .icons{
+        display: flex;
+        align-items: center;
+        gap: 10px;
     }
 </style>

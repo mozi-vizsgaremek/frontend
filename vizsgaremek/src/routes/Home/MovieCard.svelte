@@ -1,14 +1,21 @@
 <script>
-    // @ts-nocheck
 
+
+    // @ts-ignore
     export let title;
+    // @ts-ignore
     export let secondTitle;
+    export let url;
+
+    
+    
 </script>
 
-<div class="card">
+<div class="card" >
     <div class="appear">
         <div class="title">{title}</div>
         <div class="secondTitle">{secondTitle}</div>
+        <button>Book</button>
     </div>
 </div>
 
@@ -17,8 +24,8 @@
         border-radius: 10px;
         width: 170px;
         height: 250px;
-        background-image: url("../../lib/images/avatar.jpg");
         background-position: center;
+        background-image: url('/src/lib/images/avatar.jpg');
         background-repeat: no-repeat;
         background-size: cover;
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
