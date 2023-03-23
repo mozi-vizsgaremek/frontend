@@ -21,11 +21,11 @@ export const actions: Actions = {
         body: reqBody
     });
    
-    if(res.ok){
-      throw redirect(301,'/')
-    }
-    else{
-      throw new Error();
+   
+    const payload = await res.json();
+    return {
+      regOk: res.ok,
+      errorMessage: payload.message ?? null
     }
     
   }

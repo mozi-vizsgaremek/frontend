@@ -1,7 +1,7 @@
 <script>
 //@ts-nocheck
 import QRCode from "./QRJS.svelte"
-    import Modal from './Modal.svelte';
+    import Modal from '../../lib/svelte/Modal.svelte';
     import { page } from "$app/stores";
    export const data = $page.form;
 
@@ -11,7 +11,6 @@ import QRCode from "./QRJS.svelte"
 
     // @ts-ignore
 	import { createForm } from 'felte'
-    import { stringify } from "postcss";
     
 	
 	export let initialValues;
@@ -94,7 +93,7 @@ import QRCode from "./QRJS.svelte"
             <input type="password" placeholder="password" name="deletePassword">
             <input type="text" placeholder="totp" name="deleteTotp">
             
-            <input type="submit" class="on" value="Delete">
+            <button class="on">Delete</button>
         </form>
     </div>
 

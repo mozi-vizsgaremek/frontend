@@ -9,6 +9,8 @@
     import Page3 from "./Page3.svelte";
     import PhoneNav from "../../lib/svelte/PhoneNav.svelte";
     import Navbar from "../../lib/svelte/Navbar.svelte";
+    import { notifications } from "../../lib/notifications";
+    import Toast from "../Toast.svelte";
 
     const pages = [Page1, Page2, Page3];
 
@@ -73,38 +75,44 @@
         // redir
         window.location.pathname = "/Home";
     }
+    if (data != null && data["onBoard"] && browser) {
+        notifications.success("Success", 2000);
+    }
+    if (data != null && data["deleteOnBoard"] && browser) {
+        notifications.success("Success", 2000);
+    }
 </script>
+
 <body>
-    
-<div class="allCenter flex w-full min-h-screen">
-    <div class="navbar">
-        <Navbar />
-    </div>
-    <div class="resp-hamburger">
-        <PhoneNav />
-    </div>
-    
-    <div class="content pt-2.5 min-h-screen">
-        <h2 class="p-2.5">Settings</h2>
-        <hr />
-
-        <div class="cardcontainer">
-            <svelte:component
-                this={pages[pagese]}
-                {onSubmit}
-                {onSubmitDouble}
-                {onBack}
-                {double}
-                initialValues={pagesState[pagese]}
-            />
-
-            <div class="cards p-2.5" />
+    <div class="allCenter flex w-full min-h-screen">
+        <div class="navbar">
+            <Navbar />
         </div>
-    </div>
-    
-</div>
+        <div class="resp-hamburger">
+            <PhoneNav />
+        </div>
 
+        <div class="content pt-2.5 min-h-screen">
+            <h2 class="p-2.5">Settings</h2>
+            <hr />
+
+            <div class="cardcontainer">
+                <svelte:component
+                    this={pages[pagese]}
+                    {onSubmit}
+                    {onSubmitDouble}
+                    {onBack}
+                    {double}
+                    initialValues={pagesState[pagese]}
+                />
+
+                <div class="cards p-2.5" />
+            </div>
+        </div>
+        <Toast />
+    </div>
 </body>
+
 <style>
     @font-face {
         font-family: normalFont;
@@ -114,20 +122,17 @@
         font-family: normalFont;
     }
 
-    body{
+    body {
         background: #161616;
     }
 
     .allCenter {
-       padding-top: 30px;
+        padding-top: 30px;
     }
-   
+
     hr {
         border: 1px solid gray;
     }
-   
-  
-   
 
     .resp-hamburger {
         visibility: hidden;
@@ -137,7 +142,6 @@
     .content {
         width: 100%;
     }
-   
 
     h2 {
         color: white;
@@ -153,20 +157,16 @@
         flex-wrap: wrap;
         gap: 50px;
     }
-    
 
-   
-    
     @media (max-width: 700px) {
         .navbar {
             position: absolute;
             visibility: collapse;
         }
-        .allCenter{
-            
-        padding-top: 0;
+        .allCenter {
+            padding-top: 0;
         }
-       
+
         .resp-hamburger {
             visibility: visible;
             position: fixed;
@@ -179,6 +179,5 @@
             border-radius: 10px;
             padding: 20px;
         }
-        
     }
 </style>

@@ -110,7 +110,7 @@
    }
    h1 {
       font-size: 25px;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
    }
    form {
       width: 100%;
@@ -127,18 +127,18 @@
       font-size: 15px;
       color: #fff;
       background-color: rgb(28, 28, 30);
-      box-shadow: 0 0 3px rgba(0, 0, 0, 0.5), 0 0 0 0.15vw transparent;
+      box-shadow: 0 0 0.4vw rgba(0, 0, 0, 0.5), 0 0 0 0.15vw transparent;
       border-radius: 10px;
       border: none;
       outline: none;
       transition: 0.4s;
    }
    input:hover {
-      box-shadow: 0 0 0 3px rgba(235, 135, 135, 0.186);
+      box-shadow: 0 0 0 0.15vw rgba(235, 135, 135, 0.186);
    }
 
    input:focus {
-      box-shadow: 0 0 0 3px #D2042D;
+      box-shadow: 0 0 0 0.15vw #D2042D;
    }
    a {
       font-family: italicFont;

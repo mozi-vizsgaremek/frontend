@@ -110,11 +110,10 @@ export const actions: Actions = {
       body: reqBody
     });
 
-    const payload = await deleteOnBoard.json();
 
 
     return {
-      deleteOnBoard: payload.ok
+      deleteOnBoard: deleteOnBoard.ok
     }
   }
 

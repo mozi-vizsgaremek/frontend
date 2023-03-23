@@ -38,6 +38,7 @@ export const actions: Actions = {
 
     return {
       loginOk: res.ok,
+      getTotp: totp,
       errorMessage: payload.message ?? null
     }
   }
