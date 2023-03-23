@@ -1,24 +1,23 @@
 <script>
-    import MovieCard from "./MovieCard.svelte";
-    import PhoneNav from "./PhoneNav.svelte";
-    // @ts-ignore
+    import MovieCard from "../../lib/svelte/MovieCard.svelte";
+    import PhoneNav from "../../lib/svelte/PhoneNav.svelte";
+    import Navbar from "../../lib/svelte/Navbar.svelte";
 
-    import SideBar from "./SideBar.svelte";
-    import Upcoming from "./Upcoming.svelte";
 </script>
 <head>
     <title>Home</title>
 </head>
+<body>
+    
 
-<div class="allCenter flex w-full min-h-screen">
+<div class="allCenter">
+    <div class="navbar">
+    <Navbar/>
+</div>
     <div class="resp-hamburger">
         <PhoneNav />
     </div>
-    <div class="sideBar h-screen p-5 bg-transparent">
-        <div class="Logo pb-5 text-white">CV</div>
-
-        <SideBar username="Laci" />
-    </div>
+    
     <div class="content pt-2.5 min-h-screen">
         <h2 class="p-2.5">Popular Movies</h2>
         <hr />
@@ -36,7 +35,7 @@
         </div>
     </div>
 </div>
-
+</body>
 <style>
     @font-face {
         font-family: normalFont;
@@ -44,6 +43,11 @@
     }
     * {
         font-family: normalFont;
+        
+        
+    }
+    body{
+        background: #161616;
     }
     .resp-hamburger {
         visibility: hidden;
@@ -52,32 +56,14 @@
     }
 
     .allCenter {
-        background: linear-gradient(
-            180deg,
-            rgba(43, 50, 58, 1) 0%,
-            rgba(23, 28, 33, 1) 100%
-        );
+        padding-top: 30px;
     }
-    .sideBar {
-        width: 300px;
-        height: 100%; /* Full-height: remove this if you want "auto" height */
-        position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-        z-index: 1; /* Stay on top */
-        top: 0; /* Stay at the top */
-        left: 0;
-        overflow-x: hidden; /* Disable horizontal scroll */
-        padding-top: 20px;
-    }
-    .Logo {
-        font-family: normalFont;
-        font-size: 26px;
-    }
+    
     hr {
-        border: 1px solid gray;
+        border: 1px solid #D2042D;
     }
     .content {
-        width: 80%;
-        margin-left: 300px;
+        width: 100%;
     }
     h2 {
         color: white;
@@ -95,16 +81,16 @@
     }
     
    
-    @media (max-width: 670px) {
-        .sideBar {
+    @media (max-width: 700px) {
+        .navbar {
             position: absolute;
             visibility: collapse;
         }
-        .content {
-            width: 100%;
-
-            margin-left: 0;
+        .allCenter{
+            
+        padding-top: 0;
         }
+        
         .resp-hamburger {
             visibility: visible;
             position: fixed;

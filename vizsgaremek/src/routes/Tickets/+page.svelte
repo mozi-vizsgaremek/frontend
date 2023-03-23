@@ -3,7 +3,9 @@
     import Page1 from "./Page1.svelte";
     import Page2 from "./Page2.svelte";
 
-    import PhoneNav from "./PhoneNav.svelte";
+    import PhoneNav from "../../lib/svelte/PhoneNav.svelte";
+    
+    import Navbar from "../../lib/svelte/Navbar.svelte";
 
     const pages = [Page1, Page2];
 
@@ -41,42 +43,16 @@
         page -= 1;
     }
 </script>
+<body>
 
 <div class="allCenter flex w-full min-h-screen">
+    <div class="navbar">
+        <Navbar/>
+    </div>
     <div class="resp-hamburger">
         <PhoneNav />
     </div>
-    <div class="sideBar h-screen p-5 bg-transparent">
-        <div class="Logo pb-5 text-white">CV</div>
-
-        <div class="menu">
-            <ul class="p-2">
-                <p class="menuTitle text-gray-400 pb-2.5">Menu</p>
-                <li class="p-2.5 rounded-xl">
-                    <a href="./Home" class=" text-gray-400">Home</a>
-                </li>
-                <li class="p-2.5 rounded-xl">
-                    <a href="./Discover" class="text-gray-400">Discovery</a>
-                </li>
-                <li class="p-2.5 rounded-xl">
-                    <a href="./Tickets" class="active text-gray-400">Tickets</a>
-                </li>
-            </ul>
-            <hr />
-            <ul class="p-2">
-                <li class="p-2.5 rounded-xl">
-                    <a href="./Settings" class="text-gray-400">Settings</a>
-                </li>
-                <li class="p-2.5 rounded-xl">
-                    <a href="./" class="text-gray-400">Logout</a>
-                </li>
-            </ul>
-        </div>
-        <div class="profile flex items-center">
-            <div class="circle" />
-            <h3>lenfear23</h3>
-        </div>
-    </div>
+    
     <div class="content pt-2.5 min-h-screen">
         <h2 class="p-2.5">My tickets</h2>
         <hr />
@@ -92,9 +68,9 @@
             <div class="cards p-2.5" />
         </div>
     </div>
-    
 </div>
-
+    
+</body>
 <style>
     @font-face {
         font-family: normalFont;
@@ -103,59 +79,19 @@
     * {
         font-family: normalFont;
     }
-
+    body{
+        background: #161616;
+    }
+    .allCenter {
+        padding-top: 30px;
+    }
    
 
-    .allCenter {
-        background: linear-gradient(
-            180deg,
-            rgba(43, 50, 58, 1) 0%,
-            rgba(23, 28, 33, 1) 100%
-        );
-    }
-    .sideBar {
-        width: 300px;
-    }
-    .Logo {
-        font-family: normalFont;
-        font-size: 26px;
-    }
-    .menuTitle {
-        font-size: 13px;
-    }
-
-    li {
-        width: 200px;
-        transition: all 0.5s;
-    }
-    li:hover {
-        cursor: pointer;
-        background-color: rgba(232, 232, 232, 0.218);
-    }
-
-    .active {
-        color: white;
-    }
     hr {
         border: 1px solid gray;
     }
-    .circle {
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        background-color: white;
-        margin-right: 10px;
-    }
-    h3 {
-        color: white;
-    }
-    .profile {
-        position: absolute;
-        bottom: 20px;
-    }
-    .profile:hover {
-        cursor: pointer;
-    }
+   
+   
 
     .resp-hamburger {
         visibility: hidden;
@@ -163,11 +99,9 @@
     }
 
     .content {
-        width: 80%;
+        width:100%;
     }
-    h3 {
-        font-size: 15px;
-    }
+    
     h2 {
         color: white;
         font-size: 23px;
@@ -182,17 +116,17 @@
         flex-wrap: wrap;
         gap: 50px;
     }
-   
-    
-    
-    @media (max-width: 670px) {
-        .sideBar {
+
+    @media (max-width: 700px) {
+        .navbar {
             position: absolute;
             visibility: collapse;
         }
-        .content {
-            width: 100%;
+        .allCenter{
+            
+        padding-top: 0;
         }
+        
         .resp-hamburger {
             visibility: visible;
             position: fixed;
@@ -205,10 +139,7 @@
             border-radius: 10px;
             padding: 20px;
         }
+
         
-        .resp-hamburger ul li {
-            width: fit-content;
-            color: white;
-        }
     }
 </style>

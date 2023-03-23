@@ -16,32 +16,32 @@
 
 <ul>
     <li>
-        <a href="/Home" class="text-gray-400"
+        <a href="/Home" class="active text-gray-400"
             >
             <div class="icons">
                 <Icon
                 src={IoAccessibilityOutline}
                 color="white"
                 size="25"
-            />Home
+            /><p>Home</p>
         </div></a>
     </li>
     <li>
-        <a href="./Discover" class="active text-gray-400"
+        <a href="./Discover" class="text-gray-400"
             ><div class="icons"><Icon src={compass} color="white" size="25" />
-            Discover</div>
+                <p>Discover</p></div>
             </a>
     </li>
     <li>
         <a href="./Tickets" class="text-gray-400"
         ><div class="icons"><Icon src={ticket} color="white" size="25" />
-        Tickets</div>
+            <p>Tickets</p></div>
         </a>
     </li>
     <li>
         <a href="./Settings" class="text-gray-400"
         ><div class="icons"><Icon src={settings} color="white" size="25" />
-        Settings</div>
+            <p>Settings</p></div>
         </a>
     </li>
 </ul>
@@ -64,12 +64,13 @@
         flex-direction: column;
         align-items: center;
         text-align: center;
+        font-size: 12px;
     }
     .active {
         color: white;
     }
 
-    @media (max-width: 670px) {
+    @media (max-width: 700px) {
        
        
          ul {
@@ -80,6 +81,16 @@
         ul li {
             width: fit-content;
             color: white;
+        }
+    }
+    @media (max-width: 450px){
+        p{
+            display: none;
+        }
+        ul {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
         }
     }
 </style>

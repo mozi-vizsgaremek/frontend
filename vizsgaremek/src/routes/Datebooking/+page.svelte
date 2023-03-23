@@ -1,48 +1,18 @@
 <script>
-    import PhoneNav from "./PhoneNav.svelte";
+    import PhoneNav from "../../lib/svelte/PhoneNav.svelte";
+    import Navbar from "../../lib/svelte/Navbar.svelte";
 </script>
+<body>
 
-<div class="allCenter flex w-full min-h-screen">
+<div class="allCenter">
+    <div class="navbar">
+        <Navbar/>
+    </div>
     <!--Phone navigation-->
     <div class="resp-hamburger">
         <PhoneNav/>
     </div>
-    <!--Sidebar-->
-    <div class="sideBar h-screen p-5 bg-transparent">
-        <!--Logo-->
-        <div class="Logo pb-5 text-white">CV</div>
-        <!--Links-->
-        <div class="menu">
-            <ul class="p-2">
-                <p class="menuTitle text-gray-400 pb-2.5">Menu</p>
-                <li class="p-2.5 rounded-xl">
-                    <a href="./Home" class=" text-gray-400">Home</a>
-                </li>
-                <li class="p-2.5 rounded-xl">
-                    <a href="./Discover" class="active text-gray-400"
-                        >Discovery</a
-                    >
-                </li>
-                <li class="p-2.5 rounded-xl">
-                    <a href="./Tickets" class="text-gray-400">Tickets</a>
-                </li>
-            </ul>
-            <hr />
-            <ul class="p-2">
-                <li class="p-2.5 rounded-xl">
-                    <a href="./Settings" class="text-gray-400">Settings</a>
-                </li>
-                <li class="p-2.5 rounded-xl">
-                    <a href="./" class="text-gray-400">Logout</a>
-                </li>
-            </ul>
-        </div>
-        <!--profile-->
-        <div class="profile flex items-center">
-            <div class="circle" />
-            <h3>lenfear23</h3>
-        </div>
-    </div>
+    <hr>
     <!--Content-->
     <div class="content min-h-screen">
         <!--Image-->
@@ -73,7 +43,8 @@
         </div>
     </div>
 </div>
-
+    
+</body>
 <style>
     @font-face {
         font-family: normalFont;
@@ -82,60 +53,19 @@
     * {
         font-family: normalFont;
     }
+    body{
+        background: #161616;
+    }
     .desc {
         font-size: 10px;
     }
 
     .allCenter {
-        background: linear-gradient(
-            180deg,
-            rgba(43, 50, 58, 1) 0%,
-            rgba(23, 28, 33, 1) 100%
-        );
+        padding-top: 50px;
     }
-    .sideBar {
-        width: 300px;
-    }
-    .Logo {
-        font-family: normalFont;
-        font-size: 26px;
-    }
-    .menuTitle {
-        font-size: 13px;
-    }
+    
 
-    li {
-        width: 200px;
-        transition: all 0.5s;
-    }
-    li:hover {
-        cursor: pointer;
-        background-color: rgba(232, 232, 232, 0.218);
-    }
-
-    .active {
-        color: white;
-    }
-    hr {
-        border: 1px solid gray;
-    }
-    .circle {
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        background-color: white;
-        margin-right: 10px;
-    }
-    h3 {
-        color: white;
-    }
-    .profile {
-        position: absolute;
-        bottom: 20px;
-    }
-    .profile:hover {
-        cursor: pointer;
-    }
+   
     .movieCover {
         background-image: url("../../lib/images/cover.jpg");
         background-position: center;
@@ -161,7 +91,7 @@
         color: white;
         gap: 10px;
         text-align: center;
-        width: 75%;
+        width: 100%;
     }
 
     .resp-hamburger {
@@ -170,7 +100,7 @@
     }
 
     .content {
-        width: 80%;
+        width:100%;
     }
 
     .title {
@@ -211,13 +141,15 @@
     }
 
     
-    @media (max-width: 670px) {
-        .sideBar {
+    @media (max-width: 700px) {
+       
+        .navbar {
             position: absolute;
             visibility: collapse;
         }
-        .content {
-            width: 100%;
+        .allCenter{
+            
+        padding-top: 0;
         }
         .resp-hamburger {
             visibility: visible;
@@ -231,15 +163,8 @@
             padding: 20px;
         }
         
-        .resp-hamburger ul li {
-            width: fit-content;
-            color: white;
-        }
-        .all {
-            width: 100%;
-            text-align: center;
-            gap: 30px;
-        }
+        
+        
        
     }
 </style>

@@ -1,47 +1,25 @@
-<script> 
+<script>
+    
+    import MovieCard from "../../lib/svelte/MovieCard.svelte";
+    
+    import PhoneNav from "../../lib/svelte/PhoneNav.svelte";
+    
+    import Navbar from "../../lib/svelte/Navbar.svelte";
 
-    import MovieCard from "./MovieCard.svelte";
-    import PhoneNav from "./PhoneNav.svelte";
-
+    
+    
 </script>
+<body>
+    
 
-<div class="allCenter flex w-full min-h-screen">
+<div class="allCenter">
+    <div class="navbar">
+<Navbar/>
+</div>
     <div class="resp-hamburger">
-        <PhoneNav/>
+        <PhoneNav />
     </div>
-    <div class="sideBar h-screen p-5 bg-transparent">
-        <div class="Logo pb-5 text-white">CV</div>
-
-        <div class="menu">
-            <ul class="p-2">
-                <p class="menuTitle text-gray-400 pb-2.5">Menu</p>
-                <li class="p-2.5 rounded-xl">
-                    <a href="./Home" class=" text-gray-400">Home</a>
-                </li>
-                <li class="p-2.5 rounded-xl">
-                    <a href="./Discover" class="active text-gray-400"
-                        >Discovery</a
-                    >
-                </li>
-                <li class="p-2.5 rounded-xl">
-                    <a href="./Tickets" class="text-gray-400">Tickets</a>
-                </li>
-            </ul>
-            <hr />
-            <ul class="p-2">
-                <li class="p-2.5 rounded-xl">
-                    <a href="./Settings" class="text-gray-400">Settings</a>
-                </li>
-                <li class="p-2.5 rounded-xl">
-                    <a href="./" class="text-gray-400">Logout</a>
-                </li>
-            </ul>
-        </div>
-        <div class="profile flex items-center">
-            <div class="circle" />
-            <h3>lenfear23</h3>
-        </div>
-    </div>
+    
     <div class="content pt-2.5 min-h-screen">
         <div class="searchInput pb-2.5 flex justify-center">
             <input type="text" placeholder="Search..." class="search" />
@@ -49,36 +27,13 @@
         <hr />
         <div class="cardcontainer">
             <div class="cards p-2.5">
-                <MovieCard title="Avatar" secondTitle="The way of water"/>
+                <MovieCard title="Avatar" secondTitle="The way of water" url="https://posters.movieposterdb.com/22_05/1984/88247/s_88247_2768cd72.jpg"/>
             </div>
         </div>
     </div>
-    <div class="upComing">
-        <h3 class="up">Upcoming Movies</h3>
-        <div class="upcard">
-            <p class="cim pt-16">Avatar 2</p>
-            <div class="coming pb-5">2023/03/10</div>
-            <div class="desc text-center">
-                asdasd dsajd nwfieun iewgi uneinweinf iwnefi wenniunb
-            </div>
-        </div>
-        <div class="upcard">
-            <p class="cim">Avatar 2</p>
-            <div class="coming pb-5">2023/03/10</div>
-            <div class="desc">
-                asdasd dsajd nwfieun iewgi uneinweinf iwnefi wenniunb
-            </div>
-        </div>
-        <div class="upcard">
-            <p class="cim">Avatar 2</p>
-            <div class="coming pb-5">2023/03/10</div>
-            <div class="desc">
-                asdasd dsajd nwfieun iewgi uneinweinf iwnefi wenniunb
-            </div>
-        </div>
-    </div>
+    
 </div>
-
+</body>
 <style>
     @font-face {
         font-family: normalFont;
@@ -86,6 +41,12 @@
     }
     * {
         font-family: normalFont;
+    }
+    body{
+        background: #161616;
+    }
+    .allCenter {
+        padding-top: 30px;
     }
 
     .search {
@@ -101,76 +62,17 @@
         border-bottom: 2px solid #a3e583;
     }
 
-    .upcard {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+    
+   
+  
 
-    .coming {
-        font-size: 13px;
-    }
-    .desc {
-        font-size: 10px;
-    }
-
-    .allCenter {
-        background: linear-gradient(
-            180deg,
-            rgba(43, 50, 58, 1) 0%,
-            rgba(23, 28, 33, 1) 100%
-        );
-    }
-    .sideBar {
-        width: 300px;
-        height: 100%; /* Full-height: remove this if you want "auto" height */
-        position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-        z-index: 1; /* Stay on top */
-        top: 0; /* Stay at the top */
-        left: 0;
-        overflow-x: hidden; /* Disable horizontal scroll */
-        padding-top: 20px;
-    }
-    .Logo {
-        font-family: normalFont;
-        font-size: 26px;
-    }
-    .menuTitle {
-        font-size: 13px;
-    }
-
-    li {
-        width: 200px;
-        transition: all 0.5s;
-    }
-    li:hover {
-        cursor: pointer;
-        background-color: rgba(232, 232, 232, 0.218);
-    }
-
-    .active {
-        color: white;
-    }
+    
     hr {
         border: 1px solid gray;
     }
-    .circle {
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        background-color: white;
-        margin-right: 10px;
-    }
-    h3 {
-        color: white;
-    }
-    .profile {
-        position: absolute;
-        bottom: 20px;
-    }
-    .profile:hover {
-        cursor: pointer;
-    }
+   
+    
+   
 
     .resp-hamburger {
         visibility: hidden;
@@ -179,10 +81,9 @@
     }
 
     .content {
-        width: 80%;
-        margin-left: 300px;
+        width: 100%;
     }
-    
+
     .cardcontainer {
         display: flex;
         flex-direction: column;
@@ -193,51 +94,17 @@
         flex-wrap: wrap;
         gap: 50px;
     }
-    
 
-    .upComing {
-        width: 300px;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding-top: 20px;
-        gap: 20px;
-    }
-    .upcard {
-        width: 200px;
-        height: 200px;
-        border-radius: 10px;
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        color: white;
-        background-image: linear-gradient(
-                to bottom,
-                rgba(245, 246, 252, 0),
-                rgba(40, 40, 40, 0.73)
-            ),
-            url("../../lib/images/avatar.jpg");
-    }
-    .up {
-        padding-bottom: 5px;
-    }
+   
 
-    @media (max-width: 1200px) {
-        .upComing {
-            visibility: collapse;
-            position: absolute;
-        }
-    }
-    @media (max-width: 670px) {
-        .sideBar {
+    @media (max-width: 700px) {
+        .navbar {
             position: absolute;
             visibility: collapse;
         }
-        .content {
-            width: 100%;
-
-            margin-left: 0;
+        .allCenter{
+            
+        padding-top: 0;
         }
         .resp-hamburger {
             visibility: visible;
@@ -251,14 +118,6 @@
             border-radius: 10px;
             padding: 20px;
         }
-        .resp-hamburger ul {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-        }
-        .resp-hamburger ul li {
-            width: fit-content;
-            color: white;
-        }
+       
     }
 </style>
