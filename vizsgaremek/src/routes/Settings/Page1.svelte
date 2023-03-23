@@ -1,5 +1,6 @@
 <script>
-// @ts-nocheck
+//@ts-nocheck
+import QRCode from "./QRJS.svelte"
     import Modal from './Modal.svelte';
     import { page } from "$app/stores";
    export const data = $page.form;
@@ -10,6 +11,7 @@
 
     // @ts-ignore
 	import { createForm } from 'felte'
+    import { stringify } from "postcss";
     
 	
 	export let initialValues;
@@ -18,16 +20,19 @@
     
     // @ts-ignore
     export let onSubmitDouble;
+    let uri;
 	
 	const { form } = createForm({ onSubmit, initialValues })
 
     let secret;
-    if (data != null && data['totpOk'] && browser) {
+    if (data != null && data['totpOk']&& data['totpUri'] && browser) {
         secret = data.totpOk;
         showModal= true;
-        content = `
-        
-        `
+        uri = data.totpUri;
+   }
+
+   if(data != null && data['errorMessage'] && browser){
+    alert(data.errorMessage)
    }
    if (data != null && data['onborad'] && browser) {
         
@@ -67,9 +72,10 @@
      
 <Modal bind:showModal>
 	<h2 slot="header" class="header">
-		{@html content}
+		Complete TOTP
 	</h2>
 <div class="totpOnboarding">
+    <QRCode codeValue={uri} squareSize=200/>
     <!-- svelte-ignore missing-declaration -->
     <h3>
         Secret key:
@@ -79,11 +85,10 @@
         <input type="password" placeholder="password" name="password">
         <input type="text" placeholder="totp" name="totp">
         
-        <input type="submit" class="on" value="OK">
+        <input type="submit" class="on" value="Done">
     </form>
 </div>
 </Modal>
-	
     <div class="totpDelete">
         <form method="POST" action="?/deleteOnboarding">
             <input type="password" placeholder="password" name="deletePassword">
@@ -93,21 +98,18 @@
         </form>
     </div>
 
-
      
-
-    
-   
-
-   
-
-
 <style>
     .totp{
         padding: 10px;
         display: flex;
         flex-direction: column;
         gap: 10px;
+    }
+    .totpOnboarding{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     h3{
         display: flex;
@@ -135,6 +137,9 @@
         background: linear-gradient(180deg, rgba(43,50,58,1) 0%, rgba(23,28,33,1) 100%);
         color: white;
 
+    }
+    button{
+        outline: none;
     }
    button:hover{
     cursor: pointer;

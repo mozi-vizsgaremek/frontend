@@ -30,6 +30,7 @@ export const actions: Actions = {
 
     const payload = await res.json();
 
+    
     if (res.ok) {
       event.cookies.set("refresh_token", payload.refreshToken);
       event.cookies.set("access_token", payload.accessToken);

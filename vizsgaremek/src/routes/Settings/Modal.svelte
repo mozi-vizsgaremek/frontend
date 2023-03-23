@@ -1,5 +1,9 @@
 <script>
 // @ts-nocheck
+import Icon from "svelte-icons-pack/Icon.svelte";
+
+// @ts-ignore
+import close from "svelte-icons-pack/io/IoClose";
 
 	export let showModal; // boolean
 
@@ -14,14 +18,18 @@
 	bind:this={dialog}
 	on:close={() => (showModal = false)}
 	on:click|self={() => dialog.close()}
+    
 >
+<!-- svelte-ignore a11y-autofocus -->
+<button on:click={() => dialog.close()}> <Icon
+    src={close}
+    color="white"
+    size="25"
+/></button>
 	<div on:click|stopPropagation>
 		<slot name="header" />
-		<hr />
 		<slot />
-		<hr />
-		<!-- svelte-ignore a11y-autofocus -->
-		<button autofocus on:click={() => dialog.close()}>close modal</button>
+		
 	</div>
 </dialog>
 
@@ -65,5 +73,8 @@
 	}
 	button {
 		display: block;
+        margin-right: 10px;
+        margin-top: 10px;
+        float: right;
 	}
 </style>

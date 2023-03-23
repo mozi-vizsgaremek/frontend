@@ -2,24 +2,21 @@ import { baseUrl } from '$lib/config';
 import type { Actions } from '../$types';
 
 
-console.log("alma");
-
-
 export const actions: Actions = {
-  
+
 
   changePassword: async (event) => {
     const body = await event.request.formData();
     const reqBody = JSON.stringify({
-        oldPassword: body.get('oldpass'),
-        newPassword: body.get('newpass')
+      oldPassword: body.get('oldPass'),
+      newPassword: body.get('newPass'),
     });
-    
-   
-    
+
+
+
     const retok = event.cookies.get("refresh_token");
     const acctok = event.cookies.get("access_token");
-   
+
 
     const res = await event.fetch(`${baseUrl}/auth/password`, {
       method: 'PUT',
@@ -27,12 +24,10 @@ export const actions: Actions = {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${acctok}`,
       },
-      body: reqBody  
+      body: reqBody
     });
 
     const payload = await res.json();
-
-    console.log(payload)
 
     return {
       chageOk: res.ok,
@@ -41,13 +36,13 @@ export const actions: Actions = {
   },
 
   startOnBoarding: async (event) => {
-    
+
     const acctok = event.cookies.get("access_token");
 
     const body = await event.request.formData();
     const reqBody = JSON.stringify({
-        oldPassword: body.get('oldpass'),
-        newPassword: body.get('newpass')
+      oldPassword: body.get('oldpass'),
+      newPassword: body.get('newpass')
     });
 
     const resTotp = await event.fetch(`${baseUrl}/auth/totp`, {
@@ -61,14 +56,16 @@ export const actions: Actions = {
 
     const payload = await resTotp.json();
 
+    console.log(payload.uri)
 
     return {
       totpOk: payload.secret,
+      totpUri: payload.uri,
       errorMessage: payload.message ?? null
     }
   },
-  
-  
+
+
   completeOnboarding: async (event) => {
     const body = await event.request.formData();
     const reqBody = JSON.stringify({
@@ -76,7 +73,7 @@ export const actions: Actions = {
       totp: body.get('totp')
     });
 
-    
+
     const acctok = event.cookies.get("access_token");
 
     const onBoard = await event.fetch(`${baseUrl}/auth/totp`, {
@@ -89,12 +86,12 @@ export const actions: Actions = {
     });
 
 
-    
+
     return {
       onBoard: onBoard.ok
     }
   },
-  
+
   deleteOnboarding: async (event) => {
     const body = await event.request.formData();
     const reqBody = JSON.stringify({
@@ -115,7 +112,7 @@ export const actions: Actions = {
 
     const payload = await deleteOnBoard.json();
 
-    
+
     return {
       deleteOnBoard: payload.ok
     }

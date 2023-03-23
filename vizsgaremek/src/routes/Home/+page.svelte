@@ -2,19 +2,22 @@
     import MovieCard from "./MovieCard.svelte";
     import PhoneNav from "./PhoneNav.svelte";
     // @ts-ignore
-    
+
     import SideBar from "./SideBar.svelte";
     import Upcoming from "./Upcoming.svelte";
 </script>
+<head>
+    <title>Home</title>
+</head>
 
 <div class="allCenter flex w-full min-h-screen">
     <div class="resp-hamburger">
-        <PhoneNav/>
+        <PhoneNav />
     </div>
     <div class="sideBar h-screen p-5 bg-transparent">
         <div class="Logo pb-5 text-white">CV</div>
 
-       <SideBar username="Laci"/>
+        <SideBar username="Laci" />
     </div>
     <div class="content pt-2.5 min-h-screen">
         <h2 class="p-2.5">Popular Movies</h2>
@@ -24,14 +27,13 @@
         <hr />
         <div class="cardcontainer">
             <div class="cards p-2.5">
-                <MovieCard title="Avatar" secondTitle="The way of water" url="https://posters.movieposterdb.com/22_05/1984/88247/s_88247_2768cd72.jpg"/>
-
-               
+                <MovieCard
+                    title="Avatar"
+                    secondTitle="The way of water"
+                    url="https://posters.movieposterdb.com/22_05/1984/88247/s_88247_2768cd72.jpg"
+                />
             </div>
         </div>
-    </div>
-    <div class="upComing">
-        <Upcoming MovieTitle="Alma" date="2030/10/02" description="Anyád meleg volt és megdugták"/>
     </div>
 </div>
 
@@ -48,7 +50,7 @@
         position: absolute;
         z-index: 99;
     }
-   
+
     .allCenter {
         background: linear-gradient(
             180deg,
@@ -70,18 +72,9 @@
         font-family: normalFont;
         font-size: 26px;
     }
-    
-
-   
     hr {
         border: 1px solid gray;
     }
-  
-    
-   
-
-    
-
     .content {
         width: 80%;
         margin-left: 300px;
@@ -100,24 +93,8 @@
         flex-wrap: wrap;
         gap: 50px;
     }
-
-    .upComing {
-        width: 300px;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding-top: 20px;
-        gap: 20px;
-    }
     
-
-    @media (max-width: 1200px) {
-        .upComing {
-            visibility: collapse;
-            position: absolute;
-        }
-    }
+   
     @media (max-width: 670px) {
         .sideBar {
             position: absolute;
@@ -128,7 +105,6 @@
 
             margin-left: 0;
         }
-
         .resp-hamburger {
             visibility: visible;
             position: fixed;
@@ -140,6 +116,5 @@
             border-radius: 10px;
             padding: 20px;
         }
-       
     }
 </style>

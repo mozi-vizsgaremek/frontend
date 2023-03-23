@@ -10,14 +10,14 @@
     
     
 </script>
-
+<a href="./Datebooking">
 <div class="card" >
     <div class="appear">
         <div class="title">{title}</div>
         <div class="secondTitle">{secondTitle}</div>
-        <button>Book</button>
     </div>
 </div>
+</a>
 
 <style>
     .card {

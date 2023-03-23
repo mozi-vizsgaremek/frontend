@@ -42,6 +42,9 @@
     .menuTitle {
         font-size: 13px;
     }
+    .active{
+        color: white;
+    }
     .circle {
         width: 30px;
         height: 30px;
@@ -65,10 +68,5 @@
     li:hover {
         cursor: pointer;
         background-color: rgba(232, 232, 232, 0.218);
-    }
-    .icons{
-        display: flex;
-        align-items: center;
-        gap: 10px;
     }
 </style>

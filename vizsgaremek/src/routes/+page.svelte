@@ -7,6 +7,9 @@
       // redir
       window.location.pathname = '/Home';
    }
+   if(data != null && data['errorMessage'] && browser){
+    alert(data.errorMessage)
+   }
    
 </script>
 

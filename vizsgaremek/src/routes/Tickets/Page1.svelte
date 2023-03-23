@@ -1,11 +1,25 @@
 <script>
+// @ts-nocheck
+
     // @ts-ignore
 	import { createForm } from 'felte'
 	
 	export let initialValues;
 	export let onSubmit;
+    let currentWidth;
 	
 	const { form } = createForm({ onSubmit, initialValues })
+
+   
+
+function qrCode(){
+    if(document.body.clientWidth<600){
+        alert("Kell egy modal")
+    }else{
+        alert("Ki kell nyomtatni")
+    }
+}
+
 </script>
 
 
@@ -29,7 +43,7 @@
             anything about himself or even his name </p>
     </div>
     <div class="btncont">
-        <button class="qr">Print ticket</button>
+        <button class="qr" on:click={qrCode}></button>
     </div>
 </div>
 

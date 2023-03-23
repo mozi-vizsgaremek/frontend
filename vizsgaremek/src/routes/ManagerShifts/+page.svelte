@@ -37,8 +37,8 @@
         <div class="cardcontainer">
         <div class="cards p-2.5">
            <form action="?/CreateShift" method="post">
-                <input type="datetime-local" name="shiftFrom">
-                <input type="datetime-local" name="shiftTo">
+                <input type="datetime" name="shiftFrom">
+                <input type="datetime" name="shiftTo">
                 <input type="submit" value="Add" class="on">
            </form>
         </div>
