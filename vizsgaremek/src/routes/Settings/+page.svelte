@@ -93,8 +93,7 @@
         </div>
 
         <div class="content pt-2.5 min-h-screen">
-            <h2 class="p-2.5">Settings</h2>
-            <hr />
+           
 
             <div class="cardcontainer">
                 <svelte:component

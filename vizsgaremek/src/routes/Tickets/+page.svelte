@@ -4,7 +4,7 @@
     import Page2 from "./Page2.svelte";
 
     import PhoneNav from "../../lib/svelte/PhoneNav.svelte";
-    
+
     import Navbar from "../../lib/svelte/Navbar.svelte";
 
     const pages = [Page1, Page2];
@@ -43,34 +43,33 @@
         page -= 1;
     }
 </script>
+
 <body>
+    <div class="allCenter flex w-full min-h-screen">
+        <div class="navbar">
+            <Navbar />
+        </div>
+        <div class="resp-hamburger">
+            <PhoneNav />
+        </div>
 
-<div class="allCenter flex w-full min-h-screen">
-    <div class="navbar">
-        <Navbar/>
-    </div>
-    <div class="resp-hamburger">
-        <PhoneNav />
-    </div>
-    
-    <div class="content pt-2.5 min-h-screen">
-        <h2 class="p-2.5">My tickets</h2>
-        <hr />
+        <div class="content pt-2.5 min-h-screen">
+            
 
-        <div class="cardcontainer">
-            <!-- We display the current step here -->
-            <svelte:component
-                this={pages[page]}
-                {onSubmit}
-                {onBack}
-                initialValues={pagesState[page]}
-            />
-            <div class="cards p-2.5" />
+            <div class="cardcontainer">
+                <!-- We display the current step here -->
+                <svelte:component
+                    this={pages[page]}
+                    {onSubmit}
+                    {onBack}
+                    initialValues={pagesState[page]}
+                />
+                <div class="cards p-2.5" />
+            </div>
         </div>
     </div>
-</div>
-    
 </body>
+
 <style>
     @font-face {
         font-family: normalFont;
@@ -79,19 +78,13 @@
     * {
         font-family: normalFont;
     }
-    body{
+    body {
         background: #161616;
     }
     .allCenter {
         padding-top: 30px;
     }
-   
 
-    hr {
-        border: 1px solid gray;
-    }
-   
-   
 
     .resp-hamburger {
         visibility: hidden;
@@ -99,13 +92,10 @@
     }
 
     .content {
-        width:100%;
+        width: 100%;
     }
-    
-    h2 {
-        color: white;
-        font-size: 23px;
-    }
+
+  
     .cardcontainer {
         display: flex;
         flex-direction: column;
@@ -122,11 +112,10 @@
             position: absolute;
             visibility: collapse;
         }
-        .allCenter{
-            
-        padding-top: 0;
+        .allCenter {
+            padding-top: 0;
         }
-        
+
         .resp-hamburger {
             visibility: visible;
             position: fixed;
@@ -139,7 +128,5 @@
             border-radius: 10px;
             padding: 20px;
         }
-
-        
     }
 </style>

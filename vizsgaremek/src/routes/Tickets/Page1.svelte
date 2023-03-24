@@ -1,35 +1,30 @@
 <script>
-// @ts-nocheck
+    // @ts-nocheck
 
     // @ts-ignore
-	import { createForm } from 'felte'
-	
-	export let initialValues;
-	export let onSubmit;
+    import { createForm } from "felte";
+
+    export let initialValues;
+    export let onSubmit;
     let currentWidth;
-	
-	const { form } = createForm({ onSubmit, initialValues })
 
-   
+    const { form } = createForm({ onSubmit, initialValues });
 
-function qrCode(){
-    if(document.body.clientWidth<600){
-        alert("Kell egy modal")
-    }else{
-        alert("Ki kell nyomtatni")
+    function qrCode() {
+        if (document.body.clientWidth < 600) {
+            alert("Kell egy modal");
+        } else {
+            alert("Ki kell nyomtatni");
+        }
     }
-}
-
 </script>
 
-
 <div class="mininav p-2.5">
-    
-        <form use:form>
-        <h3 class="alma active_mini"><button >Upcoming Shows</h3>
+    <form use:form>
+        <h3 class="alma active_mini"><button>Upcoming Shows</button></h3>
         <h3 class="alma"><button type="submit">Past Shows</button></h3>
     </form>
-    </div>
+</div>
 <div class="ticket_card">
     <div class="dates">
         <div class="date">2023/01/02</div>
@@ -39,82 +34,96 @@ function qrCode(){
         <h2>Avatar 2</h2>
     </div>
     <div class="desccont">
-        <p>When a man wakes up, he doesn’t remember
-            anything about himself or even his name </p>
+        <p>
+            When a man wakes up, he doesn’t remember anything about himself or
+            even his name
+        </p>
     </div>
     <div class="btncont">
-        <button class="qr" on:click={qrCode}></button>
+        <button class="qr" on:click={qrCode} />
     </div>
 </div>
 
 <style>
-     @font-face {
-         font-family: normalFont;
-         src: url(../../lib/fonts/Sequel100Black-55.ttf);
-       }
-       *{
+    @font-face {
         font-family: normalFont;
-       }
-       .alma{
-            border-bottom: 2px solid gray;
-            color: gray;
-        }
-        .active_mini{
-            border-color: white;
-            color: white;
-        }
-        .mininav{
-            display: flex;
-            gap: 10px;
-            color: white;
-        }
-       .desccont{
-            padding-top: 10px;
-            text-align: center;
-            font-size: 10px;
-            color: rgb(187, 187, 187);
-        }
-        .ticket_card{
-            width: 250px;
-            height: 350px;
-            background-image:
-            linear-gradient(to bottom, rgba(40, 40, 40, 0.4), rgba(40, 40, 40, 0.9)),
-                            url('../../lib/images/avatar.jpg');
-            border-radius: 10px;
-        }
-        .dates{
-            padding: 10px;
-            display: flex;
-            justify-content: space-between;
-            font-size: 8px;
-            color: white;
-        }
-        form{
-            display: flex;
-            gap: 10px;
-        }
-        .titlecont{
-            text-align: center;
-            padding-top: 120px;
-        }
-        .btncont{
-            display: flex;
-            justify-content: center;
-        }
-        .qr{
-            margin-top: 40px;
-            border-radius: 10px;
-            color: white;
-            font-size: 12px;
-            width: 200px;
-            height: 40px;
-            text-align: center;
-            background: linear-gradient(180deg, rgba(43,50,58,1) 0%, rgba(23,28,33,1) 100%);
-            padding: 10px;
-            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-        }
-        h2{
-            color: white;
-        }
+        src: url(../../lib/fonts/Sequel100Black-55.ttf);
+    }
+    * {
+        font-family: normalFont;
+    }
+    .alma {
+        border-bottom: 2px solid gray;
+        color: gray;
+    }
+    .active_mini {
+        border-color: white;
+        color: white;
+        
+    }
+    .mininav {
+        display: flex;
+        gap: 10px;
+        color: white;
+        
+        margin-bottom: 20px;
+    }
+    .desccont {
+        padding-top: 10px;
+        text-align: center;
+        font-size: 10px;
+        color: rgb(187, 187, 187);
+    }
+    .ticket_card {
+        width: 390px;
+        height: 250px;
+        background-image: linear-gradient(
+                to bottom,
+                rgba(40, 40, 40, 0.4),
+                rgba(40, 40, 40, 0.9)
+            ),
+            url("../../lib/images/cover.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 10px;
+    }
+    .dates {
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 8px;
+        color: white;
+    }
+    form {
+        display: flex;
+        gap: 10px;
+    }
+    .titlecont {
+        text-align: center;
+        padding-top: 50px;
+    }
+    .btncont {
+        display: flex;
+        justify-content: center;
+    }
+    .qr {
+        margin-top: 40px;
+        border-radius: 10px;
+        color: white;
+        font-size: 12px;
+        width: 200px;
+        height: 40px;
+        text-align: center;
+        background: linear-gradient(
+            142deg,
+            rgba(129, 65, 62, 1) 0%,
+            rgba(106, 0, 0, 1) 100%
+        );
+        padding: 10px;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+    h2 {
+        color: white;
+    }
 </style>
-
