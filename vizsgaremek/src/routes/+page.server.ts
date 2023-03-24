@@ -14,6 +14,7 @@ export const actions: Actions = {
     const totp = body.get('totp');
     if (totp != null && totp.length > 0)
       reqBodyPayload.totp = totp;
+      
 
     const reqBody = JSON.stringify(reqBodyPayload);
 
@@ -38,7 +39,6 @@ export const actions: Actions = {
 
     return {
       loginOk: res.ok,
-      getTotp: totp,
       errorMessage: payload.message ?? null
     }
   }

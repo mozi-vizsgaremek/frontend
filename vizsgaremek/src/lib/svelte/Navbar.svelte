@@ -16,7 +16,7 @@ const handleDropdownFocusLoss = ({ relatedTarget, currentTarget }) => {
 
 
 <nav>
-    <div class="logo">CV</div>
+    <div class="logo">C<p>V</p></div>
     <ul>
         <li><a href="./Home" class="active">Home</a></li>
         <li><a href="./Discover">Explore</a></li>
@@ -24,7 +24,7 @@ const handleDropdownFocusLoss = ({ relatedTarget, currentTarget }) => {
     </ul>
     <div class="profile" on:focusout={handleDropdownFocusLoss}>
 		<button class="btn m-1" on:click={handleDropdownClick} >
-            a
+            
 		</button>
 		<ul class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52" style:visibility={isDropdownOpen ? 'visible' : 'hidden'}>
 			<li><button class="btn text-slate-300"><a href="./Settings">Settings</a></button></li>
@@ -36,6 +36,7 @@ const handleDropdownFocusLoss = ({ relatedTarget, currentTarget }) => {
 <style>
     
     nav{
+        background: #161616;
         position: fixed;
         top: 0;
         display: flex;
@@ -47,6 +48,10 @@ const handleDropdownFocusLoss = ({ relatedTarget, currentTarget }) => {
     }
     .logo{
         margin-left: 100px;
+        display: flex;
+    }
+    p{
+        color: #D2042D;
     }
     ul{
         display: flex;
@@ -65,7 +70,10 @@ const handleDropdownFocusLoss = ({ relatedTarget, currentTarget }) => {
     .profile{
         width: 35px;
         height: 35px;
-        background-color: white;
+        background-image: url('../../lib/images/avatar.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
         border-radius: 50%;
         margin-right: 100px;
     }

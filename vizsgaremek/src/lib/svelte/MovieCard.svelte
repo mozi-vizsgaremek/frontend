@@ -1,7 +1,5 @@
 <script>
-// @ts-nocheck
-
-
+    // @ts-nocheck
 
     // @ts-ignore
     export let title;
@@ -10,15 +8,15 @@
     export let url;
 
     
-    
 </script>
+
 <a href="./Datebooking">
-<div class="card" >
-    <div class="appear">
-        <div class="title">{title}</div>
-        <div class="secondTitle">{secondTitle}</div>
+    <div class="card" id="cardCover" style="background-image: url({url});">
+        <div class="appear">
+            <div class="title">{title}</div>
+            <div class="secondTitle">{secondTitle}</div>
+        </div>
     </div>
-</div>
 </a>
 
 <style>
@@ -27,7 +25,6 @@
         width: 170px;
         height: 250px;
         background-position: center;
-        background-image: url('/src/lib/images/avatar.jpg');
         background-repeat: no-repeat;
         background-size: cover;
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);

@@ -1,19 +1,42 @@
 <script lang="ts">
+   //@ts-nocheck
    import { browser } from "$app/environment";
    import { page } from "$app/stores";
-    import {notifications} from "../lib/notifications";
-    import Toast from "./Toast.svelte";
+   import { notifications } from "../lib/notifications";
+   import Toast from "./Toast.svelte";
+   import Modal from "../lib/svelte/Modal.svelte";
    export const data = $page.form;
 
-   let errorMessage:string;
+   let showModal = false;
+
+
+
+   let username;
+   let password;
+
+
+
 
    if (data != null && data["loginOk"] && browser) {
       // redir
       window.location.pathname = "/Home";
    }
+
    if (data != null && data["errorMessage"] && browser) {
-      notifications.danger(data.errorMessage, 2000)
-    
+      if(data.errorMessage === 'TOTP required'){
+         showModal = true;
+        
+      }
+      notifications.danger(data.errorMessage, 2000);
+   }
+   function openModal() {
+      if (data != null && data["errorMessage"] && browser) {
+      if(data.errorMessage === 'TOTP required'){
+         showModal = true;
+      }else{
+         window.location.pathname = "/Home";
+      }
+   }
    }
 </script>
 
@@ -30,6 +53,8 @@
          <form method="POST">
             <!--Username input-->
             <input
+            
+            bind:value={username}
                class="h-12"
                type="text"
                placeholder="Username"
@@ -37,19 +62,54 @@
             />
             <!--Password input-->
             <input
+               bind:value={password}
                class="h-12 "
                type="password"
                placeholder="Password"
                name="password"
             />
 
-            <input class="h-12" type="text" placeholder="TOTP" name="totp" />
+            <Modal bind:showModal>
+               <h2 slot="header" class="header">Complete TOTP</h2>
+               <form method="POST">
+                  <input
+                  value={username}
+                  class="h-12 nope"
+                  type="text"
+                  placeholder="Username"
+                  name="username"
+               />
+               <!--Password input-->
+               <input
+               value={password}
+                  class="h-12 nope"
+                  type="password"
+                  placeholder="Password"
+                  name="password"
+               />
+                  <input
+                     class="h-12"
+                     type="text"
+                     placeholder="TOTP"
+                     name="totp"
+                  />
+                  <button
+                     type="submit"
+                     class="w-72 h-12 text-center shadow rounded-lg"
+                  >
+                     Login
+                  </button>
+               </form>
+            </Modal>
 
             <!--Stay signed checkbox and forgott password link-->
             <div class="check flex justify-between w-72" />
 
             <!--Submit button-->
-            <button class="w-72 h-12 text-center shadow rounded-lg">
+            <button
+               class="w-72 h-12 text-center shadow rounded-lg"
+               on:click={openModal}
+            >
                Login
             </button>
             <!--Redirect to registration-->
@@ -59,16 +119,10 @@
          </form>
       </div>
    </div>
-   <Toast/>
+   <Toast />
 </div>
 
-
-
 <style>
-
-     
-   
-
    @font-face {
       font-family: normalFont;
       src: url(../lib/fonts/Sequel100Black-55.ttf);
@@ -138,18 +192,14 @@
    }
 
    input:focus {
-      box-shadow: 0 0 0 0.15vw #D2042D;
+      box-shadow: 0 0 0 0.15vw #d2042d;
    }
    a {
       font-family: italicFont;
    }
    button {
-      background: rgb(43, 50, 58);
-      background: linear-gradient(
-         180deg,
-         rgba(43, 50, 58, 1) 0%,
-         rgba(23, 28, 33, 1) 100%
-      );
+     
+      background: linear-gradient(142deg, rgba(129,65,62,1) 0%, rgba(106,0,0,1) 100%);
       width: 90%;
    }
    .cin {
