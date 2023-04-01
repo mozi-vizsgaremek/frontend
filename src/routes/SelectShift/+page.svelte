@@ -2,6 +2,10 @@
     // @ts-nocheck
     import PhoneNav from "../../lib/svelte/PhoneNav.svelte";
     import Navbar from "../../lib/svelte/Navbar.svelte";
+    import { page } from "$app/stores";
+    export const data = $page.form;
+
+    import { browser } from "$app/environment";
 
     let dates = [
         { day: "WE", nu: "02" },
@@ -24,6 +28,16 @@
         { day: "SA", nu: "18" },
         { day: "SU", nu: "19" },
     ];
+
+    if (data != null && data["regOk"] && browser) {
+        alert("booked")
+    }
+    if (data != null && data["alma"] && browser) {
+        for(let i =0; i<data.alma.length; i++){
+        console.log(data.alma[i].shiftFrom + `-` + data.alma[i].shiftTo)
+    }
+    }
+    
 </script>
 <body>
    
@@ -42,13 +56,16 @@
         <div class="cardcontainer">
             <div class="cards p-2.5">
                 {#each dates as { day, nu }}
+                <form method="POST" action="?/bookShift">
                     <div class="dateCard">
                         <div class="word">
-                            <a href="SelectShift/Time"> {day}</a>
+                            <a href="SelectShift/Time"> </a>
                         </div>
                         <div class="number">{nu}</div>
                         <div class="status" />
+                        <button>send</button>
                     </div>
+                </form>
                 {/each}
             </div>
         </div>

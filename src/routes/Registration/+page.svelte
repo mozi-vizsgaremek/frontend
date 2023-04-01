@@ -114,7 +114,7 @@
    h1 {
       font-size: 25px;
 
-      margin-bottom: 30px;
+      margin-bottom: 20px;
    }
    form {
       width: 100%;
@@ -148,14 +148,10 @@
       font-family: italicFont;
    }
    button {
-      background: rgb(43, 50, 58);
-      background: linear-gradient(
-         180deg,
-         rgba(43, 50, 58, 1) 0%,
-         rgba(23, 28, 33, 1) 100%
-      );
-      width: 70%;
-   }
+     
+     background: linear-gradient(142deg, rgba(129,65,62,1) 0%, rgba(106,0,0,1) 100%);
+     width: 90%;
+  }
    .cin {
       font-size: 34px;
    }

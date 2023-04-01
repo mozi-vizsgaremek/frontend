@@ -42,20 +42,27 @@
         text-align: center;
         display: flex;
         flex-direction: column;
+        height: 100%;
         gap: 10px;
         opacity: 0;
+        color: white;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border-radius: 10px;
     }
     .title,
     .secondTitle {
         color: white;
     }
     .secondTitle {
-        font-size: 10px;
+        font-size: 12px;
     }
     .card:hover .appear {
+        padding-bottom: 10px;
         opacity: 1;
         animation: 0.5s ease-in-out load;
     }
+    
     @keyframes load {
         0% {
             opacity: 0;

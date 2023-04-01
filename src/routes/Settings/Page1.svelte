@@ -2,6 +2,9 @@
     //@ts-nocheck
     import QRCode from "./QRJS.svelte";
     import Modal from "../../lib/svelte/Modal.svelte";
+    
+   import { notifications } from "../../lib/notifications";
+   import Toast from "../Toast.svelte";
 
     import { page } from "$app/stores";
     export const data = $page.form;
@@ -34,12 +37,14 @@
     }
 
     if (data != null && data["errorMessage"] && browser) {
-        alert(data.errorMessage);
+        notifications.danger(data.errorMessage, 2000);
     }
     if (data != null && data["onborad"] && browser) {
         showModal = false;
     }
     if (data != null && data["deleteOnBoard"] && browser) {
+        
+        notifications.danger(data.errorMessage, 2000);
     }
 
     function openModal() {
@@ -76,6 +81,7 @@
     <button class="on" on:click={openModal}>Remove TOTP</button>
 </div>
 
+<Toast />
 <Modal bind:showModal>
     <h2 slot="header" class="header">Complete TOTP</h2>
     <!-- svelte-ignore empty-block -->

@@ -3,6 +3,13 @@
 
     // @ts-ignore
     import { createForm } from "felte";
+    
+   import { notifications } from "../../lib/notifications";
+   import Toast from "../Toast.svelte";
+   
+   import { page } from "$app/stores";
+
+    import { browser } from "$app/environment";
 
     export let initialValues;
     export let onSubmit;
@@ -11,6 +18,11 @@
     export let onBack;
 
     const { form, data } = createForm({ onSubmit, initialValues });
+
+    if (data != null && data["changePassword"] && browser) {
+        
+        notifications.danger(data.errorMessage, 2000);
+    }
 </script>
 
 <div class="mininav p-2.5">
@@ -40,6 +52,7 @@
     </form>
 </div>
 
+<Toast />
 <style>
     .pasres form {
         display: flex;
@@ -85,15 +98,17 @@
         gap: 10px;
     }
     input {
+        font-size: 0.9rem;
         background-color: transparent;
-        border-bottom: 2px solid rgb(31, 31, 31);
-        font-size: 8px;
-        padding: 5px;
+        width:50%;
         outline: none;
+        height: 100%;
+        padding-inline: 0.5em;
+        padding-block: 0.7em;
+        border: none;
         color: white;
-        transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     }
     input:focus {
-        border-bottom: 2px solid #a3e583;
+        border-bottom: 2px solid #D2042D;
     }
 </style>

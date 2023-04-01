@@ -89,6 +89,8 @@
     .resp-hamburger {
         visibility: hidden;
         position: absolute;
+        
+        background-color: #D2042D;
     }
 
     .content {
@@ -119,14 +121,33 @@
         .resp-hamburger {
             visibility: visible;
             position: fixed;
-            bottom: 10px;
+            bottom: 0;
             width: 100%;
-            background: rgba(4, 4, 4, 0.613);
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
             backdrop-filter: blur(4px);
             -webkit-backdrop-filter: blur(4px);
-            border-radius: 10px;
             padding: 20px;
         }
+    }
+
+    
+    /* width */
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #161616;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #d2042d;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #ad0325;
     }
 </style>

@@ -24,20 +24,21 @@
     </form>
     
     </div>
-<div class="ticket_card">
-    <div class="dates">
-        <div class="date">2023/01/02</div>
-        <div class="time">17:50</div>
+    <div class="ticket_card">
+        <div class="dates">
+            <div class="date">2023/01/02</div>
+            <div class="time">17:50</div>
+        </div>
+        <div class="titlecont">
+            <h2>Avatar 2</h2>
+        </div>
+        <div class="desccont">
+            <p>
+                When a man wakes up, he doesn’t remember anything about himself or
+                even his name
+            </p>
+        </div>
     </div>
-    <div class="titlecont">
-        <h2>Apád</h2>
-    </div>
-    <div class="desccont">
-        <p>When a man wakes up, he doesn’t remember
-            anything about himself or even his name </p>
-    </div>
-    
-</div>
 
 <style>
      @font-face {
@@ -71,26 +72,58 @@
             display: flex;
             gap: 10px;
         }
-        .ticket_card{
-            width: 250px;
-            height: 350px;
-            background-image:
-            linear-gradient(to bottom, rgba(40, 40, 40, 0.4), rgba(40, 40, 40, 0.9)),
-                            url('../../lib/images/avatar.jpg');
-            border-radius: 10px;
-        }
-        .dates{
-            padding: 10px;
-            display: flex;
-            justify-content: space-between;
-            font-size: 8px;
-            color: white;
-        }
-        .titlecont{
-            text-align: center;
-            padding-top: 150px;
-            color: white;
-        }
+        .ticket_card {
+        width: 390px;
+        height: 250px;
+        background-image: linear-gradient(
+                to bottom,
+                rgba(40, 40, 40, 0.4),
+                rgba(40, 40, 40, 0.9)
+            ),
+            url("../../lib/images/cover.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 10px;
+    }
+    .dates {
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 8px;
+        color: white;
+    }
+    form {
+        display: flex;
+        gap: 10px;
+    }
+    .titlecont {
+        text-align: center;
+        padding-top: 50px;
+    }
+    .btncont {
+        display: flex;
+        justify-content: center;
+    }
+    .qr {
+        margin-top: 40px;
+        border-radius: 10px;
+        color: white;
+        font-size: 12px;
+        width: 200px;
+        height: 40px;
+        text-align: center;
+        background: linear-gradient(
+            142deg,
+            rgba(129, 65, 62, 1) 0%,
+            rgba(106, 0, 0, 1) 100%
+        );
+        padding: 10px;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+    h2 {
+        color: white;
+    }
         
         
 </style>

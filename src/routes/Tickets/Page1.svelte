@@ -3,16 +3,22 @@
 
     // @ts-ignore
     import { createForm } from "felte";
+    import QRCode from "../Settings/QRJS.svelte";
+    import Modal from "../../lib/svelte/Modal.svelte";
 
     export let initialValues;
     export let onSubmit;
-    let currentWidth;
+
+    
+    let showModal = false;
 
     const { form } = createForm({ onSubmit, initialValues });
 
     function qrCode() {
         if (document.body.clientWidth < 600) {
-            alert("Kell egy modal");
+           
+        showModal = true;
+            
         } else {
             alert("Ki kell nyomtatni");
         }
@@ -43,6 +49,13 @@
         <button class="qr" on:click={qrCode} />
     </div>
 </div>
+<Modal bind:showModal>
+    <h2 slot="header" class="header">Ticket</h2>
+    
+
+    <QRCode codeValue="http://localhost:5173/Tickets" squareSize=400/>
+
+</Modal>
 
 <style>
     @font-face {

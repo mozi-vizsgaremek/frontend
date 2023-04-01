@@ -1,6 +1,17 @@
 <script>
     import PhoneNav from "../../lib/svelte/PhoneNav.svelte";
     import Navbar from "../../lib/svelte/Navbar.svelte";
+
+    import { page } from "$app/stores";
+    export const data = $page.form;
+
+    import { browser } from "$app/environment";
+
+    if (data != null && data["chageOk"] && browser) {
+        
+        alert("Laci")
+    }
+
 </script>
 
 <body>

@@ -82,6 +82,7 @@
         visibility: hidden;
         position: absolute;
         z-index: 99;
+        background-color: #D2042D;
     }
     .texts {
         padding-top: 200px;
@@ -158,16 +159,14 @@
         .allCenter {
             padding-top: 0;
         }
-
         .resp-hamburger {
             visibility: visible;
             position: fixed;
-            bottom: 10px;
+            bottom: 0;
             width: 100%;
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
             backdrop-filter: blur(4px);
             -webkit-backdrop-filter: blur(4px);
-            border-radius: 10px;
             padding: 20px;
         }
         .texts {

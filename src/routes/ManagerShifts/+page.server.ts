@@ -11,8 +11,8 @@ export const actions: Actions = {
   CreateShift: async (event) => {
     const body = await event.request.formData();
     const reqBody = JSON.stringify({
-        shiftFrom: body.get('shiftFrom'),
-        shiftTo: body.get('shiftTo'),
+        shiftFrom: new Date("2023-04-01T5:00"),
+        shiftTo: new Date("2023-04-02T10:00"),
         requiredStaff: 1
     });
     

@@ -17,9 +17,49 @@
 
         <div class="content pt-2.5 min-h-screen">
             <div class="searchInput pb-2.5 flex justify-center">
-                <input type="text" placeholder="Search..." class="search" />
+                <form class="form">
+                    <button>
+                        <svg
+                            width="17"
+                            height="16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            role="img"
+                            aria-labelledby="search"
+                        >
+                            <path
+                                d="M7.667 12.667A5.333 5.333 0 107.667 2a5.333 5.333 0 000 10.667zM14.334 14l-2.9-2.9"
+                                stroke="currentColor"
+                                stroke-width="1.333"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                    </button>
+                    <input
+                        class="input"
+                        placeholder="Search..."
+                        required
+                        type="text"
+                    />
+                    <button class="reset" type="reset">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-6 w-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M6 18L18 6M6 6l12 12"
+                            />
+                        </svg>
+                    </button>
+                </form>
             </div>
-            <hr />
             <div class="cardcontainer">
                 <div class="cards p-2.5">
                     <MovieCard
@@ -53,27 +93,89 @@
         padding-top: 30px;
     }
 
-    .search {
-        background-color: transparent;
-        border-bottom: 2px solid rgb(31, 31, 31);
-        font-size: 14px;
-        padding: 5px;
-        outline: none;
-        color: white;
-        transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+
+    .form button {
+        border: none;
+        background: none;
+        color: #D2042D;
     }
-    .search:focus {
-        border-bottom: 2px solid #a3e583;
+    .form {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        --timing: 0.3s;
+        --width-of-input: 300px;
+        --height-of-input: 40px;
+        --border-height: 2px;
+        --input-bg:  linear-gradient(145deg, #141414, #181818);
+        box-shadow:  20px 20px 60px #0e0e0e,
+             -20px -20px 60px #1e1e1e;;
+        --border-color: #D2042D;
+        --border-radius: 10px;
+        --after-border-radius: 5px;
+        position: relative;
+        width: var(--width-of-input);
+        height: var(--height-of-input);
+        display: flex;
+        align-items: center;
+        padding-inline: 0.8em;
+        border-radius: var(--border-radius);
+        transition: border-radius 0.5s ease;
+        background: var(--input-bg, #fff);
+    }
+    .input {
+        font-size: 0.9rem;
+        background-color: transparent;
+        width: 100%;
+        height: 100%;
+        padding-inline: 0.5em;
+        padding-block: 0.7em;
+        border: none;
+        color: white;
+    }
+    .form:before {
+        content: "";
+        position: absolute;
+        background: var(--border-color);
+        transform: scaleX(0);
+        transform-origin: center;
+        width: 100%;
+        height: var(--border-height);
+        left: 0;
+        bottom: 0;
+        border-radius: 1px;
+        transition: transform var(--timing) ease;
+    }
+    .form:focus-within {
+        border-radius: var(--after-border-radius);
     }
 
-    hr {
-        border: 1px solid gray;
+    input:focus {
+        outline: none;
+    }
+    .form:focus-within:before {
+        transform: scale(1);
+    }
+    .reset {
+        border: none;
+        background: none;
+        opacity: 0;
+        visibility: hidden;
+    }
+    input:not(:placeholder-shown) ~ .reset {
+        opacity: 1;
+        visibility: visible;
+    }
+    .form svg {
+        width: 17px;
+        margin-top: 3px;
     }
 
     .resp-hamburger {
         visibility: hidden;
         position: absolute;
         z-index: 99;
+        
+        background-color: #D2042D;
     }
 
     .content {
@@ -102,18 +204,34 @@
         .resp-hamburger {
             visibility: visible;
             position: fixed;
-            bottom: 10px;
+            bottom: 0;
             width: 100%;
-            background: rgba(4, 4, 4, 0.613);
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
             backdrop-filter: blur(4px);
             -webkit-backdrop-filter: blur(4px);
-            border-radius: 10px;
             padding: 20px;
         }
         .cards {
-       
-        gap: 10px;
+            gap: 10px;
+        }
     }
+        /* width */
+        ::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #161616;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #d2042d;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #ad0325;
     }
 </style>

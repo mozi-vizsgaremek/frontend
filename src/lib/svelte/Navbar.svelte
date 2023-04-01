@@ -18,7 +18,7 @@ const handleDropdownFocusLoss = ({ relatedTarget, currentTarget }) => {
 <nav>
     <div class="logo">C<p>V</p></div>
     <ul>
-        <li><a href="./Home" class="active">Home</a></li>
+        <li><a href="./Home">Home</a></li>
         <li><a href="./Discover">Explore</a></li>
         <li><a href="./Tickets">Tickets</a></li>
     </ul>
@@ -27,8 +27,8 @@ const handleDropdownFocusLoss = ({ relatedTarget, currentTarget }) => {
             
 		</button>
 		<ul class="dropdown-content menu p-2 shadow bg-black rounded-box w-52" style:visibility={isDropdownOpen ? 'visible' : 'hidden'}>
-			<li><button class="btn text-slate-300"><a href="./Settings">Settings</a></button></li>
-			<li><button class="btn text-slate-300"><a href="./">Logout</a></button></li>
+			<li><button class="btn "><a href="./Settings">Settings</a></button></li>
+			<li><button class="btn"><a href="./">Logout</a></button></li>
 		</ul>
 	</div>
 </nav>
@@ -89,6 +89,9 @@ const handleDropdownFocusLoss = ({ relatedTarget, currentTarget }) => {
     }
     button:hover{
         cursor: pointer;
+    }
+    .dropdown-content{
+        background-color: #161616a0;
     }
 
 </style>

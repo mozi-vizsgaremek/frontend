@@ -28,7 +28,8 @@ export const actions: Actions = {
       body: reqBody
     });
 
-    const payload = await res.json();
+    const payload = await res.json()
+
 
     return {
       chageOk: res.ok,
@@ -57,7 +58,6 @@ export const actions: Actions = {
 
     const payload = await resTotp.json();
 
-    console.log(payload.uri)
 
     return {
       totpOk: payload.secret,
@@ -111,10 +111,14 @@ export const actions: Actions = {
       body: reqBody
     });
 
+    const payload = await deleteOnBoard.json();
+
 
 
     return {
-      deleteOnBoard: deleteOnBoard.ok
+      deleteOnBoard: deleteOnBoard.ok,
+      
+      errorMessage: payload.message ?? null
     }
   }
 
