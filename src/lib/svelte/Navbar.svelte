@@ -29,7 +29,7 @@ const handleDropdownFocusLoss = ({ relatedTarget, currentTarget }) => {
 		</button>
 		<ul class="dropdown-content bg-black rounded-xl menu p-2 shadow  w-52" style:visibility={isDropdownOpen ? 'visible' : 'hidden'}>
 			<li><button class="btn "><a href="./Settings">Settings</a></button></li>
-			<li><button class="btn"><a href="./Login">Logout</a></button></li>
+			<li><button class="btn"><a href="./Logout">Logout</a></button></li>
 		</ul>
 	</div>
 </nav>

@@ -67,7 +67,7 @@
                >Create</button
             >
             <p class="small">
-               Already have an account? <a href="../">Login here</a>
+               Already have an account? <a href="./Login">Login here</a>
             </p>
          </form>
       </div>
