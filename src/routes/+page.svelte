@@ -29,15 +29,7 @@
       }
       notifications.danger(data.errorMessage, 2000);
    }
-   function openModal() {
-      if (data != null && data["errorMessage"] && browser) {
-      if(data.errorMessage === 'TOTP required'){
-         showModal = true;
-      }else{
-         window.location.pathname = "/Home";
-      }
-   }
-   }
+   
 </script>
 
 <div class="allCenter flex w-full justify-center min-h-screen">
@@ -68,39 +60,13 @@
                placeholder="Password"
                name="password"
             />
-
-            <Modal bind:showModal>
-               <h2 slot="header" class="header">Complete TOTP</h2>
-               <form method="POST">
-                  <input
-                  value={username}
-                  class="h-12 nope"
-                  type="text"
-                  placeholder="Username"
-                  name="username"
-               />
-               <!--Password input-->
-               <input
-               value={password}
-                  class="h-12 nope"
-                  type="password"
-                  placeholder="Password"
-                  name="password"
-               />
-                  <input
-                     class="h-12"
-                     type="text"
-                     placeholder="TOTP"
-                     name="totp"
-                  />
-                  <button
-                     type="submit"
-                     class="w-72 h-12 text-center shadow rounded-lg"
-                  >
-                     Login
-                  </button>
-               </form>
-            </Modal>
+            <input
+            class="h-12"
+            type="text"
+            placeholder="TOTP"
+            name="totp"
+         />
+            
 
             <!--Stay signed checkbox and forgott password link-->
             <div class="check flex justify-between w-72" />
@@ -160,7 +126,7 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      padding: 40px;
+      padding: 20px;
    }
    h1 {
       font-size: 25px;

@@ -10,7 +10,7 @@
 
    if (data != null && data["loginOk"] && browser) {
       // redir
-      window.location.pathname = "/";
+      window.location.pathname = "./";
    }
    if (data != null && data["errorMessage"] && browser) {
       notifications.danger(data.errorMessage, 2000);
