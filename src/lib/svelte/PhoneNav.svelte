@@ -49,6 +49,7 @@
 <style>
     ul{
         width: 100%;
+        
     }
     li {
         

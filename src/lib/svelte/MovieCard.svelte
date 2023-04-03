@@ -6,11 +6,11 @@
     // @ts-ignore
     export let secondTitle;
     export let url;
-
+    export let idurl;
     
 </script>
 
-<a href="./Datebooking">
+<a href={`./Datebooking/${idurl}`}>
     <div class="card" id="cardCover" style="background-image: url({url});">
         <div class="appear">
             <div class="title">{title}</div>

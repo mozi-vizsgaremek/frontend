@@ -1,6 +1,6 @@
 import { browser } from "$app/environment";
 import { baseUrl } from './config';
-import type { RequestEvent } from "../routes/$types";
+import type { RequestEvent, ServerLoadEvent } from "@sveltejs/kit";
 
 export function getJwtPayload(token?: string): any|null {
     if (!token) return null;
@@ -14,6 +14,18 @@ export function getJwtPayload(token?: string): any|null {
     const decoded = JSON.parse(Buffer.from(base64Payload, 'base64').toString('ascii'));
 
     return decoded;
+}
+
+export function getUserRole(ev: RequestEvent|ServerLoadEvent): "customer"|"employee"|"manager"|"admin"|null {
+    const accessToken = ev.cookies.get('access_token');
+
+    if (!accessToken) return null;
+    
+    const payload = getJwtPayload(accessToken);
+
+    if (!payload) return null;
+
+    return payload.role;
 }
 
 // TODO: better error reporting (returning null for everything is not that great)
@@ -30,11 +42,12 @@ export function isTokenExpired(token?: string): boolean|null {
     return currTime > exp;
 }
 
-export async function authFetch(ev: RequestEvent, path: string, opts: RequestInit): Promise<Response | null> {
+export async function authFetch(ev: RequestEvent|ServerLoadEvent, method: string, path: string, opts?: RequestInit): Promise<Response | null> {
     // browser can't access the httpOnly secure cookies
     if (browser) return null;
 
-    const accessExpired = isTokenExpired(ev.cookies.get('access_token'));
+    const accessToken = ev.cookies.get('access_token');
+    const accessExpired = isTokenExpired(accessToken);
 
     if (accessExpired) {
         // attempt to refresh access token
@@ -44,12 +57,14 @@ export async function authFetch(ev: RequestEvent, path: string, opts: RequestIni
             // NOTE: user is not logged in
             return null;
 
-
         const resp = await ev.fetch(`${baseUrl}/auth/refresh`, {
             method: 'POST',
             body: JSON.stringify({
                 refreshToken
-            })
+            }),
+            headers: {
+                "Content-Type": "application/json"
+            }
         });
 
         if (!resp.ok)
@@ -59,8 +74,16 @@ export async function authFetch(ev: RequestEvent, path: string, opts: RequestIni
 
         ev.cookies.set('access_token', respPayload['accessToken']);
 
-        return authFetch(ev, path, opts);
+        return authFetch(ev, method, path, opts);
     }
 
-    return ev.fetch(`${baseUrl}${path}`, opts);
+    return ev.fetch(`${baseUrl}${path}`, {
+        method,
+        headers: {
+            ...opts?.headers,
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + accessToken
+        },
+        ...opts
+    });
 }

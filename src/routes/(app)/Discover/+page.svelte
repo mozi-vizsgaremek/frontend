@@ -1,0 +1,228 @@
+<script>
+    import MovieCard from "$lib/svelte/MovieCard.svelte";
+    import PhoneNav from "$lib/svelte/PhoneNav.svelte";
+    import Navbar from "$lib/svelte/Navbar.svelte";
+
+    export let data;
+</script>
+
+<body>
+    <div class="allCenter">
+        <div class="content pt-2.5 min-h-screen">
+            <div class="searchInput pb-2.5 flex justify-center">
+                <form class="form">
+                    <button>
+                        <svg
+                            width="17"
+                            height="16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            role="img"
+                            aria-labelledby="search"
+                        >
+                            <path
+                                d="M7.667 12.667A5.333 5.333 0 107.667 2a5.333 5.333 0 000 10.667zM14.334 14l-2.9-2.9"
+                                stroke="currentColor"
+                                stroke-width="1.333"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                    </button>
+                    <input
+                        class="input"
+                        placeholder="Search..."
+                        required
+                        type="text"
+                    />
+                    <button class="reset" type="reset">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-6 w-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M6 18L18 6M6 6l12 12"
+                            />
+                        </svg>
+                    </button>
+                </form>
+            </div>
+            <div class="cardcontainer">
+                <div class="cards p-2.5">
+                    {#each data.resBody as movie}
+                        <MovieCard
+                            idurl={movie.id}
+                            title={movie.title}
+                            secondTitle={movie.subtitle}
+                            url="https://posters.movieposterdb.com/22_05/1984/88247/s_88247_2768cd72.jpg" 
+                        />
+                    {/each}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<style>
+    @font-face {
+        font-family: normalFont;
+        src: url($lib/fonts/Sequel100Black-55.ttf);
+    }
+    * {
+        font-family: normalFont;
+    }
+    body {
+        background: #161616;
+    }
+    .allCenter {
+        padding-top: 30px;
+    }
+
+
+    .form button {
+        border: none;
+        background: none;
+        color: #D2042D;
+    }
+    .form {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        --timing: 0.3s;
+        --width-of-input: 300px;
+        --height-of-input: 40px;
+        --border-height: 2px;
+        --input-bg:  linear-gradient(145deg, #141414, #181818);
+        box-shadow:  20px 20px 60px #0e0e0e,
+             -20px -20px 60px #1e1e1e;;
+        --border-color: #D2042D;
+        --border-radius: 10px;
+        --after-border-radius: 5px;
+        position: relative;
+        width: var(--width-of-input);
+        height: var(--height-of-input);
+        display: flex;
+        align-items: center;
+        padding-inline: 0.8em;
+        border-radius: var(--border-radius);
+        transition: border-radius 0.5s ease;
+        background: var(--input-bg, #fff);
+    }
+    .input {
+        font-size: 0.9rem;
+        background-color: transparent;
+        width: 100%;
+        height: 100%;
+        padding-inline: 0.5em;
+        padding-block: 0.7em;
+        border: none;
+        color: white;
+    }
+    .form:before {
+        content: "";
+        position: absolute;
+        background: var(--border-color);
+        transform: scaleX(0);
+        transform-origin: center;
+        width: 100%;
+        height: var(--border-height);
+        left: 0;
+        bottom: 0;
+        border-radius: 1px;
+        transition: transform var(--timing) ease;
+    }
+    .form:focus-within {
+        border-radius: var(--after-border-radius);
+    }
+
+    input:focus {
+        outline: none;
+    }
+    .form:focus-within:before {
+        transform: scale(1);
+    }
+    .reset {
+        border: none;
+        background: none;
+        opacity: 0;
+        visibility: hidden;
+    }
+    input:not(:placeholder-shown) ~ .reset {
+        opacity: 1;
+        visibility: visible;
+    }
+    .form svg {
+        width: 17px;
+        margin-top: 3px;
+    }
+
+    .resp-hamburger {
+        visibility: hidden;
+        position: absolute;
+        z-index: 99;
+        
+        background-color: #D2042D;
+    }
+
+    .content {
+        width: 100%;
+    }
+
+    .cardcontainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 50px;
+    }
+
+    @media (max-width: 700px) {
+        .navbar {
+            position: absolute;
+            visibility: collapse;
+        }
+        .allCenter {
+            padding-top: 0;
+        }
+        .resp-hamburger {
+            visibility: visible;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            padding: 20px;
+        }
+        .cards {
+            gap: 10px;
+        }
+    }
+        /* width */
+        ::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #161616;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #d2042d;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #ad0325;
+    }
+</style>

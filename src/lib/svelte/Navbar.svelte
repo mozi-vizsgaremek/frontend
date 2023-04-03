@@ -18,17 +18,18 @@ const handleDropdownFocusLoss = ({ relatedTarget, currentTarget }) => {
 <nav>
     <div class="logo">C<p>V</p></div>
     <ul>
-        <li><a href="./Home">Home</a></li>
-        <li><a href="./Discover">Explore</a></li>
-        <li><a href="./Tickets">Tickets</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/Discover">Explore</a></li>
+        <li><a href="/Tickets">Tickets</a></li>
+        <li><a href="/Job">Job</a></li>
     </ul>
     <div class="profile" on:focusout={handleDropdownFocusLoss}>
 		<button class="btn m-1" on:click={handleDropdownClick} >
             
 		</button>
-		<ul class="dropdown-content menu p-2 shadow bg-black rounded-box w-52" style:visibility={isDropdownOpen ? 'visible' : 'hidden'}>
+		<ul class="dropdown-content bg-black rounded-xl menu p-2 shadow  w-52" style:visibility={isDropdownOpen ? 'visible' : 'hidden'}>
 			<li><button class="btn "><a href="./Settings">Settings</a></button></li>
-			<li><button class="btn"><a href="./">Logout</a></button></li>
+			<li><button class="btn"><a href="./Login">Logout</a></button></li>
 		</ul>
 	</div>
 </nav>
@@ -64,13 +65,11 @@ const handleDropdownFocusLoss = ({ relatedTarget, currentTarget }) => {
     li:hover{
         color: #D2042D;
     }
-    .active{
-        color: #D2042D;
-    }
+    
     .profile{
         width: 35px;
         height: 35px;
-        background-image: url('../../lib/images/avatar.jpg');
+        background-image: url('$lib/images/avatar.jpg');
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
