@@ -1,10 +1,7 @@
 <script lang="ts">
     import MovieCard from "$lib/svelte/MovieCard.svelte";
-    import PhoneNav from "$lib/svelte/PhoneNav.svelte";
-    import Navbar from "$lib/svelte/Navbar.svelte";
-
-    import img1 from "$lib/images/bg6.jpg";
     import type { PageData } from "./$types";
+
 
     export let data: PageData;
 </script>
@@ -131,26 +128,14 @@
     }
 
     @media (max-width: 700px) {
-        .navbar {
-            position: absolute;
-            visibility: collapse;
-        }
+       
         .allCenter {
             padding-top: 0;
         }
         .content{
             padding-top: 0;
         }
-        .resp-hamburger {
-            visibility: visible;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
-            padding: 20px;
-        }
+       
         .texts {
             padding-left: 10px;
             text-align: center;

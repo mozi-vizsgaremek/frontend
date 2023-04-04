@@ -8,16 +8,10 @@
 <body>
     
 <div class="allCenter flex w-full min-h-screen">
-    <div class="navbar">
-        <Navbar/>
-    </div>
-    <div class="resp-hamburger">
-        <PhoneNav />
-    </div>
+   
     
     <div class="content pt-2.5 min-h-screen">
-        <h1>Select Time</h1>
-        <hr />
+        
         <h1>{id}</h1>
         <div class="cardcontainer">
             <div class="cards p-2.5" />
@@ -48,16 +42,8 @@
     }
    
 
-    hr {
-        border: 1px solid gray;
-    }
-   
 
-    .resp-hamburger {
-        visibility: hidden;
-        position: absolute;
-        z-index: 99;
-    }
+    
 
     .content {
         width: 100%;
@@ -78,25 +64,11 @@
 
     
     @media (max-width: 700px) {
-        .navbar {
-            position: absolute;
-            visibility: collapse;
-        }
+        
         .allCenter{
             padding-top: 0;
         }
-        .resp-hamburger {
-            visibility: visible;
-            position: fixed;
-            bottom: 10px;
-            width: 100%;
-            background: rgba(4, 4, 4, 0.613);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
-            border-radius: 10px;
-            padding: 20px;
-        }
+        
         
     }
 </style>

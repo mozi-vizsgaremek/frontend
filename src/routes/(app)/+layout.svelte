@@ -1,14 +1,17 @@
-<script>
+<script lang="ts">
     import Navbar from "$lib/svelte/Navbar.svelte";
     import PhoneNav from "$lib/svelte/PhoneNav.svelte";
     import "$lib/app.css";
+    import type { LayoutData } from "./$types";
+    
+    export let data: LayoutData;
   </script>
   
   <div class="navbar">
-    <Navbar />
+    <Navbar role={data.role}/>
   </div>
   <div class="resp-hamburger">
-    <PhoneNav />
+    <PhoneNav role={data.role}/>
   </div>
 
   <slot />
@@ -38,4 +41,6 @@
         }
        
     }
+
+    
 </style>

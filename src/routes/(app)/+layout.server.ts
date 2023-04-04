@@ -1,4 +1,3 @@
-import { browser } from "$app/environment";
 import { getUserRole } from "$lib/util";
 import { redirect } from "@sveltejs/kit";
 import type { LayoutServerLoad } from "./$types";
@@ -10,5 +9,9 @@ export const load: LayoutServerLoad = async (ev) => {
     if (!userRole && !(route == "/(single)/Login" || route == "/(single)/Registration")) {
         // user is not logged in
         throw redirect(302, "/Login");
+    }
+
+    return {
+        role: userRole
     }
 }

@@ -7,14 +7,7 @@
 <body>
 
 <div class="allCenter">
-    <div class="navbar">
-        <Navbar/>
-    </div>
-    <!--Phone navigation-->
-    <div class="resp-hamburger">
-        <PhoneNav/>
-    </div>
-    <hr>
+    
     <!--Content-->
     <div class="content min-h-screen">
         <!--Image-->
@@ -91,10 +84,7 @@
         width: 100%;
     }
 
-    .resp-hamburger {
-        visibility: hidden;
-        position: absolute;
-    }
+   
 
     .content {
         width:100%;
@@ -140,25 +130,12 @@
     
     @media (max-width: 700px) {
        
-        .navbar {
-            position: absolute;
-            visibility: collapse;
-        }
+       
         .allCenter{
             
         padding-top: 0;
         }
-        .resp-hamburger {
-            visibility: visible;
-            position: fixed;
-            bottom: 10px;
-            width: 100%;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
-            border-radius: 10px;
-            padding: 20px;
-        }
+        
         
         
         

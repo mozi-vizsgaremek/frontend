@@ -12,6 +12,8 @@
 
     // @ts-ignore
     import settings from "svelte-icons-pack/io/IoSettings";
+
+    export let role;
 </script>
 
 <ul>

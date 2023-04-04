@@ -161,13 +161,7 @@
         margin-top: 3px;
     }
 
-    .resp-hamburger {
-        visibility: hidden;
-        position: absolute;
-        z-index: 99;
-        
-        background-color: #D2042D;
-    }
+  
 
     .content {
         width: 100%;
@@ -185,23 +179,11 @@
     }
 
     @media (max-width: 700px) {
-        .navbar {
-            position: absolute;
-            visibility: collapse;
-        }
+       
         .allCenter {
             padding-top: 0;
         }
-        .resp-hamburger {
-            visibility: visible;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
-            padding: 20px;
-        }
+       
         .cards {
             gap: 10px;
         }
