@@ -18,6 +18,8 @@ export const actions: Actions = {
     const retok = event.cookies.get("refresh_token");
     const acctok = event.cookies.get("access_token");
 
+    
+
 
     const res = await event.fetch(`${baseUrl}/auth/password`, {
       method: 'PUT',

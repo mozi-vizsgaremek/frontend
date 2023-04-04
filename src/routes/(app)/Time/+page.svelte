@@ -1,9 +1,8 @@
 <script>
-    import PhoneNav from "$lib/svelte/PhoneNav.svelte";
-    import Navbar from "$lib/svelte/Navbar.svelte";
+    
 
-    import { page } from "$app/stores";
-    const id = $page.url.searchParams.get("?/:id");
+    import { format } from 'date-fns';
+    export let data;
 </script>
 <body>
     
@@ -12,9 +11,18 @@
     
     <div class="content pt-2.5 min-h-screen">
         
-        <h1>{id}</h1>
         <div class="cardcontainer">
-            <div class="cards p-2.5" />
+            <div class="cards p-2.5" >
+                
+                {#each data.alma as entry}
+                    <a href="./Time">
+                    <div class="dateCard">
+                        <div class="number">{format(entry.shiftFrom, "k")} - {format(entry.shiftTo, "k m aaa")}</div>
+                        <div class="status" />
+                    </div>
+                    </a>
+                    {/each}
+            </div>
         </div>
     </div>
     
@@ -32,15 +40,17 @@
     body{
         background: #161616;
     }
-    h1 {
-        color: white;
-    }
+    
 
   
     .allCenter {
         padding-top: 30px;
     }
    
+    .number{
+        color: white;
+        font-size: 13px;
+    }
 
 
     

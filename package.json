@@ -25,6 +25,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"date-fns": "^2.29.3",
 		"felte": "^1.2.7",
 		"svelte-icons-pack": "^2.0.0"
 	}

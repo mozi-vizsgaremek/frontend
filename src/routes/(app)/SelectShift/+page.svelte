@@ -1,43 +1,11 @@
-<script>
+<script lang="ts">
     // @ts-nocheck
-    import PhoneNav from "$lib/svelte/PhoneNav.svelte";
-    import Navbar from "$lib/svelte/Navbar.svelte";
-    import { page } from "$app/stores";
-    export const data = $page.form;
-
-    import { browser } from "$app/environment";
-
-    let dates = [
-        { day: "WE", nu: "02" },
-        { day: "TH", nu: "03" },
-        { day: "TR", nu: "04" },
-        { day: "SA", nu: "05" },
-        { day: "SU", nu: "06" },
-        { day: "MO", nu: "07" },
-        { day: "TO", nu: "08" },
-        { day: "WE", nu: "09" },
-        { day: "TH", nu: "10" },
-        { day: "TR", nu: "11" },
-        { day: "SA", nu: "12" },
-        { day: "SU", nu: "13" },
-        { day: "MO", nu: "14" },
-        { day: "TO", nu: "13" },
-        { day: "WE", nu: "15" },
-        { day: "TH", nu: "16" },
-        { day: "TR", nu: "17" },
-        { day: "SA", nu: "18" },
-        { day: "SU", nu: "19" },
-    ];
-
-    if (data != null && data["regOk"] && browser) {
-        alert("booked")
-    }
-    if (data != null && data["alma"] && browser) {
-        for(let i =0; i<data.alma.length; i++){
-        console.log(data.alma[i].shiftFrom + `-` + data.alma[i].shiftTo)
-    }
-    }
+    import { each } from "svelte/internal";
+    import type { PageData } from "./$types";
+    import { format } from 'date-fns';
     
+
+    export let data: PageData;
 </script>
 <body>
    
@@ -49,18 +17,16 @@
 
         <div class="cardcontainer">
             <div class="cards p-2.5">
-                {#each dates as { day, nu }}
-                <form method="POST" action="?/bookShift">
+                {#each data.alma as entry}
+                    <a href={`./Time`}>
                     <div class="dateCard">
                         <div class="word">
-                            <a href="SelectShift/Time"> </a>
                         </div>
-                        <div class="number">{nu}</div>
+                        <div class="number">{format(entry.shiftTo, "d. E")}</div>
                         <div class="status" />
-                        <button>send</button>
                     </div>
-                </form>
-                {/each}
+                    </a>
+                    {/each}
             </div>
         </div>
     </div>

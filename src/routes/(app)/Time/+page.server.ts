@@ -11,12 +11,14 @@ export const load: PageServerLoad = async (ev)=>{
     
     const res = await authFetch(ev, 'POST', '/shift/filter', { body: reqBody });
    
+
     let payload = (await res?.json()).map(x => ({
       ...x,
       shiftTo: new Date(x.shiftTo),
       shiftFrom: new Date(x.shiftFrom)
     }));
 
+    console.log(payload);
 
     return {
       regOk: res?.ok,

@@ -1,5 +1,8 @@
-<script>
+<script lang="ts">
+    import type { PageData } from "./$types";
+    export let data: PageData;
 
+    let userRole = data.role == "admin" || data.role == "manager";
 </script>
 <body>
  
@@ -26,12 +29,13 @@
                     <div class="title">Overview</div>
                 </div>
             </a>
-
+            {#if userRole}
             <a href="./ManagerShifts">
                 <div class="card">
                     <div class="title">Add shift</div>
                 </div>
             </a>
+            {/if}
             </div>
         </div>
     </div>

@@ -24,8 +24,8 @@
             <div class="cardcontainer">
                 <div class="cards p-2.5">
                     <form action="?/CreateShift" method="post">
-                        <input type="datetime" name="shiftFrom" />
-                        <input type="datetime" name="shiftTo" />
+                        <input type="datetime-local" name="shiftFrom" />
+                        <input type="datetime-local" name="shiftTo" />
                         <input type="submit" value="Add" class="on" />
                     </form>
                 </div>
@@ -56,11 +56,8 @@
         padding: 10px;
         text-align: center;
         border-radius: 10px;
-        background: linear-gradient(
-            180deg,
-            rgba(43, 50, 58, 1) 0%,
-            rgba(23, 28, 33, 1) 100%
-        );
+        
+      background: linear-gradient(142deg, rgba(129,65,62,1) 0%, rgba(106,0,0,1) 100%);
         color: white;
     }
     .on:hover {
@@ -90,7 +87,26 @@
         flex-wrap: wrap;
         gap: 50px;
     }
+    input {
+      font-family: italicFont;
+      width: 100%;
+      padding: 20px;
+      font-size: 20px;
+      color: #fff;
+      background-color: rgb(28, 28, 30);
+      box-shadow: 0 0 0.4vw rgba(0, 0, 0, 0.5), 0 0 0 0.15vw transparent;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      transition: 0.4s;
+   }
+   input:hover {
+      box-shadow: 0 0 0 0.15vw rgba(235, 135, 135, 0.186);
+   }
 
+   input:focus {
+      box-shadow: 0 0 0 0.15vw #d2042d;
+   }
    
 
    
