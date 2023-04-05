@@ -1,6 +1,3 @@
-
-import { baseUrl } from '$lib/config';
-import { authFetch } from '$lib/util';
 import { redirect } from '@sveltejs/kit';
 import type { RequestEvent } from '../$types';
 

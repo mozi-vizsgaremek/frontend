@@ -1,4 +1,3 @@
-import { getUserRole } from '$lib/util';
 import type { PageServerLoad } from '../$types';
 
 export const load: PageServerLoad = async (ev) => {

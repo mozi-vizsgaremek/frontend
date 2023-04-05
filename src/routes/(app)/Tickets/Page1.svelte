@@ -1,24 +1,20 @@
 <script>
     // @ts-nocheck
-
-    // @ts-ignore
     import { createForm } from "felte";
     import QRCode from "../Settings/QRJS.svelte";
     import Modal from "$lib/svelte/Modal.svelte";
+    import { each } from "svelte/internal";
 
     export let initialValues;
     export let onSubmit;
 
-    
     let showModal = false;
 
     const { form } = createForm({ onSubmit, initialValues });
 
     function qrCode() {
         if (document.body.clientWidth < 600) {
-           
-        showModal = true;
-            
+            showModal = true;
         } else {
             alert("Ki kell nyomtatni");
         }
@@ -33,7 +29,7 @@
 </div>
 <div class="ticket_card">
     <div class="dates">
-        <div class="date">2023/01/02</div>
+        <div class="date">2023/04/10</div>
         <div class="time">17:50</div>
     </div>
     <div class="titlecont">
@@ -51,10 +47,8 @@
 </div>
 <Modal bind:showModal>
     <h2 slot="header" class="header">Ticket</h2>
-    
 
-    <QRCode codeValue="http://localhost:5173/Tickets" squareSize=400/>
-
+    <QRCode codeValue="http://localhost:5173/Tickets" squareSize="400" />
 </Modal>
 
 <style>
@@ -72,13 +66,12 @@
     .active_mini {
         border-color: white;
         color: white;
-        
     }
     .mininav {
         display: flex;
         gap: 10px;
         color: white;
-        
+
         margin-bottom: 20px;
     }
     .desccont {

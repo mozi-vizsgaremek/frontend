@@ -1,5 +1,3 @@
-
-import { baseUrl } from '$lib/config';
 import { authFetch } from '$lib/util';
 import type { RequestEvent } from './$types';
 

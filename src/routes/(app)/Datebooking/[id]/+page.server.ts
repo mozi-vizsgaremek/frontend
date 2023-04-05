@@ -1,6 +1,4 @@
 import { authFetch } from "$lib/util";
-import type { LoadEvent } from "@sveltejs/kit";
-import type { PageLoadEvent } from "../$types";
 import type { PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = async (ev) => {

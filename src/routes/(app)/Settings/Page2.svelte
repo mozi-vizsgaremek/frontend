@@ -30,8 +30,7 @@
         <h3 class="alma ">
             <button on:click={() => onBack($data)}>2FA</button>
         </h3>
-        <h3 class="alma active_mini"><button>Password</button></h3>
-        <h3 class="alma "><button>Language</button></h3>
+        <h3 class="active_mini"><button>Password</button></h3>
     </form>
 </div>
 <div class="pasres">
@@ -85,7 +84,8 @@
         color: white;
     }
     .active_mini {
-        border-color: white;
+        
+        border-bottom: 2px solid white;
         color: white;
     }
     .alma {

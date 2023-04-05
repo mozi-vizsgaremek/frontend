@@ -1,4 +1,4 @@
-import { baseUrl } from '$lib/config';
+import { authFetch } from '$lib/util';
 import type { Actions } from '../$types';
 
 
@@ -13,35 +13,20 @@ export const actions: Actions = {
       newPassword: body.get('newPass'),
     });
 
-
-
-    const retok = event.cookies.get("refresh_token");
-    const acctok = event.cookies.get("access_token");
-
     
 
+    const res = await authFetch(event, 'PUT', '/auth/password', { body: reqBody });
 
-    const res = await event.fetch(`${baseUrl}/auth/password`, {
-      method: 'PUT',
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${acctok}`,
-      },
-      body: reqBody
-    });
-
-    const payload = await res.json()
+    const payload = await res?.json()
 
 
     return {
-      chageOk: res.ok,
+      chageOk: res?.ok,
       errorMessage: payload.message ?? null
     }
   },
 
   startOnBoarding: async (event) => {
-
-    const acctok = event.cookies.get("access_token");
 
     const body = await event.request.formData();
     const reqBody = JSON.stringify({
@@ -49,16 +34,10 @@ export const actions: Actions = {
       newPassword: body.get('newpass')
     });
 
-    const resTotp = await event.fetch(`${baseUrl}/auth/totp`, {
-      method: 'POST',
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${acctok}`,
-      },
-      body: reqBody
-    });
+    
+    const res = await authFetch(event, 'POST', '/auth/totp', { body: reqBody });
 
-    const payload = await resTotp.json();
+    const payload = await res?.json();
 
 
     return {
@@ -76,22 +55,14 @@ export const actions: Actions = {
       totp: body.get('totp')
     });
 
+    
+    const res = await authFetch(event, 'PUT', '/auth/totp', { body: reqBody });
 
-    const acctok = event.cookies.get("access_token");
-
-    const onBoard = await event.fetch(`${baseUrl}/auth/totp`, {
-      method: 'PUT',
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${acctok}`,
-      },
-      body: reqBody
-    });
 
 
 
     return {
-      onBoard: onBoard.ok
+      onBoard: res?.ok
     }
   },
 
@@ -102,23 +73,16 @@ export const actions: Actions = {
       totp: body.get('deleteTotp')
     });
 
-    const acctok = event.cookies.get("access_token");
+    
+    const res = await authFetch(event, 'DELETE', '/auth/totp', { body: reqBody });
 
-    const deleteOnBoard = await event.fetch(`${baseUrl}/auth/totp`, {
-      method: 'DELETE',
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${acctok}`,
-      },
-      body: reqBody
-    });
 
-    const payload = await deleteOnBoard.json();
+    const payload = await res?.json();
 
 
 
     return {
-      deleteOnBoard: deleteOnBoard.ok,
+      deleteOnBoard: res?.ok,
       
       errorMessage: payload.message ?? null
     }

@@ -1,6 +1,4 @@
 <script>
-    import PhoneNav from "$lib/svelte/PhoneNav.svelte";
-    import Navbar from "$lib/svelte/Navbar.svelte";
 
     export let data;
 </script>

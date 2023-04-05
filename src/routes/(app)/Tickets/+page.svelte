@@ -3,10 +3,6 @@
     import Page1 from "./Page1.svelte";
     import Page2 from "./Page2.svelte";
 
-    import PhoneNav from "$lib/svelte/PhoneNav.svelte";
-
-    import Navbar from "$lib/svelte/Navbar.svelte";
-
     const pages = [Page1, Page2];
 
     // The current page of our form.

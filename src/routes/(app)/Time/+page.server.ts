@@ -1,7 +1,11 @@
 import type { PageServerLoad } from './$types';
 import { authFetch } from '$lib/util';
+import type { Actions } from '@sveltejs/kit';
+import type { RequestEvent } from '../$types';
 
-export const load: PageServerLoad = async (ev)=>{
+/** @type {import('./$types').PageServerLoad} */
+
+export async function load(ev:RequestEvent){
   
     const reqBody = JSON.stringify({
         from: "2023-04-01",
@@ -18,7 +22,6 @@ export const load: PageServerLoad = async (ev)=>{
       shiftFrom: new Date(x.shiftFrom)
     }));
 
-    console.log(payload);
 
     return {
       regOk: res?.ok,

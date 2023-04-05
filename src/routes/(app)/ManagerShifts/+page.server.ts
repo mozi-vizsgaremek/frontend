@@ -1,6 +1,5 @@
 import { baseUrl } from '$lib/config';
 import { authFetch } from '$lib/util';
-import { construct_svelte_component_dev } from 'svelte/internal';
 import type { Actions } from '../$types';
 
 export const actions: Actions = {
@@ -8,7 +7,7 @@ export const actions: Actions = {
 
   CreateShift: async (event) => {
     const body = await event.request.formData();
-    const getDateStr = (field: string) => new Date(body.get(field)?.toString()!); 
+    const getDateStr = (field: string) => new Date(body.get(field)?.toString()!);
 
     const reqBody = JSON.stringify({
       shiftFrom: getDateStr('shiftFrom'),

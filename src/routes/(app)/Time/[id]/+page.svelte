@@ -1,7 +1,5 @@
 <script>
     
-
-    import { format } from 'date-fns';
     export let data;
 </script>
 <body>
@@ -13,18 +11,9 @@
         
         <div class="cardcontainer">
             <div class="cards p-2.5" >
-                
-                {#each data.alma as entry}
-                <a href={`Time/${entry.id}`}>
-                    <form method="POST" action="?/bookShift">
-                    <div class="dateCard">
-                        <div class="number">{format(entry.shiftFrom, "kk:mm")} - {format(entry.shiftTo, "kk:mm")}</div>
-                        <div class="status" />
-                    </div>
-                    <button>Book</button>
+                <form method="POST">
+                <button>Save</button>
                 </form>
-            </a>
-                {/each}
             </div>
         </div>
     </div>
