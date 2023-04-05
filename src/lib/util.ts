@@ -80,9 +80,10 @@ export async function authFetch(ev: RequestEvent|ServerLoadEvent, method: string
     return ev.fetch(`${baseUrl}${path}`, {
         method,
         headers: {
-            ...opts?.headers,
-            "Content-Type": "application/json",
-            "Authorization": "Bearer " + accessToken
+            "Authorization": "Bearer " + accessToken,
+            ...(opts?{
+            'Content-Type': 'application/json',
+            }:{})
         },
         ...opts
     });
