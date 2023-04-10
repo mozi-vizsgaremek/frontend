@@ -55,7 +55,7 @@
     <div class="allCenter flex w-full min-h-screen">
         
 
-        <div class="content pt-2.5 min-h-screen">
+        <div class="content pt-2.5">
            
 
             <div class="cardcontainer">

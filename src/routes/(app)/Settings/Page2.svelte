@@ -55,6 +55,8 @@
 <style>
     .pasres form {
         display: flex;
+        width: 100%;
+        align-items: center;
         flex-direction: column;
         gap: 10px;
     }
@@ -69,17 +71,17 @@
         width: 200px;
         padding: 10px;
         border-radius: 10px;
-        background: rgb(43, 50, 58);
-        background: linear-gradient(
-            180deg,
-            rgba(43, 50, 58, 1) 0%,
-            rgba(23, 28, 33, 1) 100%
-        );
+        
+        background: radial-gradient(circle at 10% 20%, #73C8A9 0%, #373B44 90%);
+        box-shadow:
+            inset -8px -8px 16px 0px rgba(0, 0, 0, 0.6),
+            inset 0px 11px 28px 0px rgba(255, 255, 255, 0.2);
         color: white;
     }
 
     .mininav {
         display: flex;
+        justify-content: center;
         gap: 10px;
         color: white;
     }
@@ -99,16 +101,21 @@
     }
     input {
         font-size: 0.9rem;
-        background-color: transparent;
+        background: radial-gradient(circle at 10% 20%, #73C8A9 0%, #373B44 90%);
         width:50%;
         outline: none;
         height: 100%;
         padding-inline: 0.5em;
         padding-block: 0.7em;
         border: none;
-        color: white;
+        color: black;
+        
+        box-shadow:
+            inset -8px -8px 16px 0px rgba(0, 0, 0, 0.6),
+            inset 0px 11px 28px 0px rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
     }
-    input:focus {
-        border-bottom: 2px solid #D2042D;
+    ::-webkit-input-placeholder{
+        color: white;
     }
 </style>

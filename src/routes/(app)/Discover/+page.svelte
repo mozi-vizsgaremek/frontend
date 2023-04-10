@@ -1,14 +1,12 @@
 <script>
     import MovieCard from "$lib/svelte/MovieCard.svelte";
-    import PhoneNav from "$lib/svelte/PhoneNav.svelte";
-    import Navbar from "$lib/svelte/Navbar.svelte";
 
     export let data;
 </script>
 
 <body>
     <div class="allCenter">
-        <div class="content pt-2.5 min-h-screen">
+        <div class="content pt-2.5">
             <div class="searchInput pb-2.5 flex justify-center">
                 <form class="form">
                     <button>

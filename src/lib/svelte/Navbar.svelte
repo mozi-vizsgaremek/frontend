@@ -50,6 +50,7 @@
 
 <style>
     nav {
+        z-index: 99;
         background: #161616;
         position: fixed;
         top: 0;

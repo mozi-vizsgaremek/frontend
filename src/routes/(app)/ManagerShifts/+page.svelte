@@ -1,9 +1,10 @@
 <script>
-    import PhoneNav from "$lib/svelte/PhoneNav.svelte";
-    import Navbar from "$lib/svelte/Navbar.svelte";
 
     import { page } from "$app/stores";
+    
+
     export const data = $page.form;
+    
 
     import { browser } from "$app/environment";
 
@@ -26,10 +27,12 @@
                     <form action="?/CreateShift" method="post">
                         <input type="datetime-local" name="shiftFrom" />
                         <input type="datetime-local" name="shiftTo" />
+                        <input type="number" name="requiredStaff" placeholder="Number of employees"/>
                         <input type="submit" value="Add" class="on" />
                     </form>
                 </div>
             </div>
+           
         </div>
         
     </div>
@@ -48,7 +51,7 @@
     }
 
     .allCenter {
-        padding-top: 30px;
+        padding-top: 50px;
     }
    
     .on {
@@ -75,6 +78,7 @@
 
     .content {
         width: 100%;
+        height: 100%;
     }
   
     .cardcontainer {

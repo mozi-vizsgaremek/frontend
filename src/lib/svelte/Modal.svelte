@@ -39,7 +39,12 @@ import close from "svelte-icons-pack/io/IoClose";
 		border: none;
 		padding: 0;
         border-radius: 10px;
-        background: linear-gradient(180deg, rgba(43,50,58,1) 0%, rgba(23,28,33,1) 100%);
+        backdrop-filter: blur(5px);
+        background: radial-gradient(circle at 10% 20%, #73C8A9 0%, #373B44 90%);
+		
+        box-shadow:
+            inset -8px -8px 16px 0px rgba(0, 0, 0, 0.6),
+            inset 0px 11px 28px 0px rgba(255, 255, 255, 0.2);
         color: white;
 
 	}

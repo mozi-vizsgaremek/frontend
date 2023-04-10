@@ -2,6 +2,12 @@ import { baseUrl } from '$lib/config';
 import { authFetch } from '$lib/util';
 import type { Actions } from '../$types';
 
+import type { RequestEvent } from '../$types';
+
+/** @type {import('./$types').PageServerLoad} */
+
+
+
 export const actions: Actions = {
 
 
@@ -12,7 +18,7 @@ export const actions: Actions = {
     const reqBody = JSON.stringify({
       shiftFrom: getDateStr('shiftFrom'),
       shiftTo: getDateStr('shiftTo'),
-      requiredStaff: 1
+      requiredStaff: Number(body.get('requiredStaff'))
     });
 
     console.log(reqBody);

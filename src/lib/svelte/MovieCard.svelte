@@ -30,11 +30,20 @@
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
         transition: all 0.3s;
         z-index: 1;
+
+        backdrop-filter: blur(5px);
+
+
+border-radius: 20px;
+box-shadow: inset -8px -8px 16px 0px rgba(0, 0, 0, 0.6),
+    inset 0px 11px 28px 0px rgb(255, 255, 255,0.2);
     }
     .card:hover {
         transform: scale(1.05);
         cursor: pointer;
 
+        box-shadow: inset -8px -8px 100px 0px rgba(0, 0, 0),
+    inset 0px 11px 80px 0px rgb(255, 255, 255);
         z-index: 1;
     }
     .appear {
@@ -46,13 +55,11 @@
         gap: 10px;
         opacity: 0;
         color: white;
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
         border-radius: 10px;
     }
     .title,
     .secondTitle {
-        color: white;
+        color: black;
     }
     .secondTitle {
         font-size: 12px;
