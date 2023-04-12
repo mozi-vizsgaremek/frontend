@@ -10,16 +10,17 @@
             <div class="cardcontainer">
                 <div class="cards p-2.5">
                     {#each data.alma as entry}
+                    <a href={`./Overview/${entry.id}`} class="delete">
                     <div class="dateCardDelete">
                         <div class="word" />
-                        <div class="number">
-                            {format(entry.shiftTo, "d. E")}
-                        </div>
-
                         <div class="buttons">
-                        <a href={`./Overview/${entry.id}`} class="delete">Delete</a>
+                        <div class="number">
+                            {entry.shiftID}<p>
+                        </div>
                     </div>
+                       
                     </div>
+                </a>
             {/each}
             </div>
         </div>
@@ -59,15 +60,15 @@
     }
     .dateCardDelete {
         padding: 20px;
-        color: white;
-        width: 90px;
+        color: black;
+        width: 180px;
         min-height: 50px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 10px;
-
+        text-align: center;
         transition: all 0.5s;
 
         backdrop-filter: blur(5px);
@@ -78,7 +79,20 @@
         box-shadow: inset -8px -8px 16px 0px rgba(33, 35, 35, 0.6),
             inset 0px 11px 28px 0px rgb(255, 255, 255);
     }
-
+    .dateCardDelete:hover{
+        transform: scale(1.05);
+        background-color: red;
+        
+        box-shadow: inset -8px -8px 16px 0px rgba(33, 35, 35, 0.6),
+            inset 0px 11px 28px 0px rgba(0, 0, 0, 0.744);
+    }
+    .buttons{
+        color: black;
+        display: flex;
+        font-size: 12px;
+        gap: 5px;
+    }
+   
     @media (max-width: 700px) {
         .allCenter {
             padding-top: 0;

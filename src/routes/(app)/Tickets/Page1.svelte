@@ -3,7 +3,6 @@
     import { createForm } from "felte";
     import QRCode from "../Settings/QRJS.svelte";
     import Modal from "$lib/svelte/Modal.svelte";
-    import { each } from "svelte/internal";
 
     export let initialValues;
     export let onSubmit;
@@ -19,6 +18,8 @@
             alert("Ki kell nyomtatni");
         }
     }
+
+    
 </script>
 
 <div class="mininav p-2.5">

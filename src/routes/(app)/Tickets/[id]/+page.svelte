@@ -1,5 +1,6 @@
 <script>
     
+    export let data;
 </script>
 <body>
     
@@ -11,8 +12,9 @@
         <div class="cardcontainer">
             <div class="cards p-2.5" >
                 <form method="POST">
-                <button>Save</button>
-                </form>
+                <input type="number" value="2" placeholder="Seats" name="seats">
+                <button>Book</button>
+            </form>
             </div>
         </div>
     </div>
@@ -20,6 +22,7 @@
 </div>
 
 </body>
+
 <style>
     @font-face {
         font-family: normalFont;

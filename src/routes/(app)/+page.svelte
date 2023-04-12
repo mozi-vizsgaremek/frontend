@@ -65,7 +65,7 @@
     }
     .pop {
         width: 100%;
-        height: 600px;
+        height: 450px;
         background-image: linear-gradient(
                 to bottom,
                 rgba(245, 246, 252, 0),

@@ -2,6 +2,11 @@
     import MovieCard from "$lib/svelte/MovieCard.svelte";
 
     export let data;
+
+    let alma = data.resBody;
+
+    console.log(alma)
+    console.log(alma.filter(x => x.title));
 </script>
 
 <body>

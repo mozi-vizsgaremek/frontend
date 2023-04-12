@@ -9,6 +9,6 @@ export const load: PageServerLoad = async (ev) => {
     
 
     if(await res?.ok)
-        throw redirect(302, './Job');
+        throw redirect(302, '../Job');
     
 }

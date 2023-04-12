@@ -1,38 +1,41 @@
 <script>
+    import { format } from "date-fns";
 
     export let data;
 </script>
-<body>
 
-<div class="allCenter">
-    
-    <!--Content-->
-    <div class="content min-h-screen">
-        <!--Image-->
-        <div class="movieCover" />
-        <!--Movie desc and book-->
-        <div class="all">
-            <div class="title">{ data.movie.title }</div>
-            <div class="alcim">{ data.movie.subtitle }</div>
-            <div class="category">
-                <div class="catcard">Action</div>
-                <div class="catcard">Scifi</div>
-            </div>
-            <div class="desc">
-                <p>{ data.movie.description }</p>
-            </div>
-            <h2>Select Date</h2>
-            <!--Carousel-->
-            <div class="carousel" />
-            <!--Next button-->
-            <div class="next">
-                <button class="nextbtn">Next</button>
+<body>
+    <div class="allCenter">
+        <!--Content-->
+        <div class="content">
+            <!--Image-->
+            <div class="movieCover" />
+            <!--Movie desc and book-->
+            <div class="all">
+                <div class="title">{data.movie.title}</div>
+                <div class="alcim">{data.movie.subtitle}</div>
+                <div class="category">
+                    <div class="catcard">Action</div>
+                    <div class="catcard">Scifi</div>
+                </div>
+                <div class="desc">
+                    <p>{data.movie.description}</p>
+                </div>
+                <h2>Select Date</h2>
+                <div class="dates">
+                    {#each data.screening as screenings}
+                        <a href={`../Tickets/${screenings.id}`}>
+                            <div class="dateCard">
+                                {format(screenings.time, "d. E k:mm")}
+                            </div>
+                        </a>
+                    {/each}
+                </div>
             </div>
         </div>
     </div>
-</div>
-    
 </body>
+
 <style>
     @font-face {
         font-family: normalFont;
@@ -41,26 +44,54 @@
     * {
         font-family: normalFont;
     }
-    body{
+    body {
         background: #161616;
     }
     .desc {
         font-size: 10px;
     }
+    input{
+        color: black    ;
+    }
 
     .allCenter {
         padding-top: 50px;
     }
-    
+    .dates {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
 
-   
+    .dateCard {
+        padding: 20px;
+        color: black;
+        width: 90px;
+        min-height: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        transition: all 0.5s;
+
+        backdrop-filter: blur(5px);
+
+        background-color: rgb(231, 203, 203);
+
+        border-radius: 20px;
+        box-shadow: inset -8px -8px 16px 0px rgba(33, 35, 35, 0.6),
+            inset 0px 11px 28px 0px rgb(255, 255, 255);
+    }
+
     .movieCover {
         background-image: url("$lib/images/cover.jpg");
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
         width: 100%;
-        height: 400px;
+        min-height: 92vh;
     }
     .desc {
         width: 100%;
@@ -82,10 +113,8 @@
         width: 100%;
     }
 
-   
-
     .content {
-        width:100%;
+        width: 100%;
     }
 
     .title {
@@ -125,18 +154,9 @@
         border-radius: 10px;
     }
 
-    
     @media (max-width: 700px) {
-       
-       
-        .allCenter{
-            
-        padding-top: 0;
+        .allCenter {
+            padding-top: 0;
         }
-        
-        
-        
-        
-       
     }
 </style>

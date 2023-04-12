@@ -1,60 +1,50 @@
-<script>
-    // We import our page components (similar to the one above).
-    import Page1 from "./Page1.svelte";
-    import Page2 from "./Page2.svelte";
+<script lang="ts">
+    import Modal from "$lib/svelte/Modal.svelte";
 
-    const pages = [Page1, Page2];
+    import QRCode from "../Settings/QRJS.svelte";
+    let showModal = false;
+    import type { PageData } from "./$types";
+    export let data;
 
-    // The current page of our form.
-    let page = 0;
-
-    // The state of all of our pages
-    // @ts-ignore
-    /**
-     * @type {any[]}
-     */
-    let pagesState = [];
-
-    // Our handlers
-    // @ts-ignore
-    function onSubmit(values) {
-        if (page === pages.length - 1) {
-            // On our final page with POST our data somewhere
-            // @ts-ignore
-            console.log("Submitted data: ", pagesState);
+    function qrCode() {
+        if (document.body.clientWidth < 600) {
+            showModal = true;
         } else {
-            // If we're not on the last page, store our data and increase a step
-            pagesState[page] = values;
-            // @ts-ignore
-            pagesState = pagesState; // Triggering update
-            page += 1;
+            alert("Ki kell nyomtatni");
         }
-    }
-    // @ts-ignore
-    function onBack(values) {
-        if (page === 0) return;
-        pagesState[page] = values;
-        // @ts-ignore
-        pagesState = pagesState; // Triggering update
-        page -= 1;
     }
 </script>
 
 <body>
     <div class="allCenter flex w-full min-h-screen">
-        
-
         <div class="content pt-2.5">
-            
-
             <div class="cardcontainer">
                 <!-- We display the current step here -->
-                <svelte:component
-                    this={pages[page]}
-                    {onSubmit}
-                    {onBack}
-                    initialValues={pagesState[page]}
-                />
+            {#each data.tickets as ticket}
+                <div class="ticket_card">
+                    <div class="dates">
+                        <div class="date"></div>
+                        <div class="time">{ticket.time}</div>
+                    </div>
+                    <div class="titlecont">
+                        <h2>{ticket.title}</h2>
+                    </div>
+                    
+                    <div class="btncont">
+                        <button class="qr" on:click={qrCode} />
+                    </div>
+                </div>
+                <Modal bind:showModal>
+                    <h2 slot="header" class="header">Ticket</h2>
+
+                    <QRCode
+                        codeValue={ticket.screeningId}
+                        squareSize="400"
+                    />
+                </Modal>
+                {/each}
+                
+
                 <div class="cards p-2.5" />
             </div>
         </div>
@@ -76,14 +66,10 @@
         padding-top: 30px;
     }
 
-
-    
-
     .content {
         width: 100%;
     }
 
-  
     .cardcontainer {
         display: flex;
         flex-direction: column;
@@ -96,15 +82,11 @@
     }
 
     @media (max-width: 700px) {
-       
         .allCenter {
             padding-top: 0;
         }
-
-       
     }
 
-    
     /* width */
     ::-webkit-scrollbar {
         width: 5px;
@@ -123,5 +105,51 @@
     /* Handle on hover */
     ::-webkit-scrollbar-thumb:hover {
         background: #ad0325;
+    }
+    .ticket_card {
+        width: 390px;
+        height: 250px;
+        background-image: linear-gradient(
+                to bottom,
+                rgba(40, 40, 40, 0.4),
+                rgba(40, 40, 40, 0.9)
+            ),
+            url("$lib/images/cover.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 10px;
+    }
+    .dates {
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 8px;
+        color: white;
+    }
+    
+    .titlecont {
+        text-align: center;
+        padding-top: 50px;
+    }
+    .btncont {
+        display: flex;
+        justify-content: center;
+    }
+    .qr {
+        margin-top: 40px;
+        border-radius: 10px;
+        color: white;
+        font-size: 12px;
+        width: 200px;
+        height: 40px;
+        text-align: center;
+        background: linear-gradient(
+            142deg,
+            rgba(129, 65, 62, 1) 0%,
+            rgba(106, 0, 0, 1) 100%
+        );
+        padding: 10px;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     }
 </style>

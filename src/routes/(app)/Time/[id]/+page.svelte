@@ -11,9 +11,6 @@
         
         <div class="cardcontainer">
             <div class="cards p-2.5" >
-                <form method="POST">
-                <button>Save</button>
-                </form>
             </div>
         </div>
     </div>
@@ -21,6 +18,7 @@
 </div>
 
 </body>
+
 <style>
     @font-face {
         font-family: normalFont;

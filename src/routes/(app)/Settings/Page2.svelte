@@ -72,7 +72,7 @@
         padding: 10px;
         border-radius: 10px;
         
-        background: radial-gradient(circle at 10% 20%, #73C8A9 0%, #373B44 90%);
+        background: transparent;
         box-shadow:
             inset -8px -8px 16px 0px rgba(0, 0, 0, 0.6),
             inset 0px 11px 28px 0px rgba(255, 255, 255, 0.2);
@@ -101,14 +101,14 @@
     }
     input {
         font-size: 0.9rem;
-        background: radial-gradient(circle at 10% 20%, #73C8A9 0%, #373B44 90%);
+        background: transparent;
         width:50%;
         outline: none;
         height: 100%;
         padding-inline: 0.5em;
         padding-block: 0.7em;
         border: none;
-        color: black;
+        color: white;
         
         box-shadow:
             inset -8px -8px 16px 0px rgba(0, 0, 0, 0.6),

@@ -1,4 +1,5 @@
 import { authFetch } from "$lib/util";
+import { redirect } from "@sveltejs/kit";
 import type { PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = async (ev) => {
@@ -9,10 +10,10 @@ export const load: PageServerLoad = async (ev) => {
 
     const payload = await res?.json();
 
+    console.log(payload)
 
-    console.log(payload);
 
-    return {
-        
-    }
+    if(await res?.ok)
+        throw redirect(302,'../Job')
+    
 }

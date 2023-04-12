@@ -18,10 +18,10 @@
                 <a href={`Time/${entry.id}`}>
                     <form method="POST" action="?/bookShift">
                     <div class="dateCard">
+                        <div class="buttons">
                         <div class="number">{format(entry.shiftFrom, "kk:mm")} - {format(entry.shiftTo, "kk:mm")}</div>
-                        <div class="status" />
                     </div>
-                    <button>Book</button>
+                    </div>
                 </form>
             </a>
                 {/each}
@@ -51,11 +51,38 @@
     }
    
     .number{
-        color: white;
+        color: black;
         font-size: 13px;
     }
 
+    .dateCard {
+        padding: 20px;
+        color: black;
+        width: 180px;
+        min-height: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
 
+        transition: all 0.5s;
+
+        backdrop-filter: blur(5px);
+
+        background-color: rgb(231, 203, 203);
+
+        border-radius: 20px;
+        box-shadow: inset -8px -8px 16px 0px rgba(33, 35, 35, 0.6),
+            inset 0px 11px 28px 0px rgb(255, 255, 255);
+    }
+    .buttons{
+        color: black;
+        display: flex;
+        font-size: 12px;
+        gap: 5px;
+    }
+   
     
 
     .content {

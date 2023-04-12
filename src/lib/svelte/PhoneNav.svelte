@@ -13,7 +13,12 @@
     // @ts-ignore
     import settings from "svelte-icons-pack/io/IoSettings";
 
+    
+    import wallet from "svelte-icons-pack/io/IoWallet";
+
+    
     export let role;
+    let showJobs = role != "customer";
 </script>
 
 <ul>
@@ -46,6 +51,12 @@
             <p>Settings</p></div>
         </a>
     </li>
+    {#if showJobs}
+    <a href="./Job" class="text-gray-400"
+    ><div class="icons"><Icon src={wallet} color="white" size="25" />
+        <p>Settings</p></div>
+    </a>
+        {/if}
 </ul>
 
 <style>
