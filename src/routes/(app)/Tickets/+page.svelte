@@ -1,5 +1,6 @@
 <script lang="ts">
     import Modal from "$lib/svelte/Modal.svelte";
+    import { formatDistance, formatDistanceToNow } from "date-fns";
 
     import QRCode from "../Settings/QRJS.svelte";
     let showModal = false;
@@ -20,11 +21,12 @@
         <div class="content pt-2.5">
             <div class="cardcontainer">
                 <!-- We display the current step here -->
+                <div class="tickets">
             {#each data.tickets as ticket}
                 <div class="ticket_card">
                     <div class="dates">
                         <div class="date"></div>
-                        <div class="time">{ticket.time}</div>
+                        <div class="time">{formatDistanceToNow(new Date(ticket.time))} from now</div>
                     </div>
                     <div class="titlecont">
                         <h2>{ticket.title}</h2>
@@ -34,16 +36,17 @@
                         <button class="qr" on:click={qrCode} />
                     </div>
                 </div>
-                <Modal bind:showModal>
-                    <h2 slot="header" class="header">Ticket</h2>
-
-                    <QRCode
-                        codeValue={ticket.screeningId}
-                        squareSize="400"
-                    />
-                </Modal>
-                {/each}
                 
+                {/each}
+            </div>
+            <Modal bind:showModal>
+                <h2 slot="header" class="header">Ticket</h2>
+
+                <QRCode
+                    codeValue={data.tickets.screeningId}
+                    squareSize="400"
+                />
+            </Modal>
 
                 <div class="cards p-2.5" />
             </div>
@@ -68,6 +71,13 @@
 
     .content {
         width: 100%;
+    }
+    .tickets{
+        display: flex;
+        width: 100%;
+        gap: 10px;
+        justify-content: center;
+        flex-wrap: wrap;
     }
 
     .cardcontainer {
@@ -107,8 +117,8 @@
         background: #ad0325;
     }
     .ticket_card {
-        width: 390px;
-        height: 250px;
+        width: 290px;
+        height: 150px;
         background-image: linear-gradient(
                 to bottom,
                 rgba(40, 40, 40, 0.4),
@@ -130,19 +140,20 @@
     
     .titlecont {
         text-align: center;
-        padding-top: 50px;
+        padding-top: 10px;
+        color: white;
     }
     .btncont {
         display: flex;
         justify-content: center;
     }
     .qr {
-        margin-top: 40px;
+        margin-top: 20px;
         border-radius: 10px;
         color: white;
         font-size: 12px;
-        width: 200px;
-        height: 40px;
+        width: 100px;
+        height: 30px;
         text-align: center;
         background: linear-gradient(
             142deg,

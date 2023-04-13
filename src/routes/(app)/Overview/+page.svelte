@@ -1,7 +1,7 @@
 <script lang="ts">
     import { format } from "date-fns";
     import type { PageData } from "./$types";
-    export let data: PageData;
+    export let data;
 </script>
 
 <body>
@@ -9,13 +9,14 @@
         <div class="content pt-2.5">
             <div class="cardcontainer">
                 <div class="cards p-2.5">
-                    {#each data.alma as entry}
+                    {#each data.upComing as entry}
                     <a href={`./Overview/${entry.id}`} class="delete">
                     <div class="dateCardDelete">
                         <div class="word" />
                         <div class="buttons">
                         <div class="number">
-                            {entry.shiftID}<p>
+                            {format(entry.shiftFrom, "d. E")}<p>
+                                {format(entry.shiftFrom, "kk:mm")} - {format(entry.shiftTo, "kk:mm")}
                         </div>
                     </div>
                        

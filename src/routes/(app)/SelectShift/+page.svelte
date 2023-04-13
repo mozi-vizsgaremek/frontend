@@ -15,17 +15,20 @@
                 <div class="cards p-2.5">
                     {#if userRole}
                         {#each data.alma as entry}
-                                <div class="dateCardDelete">
-                                    <div class="word" />
-                                    <div class="number">
-                                        {format(entry.shiftTo, "d. E")}
-                                    </div>
+                            <div class="dateCardDelete">
+                                <div class="word" />
+                                <div class="number">
+                                    {format(entry.shiftTo, "d. E")}
+                                </div>
 
-                                    <div class="buttons">
+                                <div class="buttons">
                                     <a href={`./Time`} class="book">Book</a>
-                                    <a href={`./SelectShift/${entry.id}`} class="delete">Delete</a>
+                                    <a
+                                        href={`./SelectShift/${entry.id}`}
+                                        class="delete">Delete</a
+                                    >
                                 </div>
-                                </div>
+                            </div>
                         {/each}
                     {:else}
                         {#each data.alma as entry}
@@ -82,30 +85,28 @@
         box-shadow: inset -8px -8px 16px 0px rgba(33, 35, 35, 0.6),
             inset 0px 11px 28px 0px rgb(255, 255, 255);
     }
-    .buttons{
+    .buttons {
         color: black;
         display: flex;
         font-size: 12px;
         gap: 5px;
     }
-    .buttons a{
+    .buttons a {
         padding: 10px;
         border-radius: 10px;
     }
-    .book{
-        
+    .book {
         border: 1px solid rgb(13, 129, 32);
-        transition: all .5s;
+        transition: all 0.5s;
     }
-    .book:hover{
+    .book:hover {
         background-color: #07822a;
     }
-    .delete{
-        
+    .delete {
         border: 1px solid rgb(178, 4, 4);
-        transition: all .5s;
+        transition: all 0.5s;
     }
-    .delete:hover{
+    .delete:hover {
         background-color: rgb(178, 4, 4);
     }
 

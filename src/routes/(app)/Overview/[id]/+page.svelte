@@ -1,6 +1,9 @@
 <script>
-    
+ 
+   
     export let data;
+
+  
 </script>
 <body>
     

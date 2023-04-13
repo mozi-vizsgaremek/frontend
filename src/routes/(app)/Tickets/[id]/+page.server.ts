@@ -1,5 +1,7 @@
 import { authFetch } from "$lib/util";
-import type { Actions } from "./$types";
+import type { Actions, PageServerLoad } from "./$types";
+
+
 
 export const actions: Actions = {
 

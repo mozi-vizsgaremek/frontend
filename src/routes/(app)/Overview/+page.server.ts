@@ -6,16 +6,19 @@ export const load: PageServerLoad = async (ev) => {
 
 
 
-  const res = await authFetch(ev, 'GET', '/shift/book');
+  const res = await authFetch(ev, 'GET', '/shift/book/');
 
-  let payload = await res?.json();
+
+  let payload = (await res?.json()).map(x => ({
+    ...x,
+    shiftTo: new Date(x.shiftTo),
+    shiftFrom: new Date(x.shiftFrom)
+  }));
+
 
 
   return {
-    regOk: res?.ok,
-    alma: payload,
-    role: userRole,
-    errorMessage: payload.message ?? null
+    upComing: await payload
   }
 
 

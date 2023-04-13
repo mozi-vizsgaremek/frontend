@@ -60,7 +60,7 @@
     }
     
     .texts {
-        padding-top: 200px;
+        padding-top: 150px;
         padding-left: 50px;
     }
     .pop {
