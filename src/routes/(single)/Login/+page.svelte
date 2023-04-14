@@ -18,7 +18,12 @@
 
    if (data != null && data["errorMessage"] && browser) {
      
+      if(data.errorMessage == "body/username Expected string length greater or equal to 4, body/username Expected string to match pattern ^([A-Za-z0-9_-]){4,32}$, body/password Expected string length greater or equal to 8, body/password Expected string to match pattern ^[A-Za-z0-9!@#$%&^_W]{8,256}$"){
+         notifications.danger('Invalid username or password', 2000);
+      }else{
       notifications.danger(data.errorMessage, 2000);
+   }
+      console.log(data.errorMessage)
    }
    
 </script>
