@@ -1,10 +1,9 @@
 <script lang="ts">
     import Modal from "$lib/svelte/Modal.svelte";
-    import { formatDistance, formatDistanceToNow } from "date-fns";
+    import { formatDistanceToNow } from "date-fns";
 
     import QRCode from "../Settings/QRJS.svelte";
     let showModal = false;
-    import type { PageData } from "./$types";
     export let data;
 
     function qrCode() {
@@ -34,6 +33,7 @@
                     
                     <div class="btncont">
                         <button class="qr" on:click={qrCode} />
+                        <a href={`./DeleteReservation/${ticket.id}`}>Delete</a>
                     </div>
                 </div>
                 
