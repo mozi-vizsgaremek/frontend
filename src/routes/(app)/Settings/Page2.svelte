@@ -1,57 +1,53 @@
 <script>
     // @ts-nocheck
 
-    // @ts-ignore
+    //imports
     import { createForm } from "felte";
-    
-   import { notifications } from "$lib/notifications";
-   import Toast from "$lib/svelte/Toast.svelte";
-   
-   import { page } from "$app/stores";
-
+    import { notifications } from "$lib/notifications";
+    import Toast from "$lib/svelte/Toast.svelte";
     import { browser } from "$app/environment";
 
+    //exports
     export let initialValues;
     export let onSubmit;
-
-    // @ts-ignore
     export let onBack;
 
+    //This is for multipage
     const { form, data } = createForm({ onSubmit, initialValues });
 
     if (data != null && data["changePassword"] && browser) {
-        
         notifications.danger(data.errorMessage, 2000);
     }
 </script>
 
+<!--Multipage nav-->
 <div class="mininav p-2.5">
     <form use:form>
-        <h3 class="alma ">
+        <h3 class="alma">
             <button on:click={() => onBack($data)}>2FA</button>
         </h3>
-        <h3 class="active_mini"><button>Password</button></h3>
+        <h3 class="active_mini"><button>Account</button></h3>
     </form>
 </div>
+
+<!--Change password form-->
 <div class="pasres">
     <form method="POST" action="?/changePassword">
-        <input
-            type="password"
-            required
-            placeholder="Old password"
-            name="oldPass"
-        />
-        <input
-            type="password"
-            required
-            placeholder="New password"
-            name="newPass"
-        />
+        <h1>Password</h1>
+        <input type="password" placeholder="Old password" name="oldPass" />
+        <input type="password" placeholder="New password" name="newPass" />
         <button class="save">Save</button>
+    </form>
+
+    <form method="POST" action="?/deleteAccount">
+        <input type="password" placeholder="Password" name="password" />
+        <input type="text" placeholder="TOTP" name="totp" />
+        <button>Delete Account</button>
     </form>
 </div>
 
 <Toast />
+
 <style>
     .pasres form {
         display: flex;
@@ -64,6 +60,10 @@
         font-family: normalFont;
         src: url($lib/fonts/Sequel100Black-55.ttf);
     }
+    h1 {
+        color: white;
+        text-align: center;
+    }
     * {
         font-family: normalFont;
     }
@@ -71,10 +71,9 @@
         width: 200px;
         padding: 10px;
         border-radius: 10px;
-        
+
         background: transparent;
-        box-shadow:
-            inset -8px -8px 16px 0px rgba(0, 0, 0, 0.6),
+        box-shadow: inset -8px -8px 16px 0px rgba(0, 0, 0, 0.6),
             inset 0px 11px 28px 0px rgba(255, 255, 255, 0.2);
         color: white;
     }
@@ -86,7 +85,6 @@
         color: white;
     }
     .active_mini {
-        
         border-bottom: 2px solid white;
         color: white;
     }
@@ -102,20 +100,19 @@
     input {
         font-size: 0.9rem;
         background: transparent;
-        width:50%;
+        width: 50%;
         outline: none;
         height: 100%;
         padding-inline: 0.5em;
         padding-block: 0.7em;
         border: none;
         color: white;
-        
-        box-shadow:
-            inset -8px -8px 16px 0px rgba(0, 0, 0, 0.6),
+
+        box-shadow: inset -8px -8px 16px 0px rgba(0, 0, 0, 0.6),
             inset 0px 11px 28px 0px rgba(255, 255, 255, 0.2);
         border-radius: 10px;
     }
-    ::-webkit-input-placeholder{
+    ::-webkit-input-placeholder {
         color: white;
     }
 </style>

@@ -55,7 +55,7 @@
 <div class="mininav p-2.5">
     <form use:form>
         <h3 class="alma active_mini"><button>2FA</button></h3>
-        <h3 class="alma"><button type="submit">Password</button></h3>
+        <h3 class="alma"><button type="submit">Account</button></h3>
     </form>
 </div>
 
