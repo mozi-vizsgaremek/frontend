@@ -1,4 +1,5 @@
 import { authFetch } from '$lib/util';
+import { redirect } from '@sveltejs/kit';
 import type { Actions } from '../$types';
 
 
@@ -13,12 +14,12 @@ export const actions: Actions = {
 
     const res = await authFetch(event, 'PUT', '/auth/password', { body: reqBody });
 
-    const payload = await res?.json();
-
+    if(res?.ok){
+      throw redirect(302,'../')
+    }
 
     return {
-      chageOk: res?.ok,
-      errorMessage: await payload.message ?? null
+      chageOk: res?.ok
     }
   },
   deleteAccount: async (event) => {
@@ -37,12 +38,10 @@ export const actions: Actions = {
 
     const res = await authFetch(event, 'DELETE', '/auth', { body: reqBody });
 
-    const payload = await res?.json();
 
 
     return {
-      chageOk: res?.ok,
-      errorMessage: await payload.message ?? null
+      chageOk: res?.ok
     }
   },
 
@@ -83,11 +82,12 @@ export const actions: Actions = {
 
     const res = await authFetch(event, 'DELETE', '/auth/totp', { body: reqBody });
 
-    const payload = await res?.json();
+    if(res?.ok){
+      throw redirect(302,'../')
+    }
 
     return {
-      deleteOnBoard: res?.ok,
-      errorMessage: payload.message ?? null
+      deleteOnBoard: res?.ok
     }
   }
 

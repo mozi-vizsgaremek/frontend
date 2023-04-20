@@ -23,7 +23,7 @@
 
 <ul>
     <li>
-        <a href="/Home" class="active text-gray-400"
+        <a href="./" class="active text-gray-400"
             >
             <div class="icons">
                 <Icon

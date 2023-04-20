@@ -27,6 +27,11 @@
                                 <div class="title">Add shift</div>
                             </div>
                         </a>
+                        <a href="./CreateScreening">
+                            <div class="card">
+                                <div class="title">Create screening</div>
+                            </div>
+                        </a>
                     {/if}
                 </div>
             </div>
