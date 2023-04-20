@@ -19,8 +19,6 @@
                 <div class="title">{data.movie.title}</div>
                 <div class="alcim">{data.movie.subtitle}</div>
                 <div class="category">
-                    <div class="catcard">Action</div>
-                    <div class="catcard">Scifi</div>
                 </div>
                 <div class="desc">
                     <p>{data.movie.description}</p>
@@ -62,6 +60,7 @@
         width: 100%;
         display: flex;
         justify-content: center;
+        gap: 10px;
     }
 
     .dateCard {
@@ -76,14 +75,17 @@
         gap: 10px;
 
         transition: all 0.5s;
-
+        color: #FAF5E9;
         backdrop-filter: blur(5px);
 
-        background-color: rgb(231, 203, 203);
+        background-color: #009B4D;
 
         border-radius: 20px;
         box-shadow: inset -8px -8px 16px 0px rgba(33, 35, 35, 0.6),
-            inset 0px 11px 28px 0px rgb(255, 255, 255);
+            inset 0px 11px 28px 0px rgba(99, 99, 99, 0.253);
+    }
+    .dateCard:hover{
+        transform: scale(1.05);
     }
     .alcim {
         color: #faf5e9;
@@ -111,7 +113,7 @@
         display: flex;
         flex-direction: column;
         color: white;
-        gap: 10px;
+        gap: 20px;
         text-align: center;
         width: 100%;
     }

@@ -13,15 +13,16 @@ export const actions: Actions = {
       });
       
   
-      const res = await authFetch(ev, 'POST', `/reservation/${ev.params.id}`,{body : reqBody});
+      const res = await authFetch(ev, 'POST', `/reservation/${ev.params.id}` , {body : reqBody});
   
-      const payload = await res?.json()
-  
-      console.log( payload);
+      let payload = await res?.json();
+
+      console.log(payload)
+
+      
   
       return {
         chageOk: res?.ok,
-        errorMessage: payload.message ?? null
       }
 }
 }

@@ -36,7 +36,7 @@
                                 idurl={movie.id}
                                 title={movie.title}
                                 secondTitle={movie.subtitle}
-                                url={movie.thumbnailUrl} 
+                                url={movie.thumbnailUrl}
                             />
                         {/each}
                     </div>

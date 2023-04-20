@@ -9,6 +9,8 @@ export async function load(ev: RequestEvent) {
 
   const body = await res?.json();
 
+  console.log(body)
+
   return {
     resBody: body,
     userRole: payload

@@ -21,7 +21,6 @@ export const actions: Actions = {
       requiredStaff: Number(body.get('requiredStaff'))
     });
 
-    console.log(reqBody);
 
     const res = await authFetch(event, 'POST', '/shift/', { body: reqBody });
 

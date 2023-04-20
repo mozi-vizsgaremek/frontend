@@ -5,7 +5,6 @@
    import { browser } from "$app/environment";
     import Toast from "$lib/svelte/Toast.svelte";
    export const dataNot = $page.form;
-    export let data;
 
 
     if (dataNot != null && dataNot["chageOk"] && browser) {
@@ -26,7 +25,8 @@
         <div class="cardcontainer">
             <div class="cards p-2.5" >
                 <form method="POST">
-                <input type="number" value="2" placeholder="Seats" name="seats">
+                <h1>Number of seats</h1>
+                <input type="number" value="1" placeholder="Seats" name="seats">
                 <button>Book</button>
             </form>
             </div>
@@ -50,10 +50,15 @@
     body{
         background: #161616;
     }
+    h1{
+        color: white;
+        font-size: 30px;
+    }
     form{
         display: flex;
         flex-direction: column;
         gap: 10px;
+        align-items: center;
     }
     input {
       font-family: italicFont;
@@ -77,7 +82,7 @@
    }
    button {
      color: white;
-     background: linear-gradient(142deg, rgba(129,65,62,1) 0%, rgba(106,0,0,1) 100%);
+     background: #009B4D;
      width: 90%;
      height: 40px;
      border-radius: 10px;
@@ -99,6 +104,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: 50px;
+        justify-content: center;
     }
     
     @media (max-width: 700px) {
