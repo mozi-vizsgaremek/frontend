@@ -36,7 +36,7 @@
                                 idurl={movie.id}
                                 title={movie.title}
                                 secondTitle={movie.subtitle}
-                                url="https://posters.movieposterdb.com/22_05/1984/88247/s_88247_2768cd72.jpg" 
+                                url={movie.thumbnailUrl} 
                             />
                         {/each}
                     </div>
@@ -78,17 +78,17 @@
     }
     .title {
         font-size: 35px;
-        color: white;
+        color: #FFCC00;
     }
     .secondTitle {
         font-size: 20px;
-        color: white;
+        color: #FAF5E9;
     }
     .desc {
         margin-top: 25px;
         font-size: 12px;
         max-width: 600px;
-        color: white;
+        color: #FAF5E9;
     }
     .movies {
         padding: 20px;
@@ -99,11 +99,7 @@
         border-radius: 10px;
         color: white;
         width: 200px;
-        background: linear-gradient(
-            142deg,
-            rgba(129, 65, 62, 1) 0%,
-            rgba(106, 0, 0, 1) 100%
-        );
+        background:#009B4D;
     }
     .allCenter {
         padding-top: 30px;
@@ -113,7 +109,7 @@
         width: 100%;
     }
     h2 {
-        color: white;
+        color: #FFCC00;
         font-size: 23px;
     }
     .cardcontainer {

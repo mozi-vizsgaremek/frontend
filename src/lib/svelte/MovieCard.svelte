@@ -7,7 +7,6 @@
     export let secondTitle;
     export let url;
     export let idurl;
-    
 </script>
 
 <a href={`./Datebooking/${idurl}`}>
@@ -24,28 +23,23 @@
         border-radius: 10px;
         width: 170px;
         height: 250px;
+        background-color: #009b4d;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
         transition: all 0.3s;
         z-index: 1;
-
         backdrop-filter: blur(5px);
-
-
-border-radius: 20px;
-box-shadow: inset -8px -8px 16px 0px rgba(0, 0, 0, 0.6),
-    inset 0px 11px 28px 0px rgb(255, 255, 255,0.2);
+        border-radius: 20px;
     }
+
     .card:hover {
         transform: scale(1.05);
         cursor: pointer;
-
-        box-shadow: inset -8px -8px 100px 0px rgba(0, 0, 0),
-    inset 0px 11px 80px 0px rgb(255, 255, 255);
         z-index: 1;
     }
+
     .appear {
         padding-top: 20px;
         text-align: center;
@@ -53,31 +47,20 @@ box-shadow: inset -8px -8px 16px 0px rgba(0, 0, 0, 0.6),
         flex-direction: column;
         height: 100%;
         gap: 10px;
-        opacity: 0;
         color: white;
         border-radius: 10px;
     }
-    .title,
-    .secondTitle {
-        color: black;
+    .title{
+        color: #FFCC00;
     }
     .secondTitle {
+        color: #FAF5E9;
         font-size: 12px;
     }
     .card:hover .appear {
         padding-bottom: 10px;
         opacity: 1;
-        animation: 0.5s ease-in-out load;
     }
-    
-    @keyframes load {
-        0% {
-            opacity: 0;
-            transform: translateY(100px);
-        }
-        100% {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
+
+   
 </style>
