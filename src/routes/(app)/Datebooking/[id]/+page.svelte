@@ -10,7 +10,10 @@
         <!--Content-->
         <div class="content">
             <!--Image-->
-            <div class="movieCover" style="background-image: url({data.movie.bannerUrl});"/>
+            <div
+                class="movieCover"
+                style="background-image: url({data.movie.bannerUrl});"
+            />
             <!--Movie desc and book-->
             <div class="all">
                 <div class="title">{data.movie.title}</div>
@@ -24,10 +27,10 @@
                 </div>
                 <h2>Select Date</h2>
                 <div class="dates">
-                    {#each data.screening as screenings}
-                        <a href={`../Tickets/${screenings.id}`}>
+                    {#each data.screenings as screening}
+                        <a href={`../Tickets/${screening.id}`}>
                             <div class="dateCard">
-                                {format(screenings.time, "d. E k:mm")}
+                                {format(screening.time, "d. E k:mm")}
                             </div>
                         </a>
                     {/each}
@@ -50,9 +53,6 @@
     }
     .desc {
         font-size: 10px;
-    }
-    input{
-        color: black    ;
     }
 
     .allCenter {
@@ -85,7 +85,9 @@
         box-shadow: inset -8px -8px 16px 0px rgba(33, 35, 35, 0.6),
             inset 0px 11px 28px 0px rgb(255, 255, 255);
     }
-
+    .alcim {
+        color: #faf5e9;
+    }
     .movieCover {
         background-image: url("$lib/images/cover.jpg");
         background-position: center;
@@ -120,6 +122,7 @@
 
     .title {
         font-size: 24px;
+        color: #ffcc00;
     }
     .category {
         display: flex;
@@ -137,22 +140,6 @@
         justify-content: center;
         align-items: center;
         font-size: 10px;
-    }
-
-    .next {
-        display: flex;
-        justify-content: center;
-    }
-    .carousel {
-        min-height: 150px;
-    }
-    .nextbtn {
-        background-color: white;
-        padding: 10px;
-        font-size: 12px;
-        width: 200px;
-        color: black;
-        border-radius: 10px;
     }
 
     @media (max-width: 700px) {

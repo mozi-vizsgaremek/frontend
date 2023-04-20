@@ -6,20 +6,18 @@ export const load: PageServerLoad = async (ev) => {
 
 
     const resScreen = await authFetch(ev, 'GET', `/movie/screenings/${ev.params.id}`);
+    console.log(await resScreen?.json())
 
-
-    const screening =  (await resScreen?.json()).map(x => ({
+    let screening =  (await resScreen?.json()).map(x => ({
         ...x,
         time: new Date(x.time)
       }));
 
 
-      console.log(screening)
-
-
     return {
         movie: await res?.json(),
-        screening
+        
+        screenings: await screening
     }
 }
 

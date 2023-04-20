@@ -59,14 +59,14 @@
         width: 100%;
         height: 50px;
         justify-content: space-between;
-        color: white;
+        color: #FAF5E9;
     }
     .logo {
         margin-left: 100px;
         display: flex;
     }
     p {
-        color: #d2042d;
+        color: #FFCC00;
     }
     ul {
         display: flex;
@@ -77,7 +77,7 @@
         transition: all 0.5s;
     }
     li:hover {
-        color: #d2042d;
+        color: #FFCC00;
     }
 
     .profile {

@@ -32,7 +32,7 @@ export const actions: Actions = {
     const reqBody = JSON.stringify({
       movieId: body.get('movie'),
       auditoriumId: body.get('auditorium'),
-      time: getDateStr('time')
+      time: getDateStr('time'),
     });
 
     const res = await authFetch(event, 'POST', '/screening/', { body: reqBody });

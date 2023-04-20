@@ -85,18 +85,14 @@
         padding: 20px;
         text-align: center;
         color: white;
-        width: 350px;
-        min-height: 200px;
+        width: 300px;
+        min-height: 150px;
         border-radius: 10px;
-z-index: 1;
+        z-index: 1;
         backdrop-filter: blur(5px);
-        background: radial-gradient(circle at 10% 20%, #73C8A9 0%, #373B44 90%);
+        background: #009B4D;
 
         border-radius: 26px;
-
-        box-shadow:
-            inset -8px -8px 16px 0px rgba(0, 0, 0, 0.6),
-            inset 0px 11px 28px 0px rgba(255, 255, 255, 0.2);
         transition: all 0.5s;
     }
     .card:hover {
