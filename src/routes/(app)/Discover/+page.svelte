@@ -1,12 +1,23 @@
 <script>
+// @ts-nocheck
+
     import MovieCard from "$lib/svelte/MovieCard.svelte";
 
     export let data;
 
     let alma = data.resBody;
 
-    console.log(alma)
-    console.log(alma.filter(x => x.title));
+    
+	let filteredBooks = [];
+
+    let search = "";
+
+    const teszt = () => {	
+		return filteredBooks = alma.filter(movie => {
+			let movieTitle = movie.title.toLowerCase();
+			return movieTitle.includes(search.toLowerCase())
+		});
+	}
 </script>
 
 <body>
@@ -34,6 +45,8 @@
                     </button>
                     <input
                         class="input"
+                        bind:value={search} 
+                        on:input={teszt}
                         placeholder="Search..."
                         required
                         type="text"
@@ -58,14 +71,25 @@
             </div>
             <div class="cardcontainer">
                 <div class="cards p-2.5">
+                    {#if filteredBooks.length > 0}
+                    {#each filteredBooks as movie}
+                        <MovieCard
+                            idurl={movie.id}
+                            title={movie.title}
+                            secondTitle={movie.subtitle}
+                            url={movie.thumbnailUrl} 
+                        />
+                    {/each}
+                    {:else}
                     {#each data.resBody as movie}
                         <MovieCard
                             idurl={movie.id}
                             title={movie.title}
                             secondTitle={movie.subtitle}
-                            url="https://posters.movieposterdb.com/22_05/1984/88247/s_88247_2768cd72.jpg" 
+                            url={movie.thumbnailUrl} 
                         />
                     {/each}
+                    {/if}
                 </div>
             </div>
         </div>
@@ -179,6 +203,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: 50px;
+        justify-content: center;
     }
 
     @media (max-width: 700px) {

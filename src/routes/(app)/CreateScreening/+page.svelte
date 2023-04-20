@@ -1,10 +1,16 @@
 <script lang="ts">
 
     
-    import type { PageData } from "./$types";
+    import MovieCard from "$lib/svelte/MovieCard.svelte";
+import type { PageData } from "./$types";
 
     
     export let data: PageData;
+
+    let audid: string;
+
+    let movieid: string;
+    
 
 </script>
 
@@ -17,9 +23,35 @@
 
             <div class="cardcontainer">
                 <div class="cards p-2.5">
-                    {#each data.alma as rooms}
-                        {rooms.id}
+                    <ul>
+                        <h1>Rooms</h1>
+                    {#each data.auditorium as rooms}
+                    <li>
+                    <button on:click={()=>{audid = rooms.id}}>
+                        {rooms.name}
+                        {rooms.seats}
+                    </button>
+                    </li> 
                     {/each}
+                </ul>
+
+                <ul>
+                    <h1>Movies</h1>
+                    {#each data.movies as movie}
+                    <li>
+                    <button on:click={()=>{movieid = movie.id}}>
+                        {movie.title}
+                    </button>
+                </li>
+                    {/each}
+                </ul>
+
+                <form method="POST" action="?/CreateScreening">
+                    <input type="text" name="auditorium" readonly placeholder="Auditorium Id" value={audid}>
+                    <input type="text" name="movie" readonly placeholder="Movie Id" value={movieid}>
+                    <input type="datetime-local" name="time">
+                    <button class="w-72 h-12 text-center shadow rounded-lg">Save</button>
+                </form>
                 </div>
             </div>
            
@@ -43,27 +75,37 @@
     .allCenter {
         padding-top: 50px;
     }
-   
-    .on {
-        width: 200px;
-        padding: 10px;
-        text-align: center;
-        border-radius: 10px;
-        
-      background: linear-gradient(142deg, rgba(129,65,62,1) 0%, rgba(106,0,0,1) 100%);
-        color: white;
-    }
-    .on:hover {
-        cursor: pointer;
-    }
-    form {
+    ul{
         display: flex;
-        align-items: center;
         flex-direction: column;
+        flex-wrap: wrap;
         gap: 20px;
     }
    
+    form{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    form button{
+     
+     background: linear-gradient(142deg, rgba(129,65,62,1) 0%, rgba(106,0,0,1) 100%);
+     width: 90%;
+     color: white;
+  
+    }
 
+    ul button{
+        padding: 10px;
+        border: 1px solid white;
+        color: white;
+    }
+   
+  h1{
+    font-size: 30px;
+    color: white;
+  }
 
 
     .content {

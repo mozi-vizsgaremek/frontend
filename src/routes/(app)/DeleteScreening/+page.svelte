@@ -1,10 +1,9 @@
 <script lang="ts">
     import type { PageData } from "./$types";
+
+    
     export let data: PageData;
 
-    let userRole = data.role == "admin" || data.role == "manager";
-
-    let admin = data.role == "admin";
 </script>
 
 <body>
@@ -12,38 +11,16 @@
         <div class="content pt-2.5">
             <div class="cardcontainer">
                 <div class="cards p-2.5">
-                    <a href="./SelectShift">
-                        <div class="card">
-                            <div class="title">Book your shift</div>
-                        </div>
-                    </a>
+                    <ul>
+                        {#each data.screenings as screening}
+                            <li>
+                                <a href={`./DeleteScreening/${screening.id}`}>
+                                    <h1>{screening.movieTitle}</h1>
+                                </a>
+                            </li>
+                        {/each}
+                    </ul>
 
-                    <a href="./Overview">
-                        <div class="card">
-                            <div class="title">Overview</div>
-                        </div>
-                    </a>
-                    {#if userRole}
-                        <a href="./ManagerShifts">
-                            <div class="card">
-                                <div class="title">Add shift</div>
-                            </div>
-                        </a>
-                        
-                    {/if}
-
-                    {#if admin}
-                    <a href="./CreateScreening">
-                        <div class="card">
-                            <div class="title">Create screening</div>
-                        </div>
-                    </a>
-                    <a href="./DeleteScreening">
-                        <div class="card">
-                            <div class="title">Delete screening</div>
-                        </div>
-                    </a>
-                    {/if}
                 </div>
             </div>
         </div>
@@ -68,6 +45,9 @@
 
     .content {
         width: 100%;
+    }
+    h1{
+        color: white;
     }
 
     .cardcontainer {

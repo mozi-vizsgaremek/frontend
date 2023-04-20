@@ -2,6 +2,7 @@
     import { format } from "date-fns";
 
     export let data;
+
 </script>
 
 <body>
@@ -9,7 +10,7 @@
         <!--Content-->
         <div class="content">
             <!--Image-->
-            <div class="movieCover" />
+            <div class="movieCover" style="background-image: url({data.movie.bannerUrl});"/>
             <!--Movie desc and book-->
             <div class="all">
                 <div class="title">{data.movie.title}</div>

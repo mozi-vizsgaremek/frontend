@@ -27,11 +27,11 @@
         <p>V</p>
     </div>
     <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/Discover">Explore</a></li>
-        <li><a href="/Tickets">Tickets</a></li>
+        <li><a href="./">Home</a></li>
+        <li><a href="./Discover">Explore</a></li>
+        <li><a href="./Tickets">Tickets</a></li>
         {#if showJobs}
-            <li><a href="/Job">Job</a></li>
+            <li><a href="./Job">Job</a></li>
         {/if}
     </ul>
     <div class="profile" on:focusout={handleDropdownFocusLoss}>
