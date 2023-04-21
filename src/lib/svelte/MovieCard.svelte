@@ -7,6 +7,7 @@
     export let secondTitle;
     export let url;
     export let idurl;
+
 </script>
 
 <a href={`./Datebooking/${idurl}`}>
@@ -23,7 +24,8 @@
         border-radius: 10px;
         width: 170px;
         height: 250px;
-        background-color: #009b4d;
+        background-color: #643313;
+
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -51,10 +53,10 @@
         border-radius: 10px;
     }
     .title{
-        color: #FFCC00;
+        color: white;
     }
     .secondTitle {
-        color: #FAF5E9;
+        color: #bdb7a9;
         font-size: 12px;
     }
     .card:hover .appear {
