@@ -5,9 +5,7 @@
 
     import { browser } from "$app/environment";
 
-    if (data != null && data["chageOk"] && browser) {
-        alert("Laci");
-    }
+
 </script>
 
 <body>

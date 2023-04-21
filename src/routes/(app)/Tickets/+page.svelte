@@ -10,7 +10,7 @@
         if (document.body.clientWidth < 600) {
             showModal = true;
         } else {
-            alert("Ki kell nyomtatni");
+            alert("You need a mobile phone to use this function");
         }
     }
 </script>
