@@ -89,7 +89,8 @@
         border-radius: 10px;
         z-index: 1;
         backdrop-filter: blur(5px);
-        background: #009b4d;
+        
+        background: linear-gradient(48deg, rgba(184,15,0,1) 0%, rgba(249,116,0,1) 100%);
 
         border-radius: 26px;
         transition: all 0.5s;
