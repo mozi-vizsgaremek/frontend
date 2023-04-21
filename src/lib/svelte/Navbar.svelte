@@ -66,7 +66,7 @@
         display: flex;
     }
     p {
-        color: #FFCC00;
+        color: rgba(249,116,0,1);
     }
     ul {
         display: flex;
@@ -77,7 +77,7 @@
         transition: all 0.5s;
     }
     li:hover {
-        color: #FFCC00;
+        color: rgba(249,116,0,1);
     }
 
     .profile {

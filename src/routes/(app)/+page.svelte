@@ -78,17 +78,17 @@
     }
     .title {
         font-size: 35px;
-        color: #ffcc00;
+        color: white;
     }
     .secondTitle {
         font-size: 20px;
-        color: #faf5e9;
+        color: #bdb7a9;
     }
     .desc {
         margin-top: 25px;
         font-size: 12px;
         max-width: 600px;
-        color: #faf5e9;
+        color: #928b7c;
     }
     .movies {
         padding: 20px;
@@ -99,7 +99,7 @@
         border-radius: 10px;
         color: white;
         width: 200px;
-        background: #009b4d;
+        background: linear-gradient(48deg, rgba(184,15,0,1) 0%, rgba(249,116,0,1) 100%);
     }
     .allCenter {
         padding-top: 30px;
@@ -109,7 +109,7 @@
         width: 100%;
     }
     h2 {
-        color: #ffcc00;
+        color: rgb(249, 79, 0);
         font-size: 23px;
     }
     .cardcontainer {

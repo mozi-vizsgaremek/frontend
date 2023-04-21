@@ -21,7 +21,9 @@
     visibility: hidden;
     position: absolute;
     z-index: 99;
-    background: rgba(106, 0, 0, 1);
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    background-color: #2d3436;
   }
   @media (max-width: 700px) {
     .navbar {
