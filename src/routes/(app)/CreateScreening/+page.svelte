@@ -97,18 +97,16 @@
         gap: 10px;
     }
     form button {
-        background: linear-gradient(
-            142deg,
-            rgba(129, 65, 62, 1) 0%,
-            rgba(106, 0, 0, 1) 100%
-        );
+        
+      background: linear-gradient(48deg, rgba(184,15,0,1) 0%, rgba(249,116,0,1) 100%);
         width: 90%;
         color: white;
     }
 
     ul button {
         padding: 10px;
-        border: 1px solid white;
+        border: 1px solid rgba(249,116,0,1);
+        border-radius: 5px;
         color: white;
     }
 

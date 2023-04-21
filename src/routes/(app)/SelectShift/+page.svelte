@@ -79,14 +79,15 @@
 
         backdrop-filter: blur(5px);
 
-        background-color: rgb(231, 203, 203);
+        
+      background: linear-gradient(48deg, rgba(184,15,0,1) 0%, rgba(249,116,0,1) 100%);
 
         border-radius: 20px;
         box-shadow: inset -8px -8px 16px 0px rgba(33, 35, 35, 0.6),
             inset 0px 11px 28px 0px rgb(255, 255, 255);
     }
     .buttons {
-        color: black;
+        color: white;
         display: flex;
         font-size: 12px;
         gap: 5px;
@@ -96,14 +97,14 @@
         border-radius: 10px;
     }
     .book {
-        border: 1px solid rgb(13, 129, 32);
+        border: 1px solid rgb(255, 255, 255);
         transition: all 0.5s;
     }
     .book:hover {
         background-color: #07822a;
     }
     .delete {
-        border: 1px solid rgb(178, 4, 4);
+        border: 1px solid rgb(255, 255, 255);
         transition: all 0.5s;
     }
     .delete:hover {
@@ -125,7 +126,7 @@
 
         backdrop-filter: blur(5px);
 
-        background-color: white;
+        background: linear-gradient(48deg, rgba(184,15,0,1) 0%, rgba(249,116,0,1) 100%);
 
         border-radius: 20px;
         box-shadow: inset -8px -8px 16px 0px rgba(0, 0, 0, 0.4),
@@ -149,7 +150,7 @@
     }
     .number {
         text-align: center;
-        color: black;
+        color: white;
     }
     .cardcontainer {
         display: flex;
