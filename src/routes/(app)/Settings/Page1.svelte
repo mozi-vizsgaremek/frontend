@@ -138,7 +138,8 @@
         text-align: center;
         border-radius: 10px;
         backdrop-filter: blur(5px);
-        background: transparent;
+        
+        background: linear-gradient(48deg, rgba(184,15,0,1) 0%, rgba(249,116,0,1) 100%);
 
         box-shadow: inset -8px -8px 16px 0px rgba(0, 0, 0, 0.6),
             inset 0px 11px 28px 0px rgba(255, 255, 255, 0.2);
@@ -183,17 +184,24 @@
         color: white;
     }
     input {
-        backdrop-filter: blur(5px);
-        background: transparent;
-        border-radius: 15px;
-        box-shadow: inset -8px -8px 16px 0px rgba(255, 255, 255, 0.2),
-            inset 0px 11px 28px 0px rgba(0, 0, 0, 0.6);
-        font-size: 13px;
-        padding: 15px;
-        outline: none;
-        color: white;
-        transition: all 0.5s;
+      width: 250px;
+      padding: 15px;
+      font-size: 15px;
+      color: white;
+      background-color: rgb(28,28,30);
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.5), 0 0 0 0.15vw transparent;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      transition: 0.4s;
     }
+    input:hover {
+      box-shadow: 0 0 0 0.15vw rgba(160, 75, 1, 0.418);
+   }
+
+   input:focus {
+      box-shadow: 0 0 0 0.15vw rgb(249, 79, 0);
+   }
     ::-webkit-input-placeholder {
         color: white;
     }

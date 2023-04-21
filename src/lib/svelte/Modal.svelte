@@ -40,7 +40,8 @@ import close from "svelte-icons-pack/io/IoClose";
 		padding: 0;
         border-radius: 10px;
         backdrop-filter: blur(5px);
-        background: radial-gradient(circle at 10% 20%, #73C8A9 0%, #373B44 90%);
+        
+        background: #161616;
 		
         box-shadow:
             inset -8px -8px 16px 0px rgba(0, 0, 0, 0.6),
