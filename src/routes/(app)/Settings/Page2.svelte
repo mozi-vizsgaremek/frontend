@@ -33,16 +33,17 @@
 <!--Change password form-->
 <div class="pasres">
     <form method="POST" action="?/changePassword">
-        <h1>Password</h1>
+        <h1>Change Password</h1>
         <input type="password" placeholder="Old password" name="oldPass" />
         <input type="password" placeholder="New password" name="newPass" />
         <button class="save">Save</button>
     </form>
 
     <form method="POST" action="?/deleteAccount">
+        <h1>Delete Account</h1>
         <input type="password" placeholder="Password" name="password" />
         <input type="text" placeholder="TOTP" name="totp" />
-        <button>Delete Account</button>
+        <button class="save">Delete Account</button>
     </form>
 </div>
 
@@ -72,10 +73,11 @@
         padding: 10px;
         border-radius: 10px;
 
-        background: transparent;
+        background: linear-gradient(48deg, rgba(184,15,0,1) 0%, rgba(249,116,0,1) 100%);
         box-shadow: inset -8px -8px 16px 0px rgba(0, 0, 0, 0.6),
             inset 0px 11px 28px 0px rgba(255, 255, 255, 0.2);
         color: white;
+        margin-bottom: 20px;
     }
 
     .mininav {
@@ -98,20 +100,24 @@
         gap: 10px;
     }
     input {
-        font-size: 0.9rem;
-        background: transparent;
-        width: 50%;
-        outline: none;
-        height: 100%;
-        padding-inline: 0.5em;
-        padding-block: 0.7em;
-        border: none;
-        color: white;
+      width: 400px;
+      padding: 15px;
+      font-size: 15px;
+      color: white;
+      background-color: rgb(28,28,30);
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.5), 0 0 0 0.15vw transparent;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      transition: 0.4s;
+   }
+   input:hover {
+      box-shadow: 0 0 0 0.15vw rgba(160, 75, 1, 0.418);
+   }
 
-        box-shadow: inset -8px -8px 16px 0px rgba(0, 0, 0, 0.6),
-            inset 0px 11px 28px 0px rgba(255, 255, 255, 0.2);
-        border-radius: 10px;
-    }
+   input:focus {
+      box-shadow: 0 0 0 0.15vw rgb(249, 79, 0);
+   }
     ::-webkit-input-placeholder {
         color: white;
     }
