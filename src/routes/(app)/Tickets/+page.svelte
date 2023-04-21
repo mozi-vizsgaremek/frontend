@@ -33,10 +33,9 @@
                             <div class="titlecont">
                                 <h2>{ticket.title}</h2>
                             </div>
-
                             <div class="btncont">
-                                <button class="qr" on:click={qrCode} />
-                                <a href={`./DeleteReservation/${ticket.id}`}
+                                <button class="qr" on:click={qrCode} >Open</button>
+                                <a href={`./DeleteReservation/${ticket.id}`} class="delete"
                                     >Delete</a
                                 >
                             </div>
@@ -83,7 +82,16 @@
         justify-content: center;
         flex-wrap: wrap;
     }
-
+    .delete{
+        padding: 5px;
+        border-radius: 3px;
+        color: white;
+        font-size: 12px;
+        width: 80px;
+        height: 30px;
+        text-align: center;
+      background: linear-gradient(48deg, rgba(184,15,0,1) 0%, rgba(249,116,0,1) 100%);
+    }
     .cardcontainer {
         display: flex;
         flex-direction: column;
@@ -122,7 +130,7 @@
     }
     .ticket_card {
         width: 290px;
-        height: 150px;
+        height: 180px;
         background-image: linear-gradient(
                 to bottom,
                 rgba(40, 40, 40, 0.4),
@@ -149,21 +157,23 @@
     }
     .btncont {
         display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
         justify-content: center;
     }
     .qr {
         margin-top: 20px;
         border-radius: 10px;
         color: white;
-        font-size: 12px;
-        width: 100px;
-        height: 30px;
+        font-size: 15px;
+        width: 120px;
+        height: 40px;
         text-align: center;
-        background: linear-gradient(
-            142deg,
-            rgba(129, 65, 62, 1) 0%,
-            rgba(106, 0, 0, 1) 100%
-        );
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(48deg, rgba(184,15,0,1) 0%, rgba(249,116,0,1) 100%);
         padding: 10px;
         box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     }
