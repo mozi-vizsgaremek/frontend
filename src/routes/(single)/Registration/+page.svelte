@@ -55,13 +55,6 @@
                name="password"
                placeholder="Password"
             />
-            <input
-               required
-               class="h-12 outline-0 bg-transparent p-4 placeholder:text-sm placeholder:text-white text-xs w-72 border-2 rounded-lg"
-               type="password"
-               name="confirm_password"
-               placeholder="Confirm Password"
-            />
 
             <button class="w-72 h-12 text-center shadow rounded-lg shadow-xl"
                >Create</button
@@ -90,10 +83,9 @@
    }
 
    .allCenter {
-      background-image: url("$lib/images/bg6.jpg");
-      background-position: center;
-      background-repeat: no-repeat;
-      background-color: black;
+      
+      background-color: #2d3436;
+      background-image: linear-gradient(315deg, #1b1f20 0%, #000000 74%);
       display: flex;
       align-items: center;
    }
@@ -129,8 +121,8 @@
       width: 90%;
       padding: 15px;
       font-size: 15px;
-      color: #fff;
-      background-color: rgb(28, 28, 30);
+      color: white;
+      background-color: rgb(28,28,30);
       box-shadow: 0 0 3px rgba(0, 0, 0, 0.5), 0 0 0 0.15vw transparent;
       border-radius: 10px;
       border: none;
@@ -138,25 +130,25 @@
       transition: 0.4s;
    }
    input:hover {
-      box-shadow: 0 0 0 3px rgba(235, 135, 135, 0.186);
+      box-shadow: 0 0 0 0.15vw rgba(160, 75, 1, 0.418);
    }
 
    input:focus {
-      box-shadow: 0 0 0 3px #d2042d;
+      box-shadow: 0 0 0 0.15vw rgb(249, 79, 0);
    }
    a {
       font-family: italicFont;
    }
    button {
-      background: linear-gradient(
-         142deg,
-         rgba(129, 65, 62, 1) 0%,
-         rgba(106, 0, 0, 1) 100%
-      );
+      
+      background: linear-gradient(48deg, rgba(184,15,0,1) 0%, rgba(249,116,0,1) 100%);
       width: 90%;
    }
    .cin {
       font-size: 34px;
+      background: -webkit-linear-gradient(48deg, rgba(184,15,0,1), rgba(249,116,0,1));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
    }
    .small {
       font-size: 10px;

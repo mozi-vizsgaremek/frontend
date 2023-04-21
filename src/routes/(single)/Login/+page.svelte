@@ -55,7 +55,7 @@
                placeholder="Password"
                name="password"
             />
-            <input class="h-12" type="text" placeholder="TOTP" name="totp" />
+            <input class="h-12" type="text" placeholder="TOTP (Optional)" name="totp" />
 
             <!--Stay signed checkbox and forgott password link-->
             <div class="check flex justify-between w-72" />
@@ -89,10 +89,8 @@
    }
 
    .allCenter {
-      background-image: url("$lib/images/bg6.jpg");
-      background-position: center;
-      background-repeat: no-repeat;
-      background-color: black;
+      background-color: #2d3436;
+      background-image: linear-gradient(315deg, #1b1f20 0%, #000000 74%);
       display: flex;
       align-items: center;
    }
@@ -131,8 +129,8 @@
       width: 90%;
       padding: 15px;
       font-size: 15px;
-      color: #fff;
-      background-color: rgb(28, 28, 30);
+      color: white;
+      background-color: rgb(28,28,30);
       box-shadow: 0 0 0.4vw rgba(0, 0, 0, 0.5), 0 0 0 0.15vw transparent;
       border-radius: 10px;
       border: none;
@@ -140,25 +138,26 @@
       transition: 0.4s;
    }
    input:hover {
-      box-shadow: 0 0 0 0.15vw rgba(235, 135, 135, 0.186);
+      box-shadow: 0 0 0 0.15vw rgba(160, 75, 1, 0.418);
    }
-
+   ::-webkit-input-placeholder{
+      color: white;
+   }
    input:focus {
-      box-shadow: 0 0 0 0.15vw #d2042d;
+      box-shadow: 0 0 0 0.15vw rgb(249, 79, 0);
    }
    a {
       font-family: italicFont;
    }
    button {
-      background: linear-gradient(
-         142deg,
-         rgba(129, 65, 62, 1) 0%,
-         rgba(106, 0, 0, 1) 100%
-      );
+      background: linear-gradient(48deg, rgba(184,15,0,1) 0%, rgba(249,116,0,1) 100%);
       width: 90%;
    }
    .cin {
       font-size: 34px;
+      background: -webkit-linear-gradient(48deg, rgba(184,15,0,1), rgba(249,116,0,1));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
    }
    .small {
       font-size: 10px;
