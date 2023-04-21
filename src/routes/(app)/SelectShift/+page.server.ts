@@ -4,11 +4,18 @@ import { authFetch } from '$lib/util';
 export const load: PageServerLoad = async (ev) => {
   const userRole = ev.cookies.get('role');
 
+  const date = new Date();
+  const dateJson = date.toJSON();
+  const currentday = dateJson.slice(0, 10);
 
-   
+  const future = new Date((new Date()).getTime() + (10 * 86400000));
+  const futureJson = future.toJSON();
+  const futureDay = futureJson.slice(0, 10);
+
+
   const reqBody = JSON.stringify({
-    from: "2023-04-01",
-    to: "2023-04-30",
+    from: currentday,
+    to: futureDay,
 
   });
 

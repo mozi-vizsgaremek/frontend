@@ -7,13 +7,12 @@ export const load: PageServerLoad = async (ev) => {
 
   let payload = await res?.json();
 
-  console.log(await payload)
-  
+
   return {
-    tickets:payload,
+    tickets: payload,
   }
 
 
-  
+
 
 };

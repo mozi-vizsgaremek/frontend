@@ -58,7 +58,7 @@
     body {
         background: #161616;
     }
-    
+
     .texts {
         padding-top: 150px;
         padding-left: 50px;
@@ -78,17 +78,17 @@
     }
     .title {
         font-size: 35px;
-        color: #FFCC00;
+        color: #ffcc00;
     }
     .secondTitle {
         font-size: 20px;
-        color: #FAF5E9;
+        color: #faf5e9;
     }
     .desc {
         margin-top: 25px;
         font-size: 12px;
         max-width: 600px;
-        color: #FAF5E9;
+        color: #faf5e9;
     }
     .movies {
         padding: 20px;
@@ -99,7 +99,7 @@
         border-radius: 10px;
         color: white;
         width: 200px;
-        background:#009B4D;
+        background: #009b4d;
     }
     .allCenter {
         padding-top: 30px;
@@ -109,7 +109,7 @@
         width: 100%;
     }
     h2 {
-        color: #FFCC00;
+        color: #ffcc00;
         font-size: 23px;
     }
     .cardcontainer {
@@ -123,14 +123,13 @@
     }
 
     @media (max-width: 700px) {
-       
         .allCenter {
             padding-top: 0;
         }
-        .content{
+        .content {
             padding-top: 0;
         }
-       
+
         .texts {
             padding-left: 10px;
             text-align: center;

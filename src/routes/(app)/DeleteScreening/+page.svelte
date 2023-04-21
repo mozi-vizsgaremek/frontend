@@ -1,9 +1,7 @@
 <script lang="ts">
     import type { PageData } from "./$types";
 
-    
     export let data: PageData;
-
 </script>
 
 <body>
@@ -20,7 +18,6 @@
                             </li>
                         {/each}
                     </ul>
-
                 </div>
             </div>
         </div>
@@ -46,7 +43,7 @@
     .content {
         width: 100%;
     }
-    h1{
+    h1 {
         color: white;
     }
 
@@ -60,32 +57,6 @@
         flex-wrap: wrap;
         justify-content: center;
         gap: 50px;
-    }
-    .card {
-        padding: 20px;
-        text-align: center;
-        color: white;
-        width: 350px;
-        min-height: 200px;
-        border-radius: 10px;
-z-index: 1;
-        backdrop-filter: blur(5px);
-        background: radial-gradient(circle at 10% 20%, #73C8A9 0%, #373B44 90%);
-
-        border-radius: 26px;
-
-        box-shadow:
-            inset -8px -8px 16px 0px rgba(0, 0, 0, 0.6),
-            inset 0px 11px 28px 0px rgba(255, 255, 255, 0.2);
-        transition: all 0.5s;
-    }
-    .card:hover {
-        transition: all 0.5s;
-        transform: scale(1.05);
-        cursor: pointer;
-    }
-    .title{
-        font-size: 20px;
     }
 
     @media (max-width: 700px) {

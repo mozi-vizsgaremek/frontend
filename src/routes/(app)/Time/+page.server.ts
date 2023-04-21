@@ -5,29 +5,37 @@ import type { RequestEvent } from '../$types';
 
 /** @type {import('./$types').PageServerLoad} */
 
-export async function load(ev:RequestEvent){
-  
-    const reqBody = JSON.stringify({
-        from: "2023-04-01",
-        to: "2023-04-30",
-        
-    });
-    
-    const res = await authFetch(ev, 'POST', '/shift/filter', { body: reqBody });
-   
+export async function load(ev: RequestEvent) {
 
-    let payload = (await res?.json()).map(x => ({
-      ...x,
-      shiftTo: new Date(x.shiftTo),
-      shiftFrom: new Date(x.shiftFrom)
-    }));
+  const date = new Date();
+  const dateJson = date.toJSON();
+  const currentday = dateJson.slice(0, 10);
+
+  const future = new Date((new Date()).getTime() + (10 * 86400000));
+  const futureJson = future.toJSON();
+  const futureDay = futureJson.slice(0, 10);
+
+  const reqBody = JSON.stringify({
+    from: currentday,
+    to: futureDay,
+
+  });
+
+  const res = await authFetch(ev, 'POST', '/shift/filter', { body: reqBody });
 
 
-    return {
-      regOk: res?.ok,
-      alma: payload,
-      errorMessage: payload.message ?? null
-    }
-    
-  
+  let payload = (await res?.json()).map(x => ({
+    ...x,
+    shiftTo: new Date(x.shiftTo),
+    shiftFrom: new Date(x.shiftFrom)
+  }));
+
+
+  return {
+    regOk: res?.ok,
+    alma: payload,
+    errorMessage: payload.message ?? null
+  }
+
+
 };

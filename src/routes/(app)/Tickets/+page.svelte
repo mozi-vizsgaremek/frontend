@@ -21,32 +21,36 @@
             <div class="cardcontainer">
                 <!-- We display the current step here -->
                 <div class="tickets">
-            {#each data.tickets as ticket}
-                <div class="ticket_card">
-                    <div class="dates">
-                        <div class="date"></div>
-                        <div class="time">{formatDistanceToNow(new Date(ticket.time))} from now</div>
-                    </div>
-                    <div class="titlecont">
-                        <h2>{ticket.title}</h2>
-                    </div>
-                    
-                    <div class="btncont">
-                        <button class="qr" on:click={qrCode} />
-                        <a href={`./DeleteReservation/${ticket.id}`}>Delete</a>
-                    </div>
-                </div>
-                
-                {/each}
-            </div>
-            <Modal bind:showModal>
-                <h2 slot="header" class="header">Ticket</h2>
+                    {#each data.tickets as ticket}
+                        <div class="ticket_card">
+                            <div class="dates">
+                                <div class="date" />
+                                <div class="time">
+                                    {formatDistanceToNow(new Date(ticket.time))}
+                                    from now
+                                </div>
+                            </div>
+                            <div class="titlecont">
+                                <h2>{ticket.title}</h2>
+                            </div>
 
-                <QRCode
-                    codeValue={data.tickets.screeningId}
-                    squareSize="400"
-                />
-            </Modal>
+                            <div class="btncont">
+                                <button class="qr" on:click={qrCode} />
+                                <a href={`./DeleteReservation/${ticket.id}`}
+                                    >Delete</a
+                                >
+                            </div>
+                        </div>
+                    {/each}
+                </div>
+                <Modal bind:showModal>
+                    <h2 slot="header" class="header">Ticket</h2>
+
+                    <QRCode
+                        codeValue={data.tickets.screeningId}
+                        squareSize="400"
+                    />
+                </Modal>
 
                 <div class="cards p-2.5" />
             </div>
@@ -72,7 +76,7 @@
     .content {
         width: 100%;
     }
-    .tickets{
+    .tickets {
         display: flex;
         width: 100%;
         gap: 10px;
@@ -137,7 +141,7 @@
         font-size: 8px;
         color: white;
     }
-    
+
     .titlecont {
         text-align: center;
         padding-top: 10px;

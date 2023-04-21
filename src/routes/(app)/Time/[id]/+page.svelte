@@ -1,22 +1,14 @@
 <script>
-    
-    export let data;
 </script>
+
 <body>
-    
-<div class="allCenter flex w-full min-h-screen">
-   
-    
-    <div class="content pt-2.5 min-h-screen">
-        
-        <div class="cardcontainer">
-            <div class="cards p-2.5" >
+    <div class="allCenter flex w-full min-h-screen">
+        <div class="content pt-2.5 min-h-screen">
+            <div class="cardcontainer">
+                <div class="cards p-2.5" />
             </div>
         </div>
     </div>
-    
-</div>
-
 </body>
 
 <style>
@@ -27,21 +19,13 @@
     * {
         font-family: normalFont;
     }
-    body{
+    body {
         background: #161616;
     }
-    
 
-  
     .allCenter {
         padding-top: 30px;
     }
-   
-    .number{
-        color: white;
-        font-size: 13px;
-    }
-
 
     
 
@@ -60,15 +44,9 @@
         gap: 50px;
     }
 
-    
-
-    
     @media (max-width: 700px) {
-        
-        .allCenter{
+        .allCenter {
             padding-top: 0;
         }
-        
-        
     }
 </style>

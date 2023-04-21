@@ -17,15 +17,15 @@
    }
 
    if (data != null && data["errorMessage"] && browser) {
-     
-      if(data.errorMessage == "body/username Expected string length greater or equal to 4, body/username Expected string to match pattern ^([A-Za-z0-9_-]){4,32}$, body/password Expected string length greater or equal to 8, body/password Expected string to match pattern ^[A-Za-z0-9!@#$%&^_W]{8,256}$"){
-         notifications.danger('Invalid username or password', 2000);
-      }else{
-      notifications.danger(data.errorMessage, 2000);
+      if (
+         data.errorMessage ==
+         "body/username Expected string length greater or equal to 4, body/username Expected string to match pattern ^([A-Za-z0-9_-]){4,32}$, body/password Expected string length greater or equal to 8, body/password Expected string to match pattern ^[A-Za-z0-9!@#$%&^_W]{8,256}$"
+      ) {
+         notifications.danger("Invalid username or password", 2000);
+      } else {
+         notifications.danger(data.errorMessage, 2000);
+      }
    }
-      console.log(data.errorMessage)
-   }
-   
 </script>
 
 <div class="allCenter flex w-full justify-center min-h-screen">
@@ -41,8 +41,7 @@
          <form method="POST">
             <!--Username input-->
             <input
-            
-            bind:value={username}
+               bind:value={username}
                class="h-12"
                type="text"
                placeholder="Username"
@@ -51,26 +50,18 @@
             <!--Password input-->
             <input
                bind:value={password}
-               class="h-12 "
+               class="h-12"
                type="password"
                placeholder="Password"
                name="password"
             />
-            <input
-            class="h-12"
-            type="text"
-            placeholder="TOTP"
-            name="totp"
-         />
-            
+            <input class="h-12" type="text" placeholder="TOTP" name="totp" />
 
             <!--Stay signed checkbox and forgott password link-->
             <div class="check flex justify-between w-72" />
 
             <!--Submit button-->
-            <button
-               class="w-72 h-12 text-center shadow rounded-lg"
-            >
+            <button class="w-72 h-12 text-center shadow rounded-lg">
                Login
             </button>
             <!--Redirect to registration-->
@@ -159,8 +150,11 @@
       font-family: italicFont;
    }
    button {
-     
-      background: linear-gradient(142deg, rgba(129,65,62,1) 0%, rgba(106,0,0,1) 100%);
+      background: linear-gradient(
+         142deg,
+         rgba(129, 65, 62, 1) 0%,
+         rgba(106, 0, 0, 1) 100%
+      );
       width: 90%;
    }
    .cin {

@@ -29,20 +29,19 @@
                                 <div class="title">Add shift</div>
                             </div>
                         </a>
-                        
                     {/if}
 
                     {#if admin}
-                    <a href="./CreateScreening">
-                        <div class="card">
-                            <div class="title">Create screening</div>
-                        </div>
-                    </a>
-                    <a href="./DeleteScreening">
-                        <div class="card">
-                            <div class="title">Delete screening</div>
-                        </div>
-                    </a>
+                        <a href="./CreateScreening">
+                            <div class="card">
+                                <div class="title">Create screening</div>
+                            </div>
+                        </a>
+                        <a href="./DeleteScreening">
+                            <div class="card">
+                                <div class="title">Delete screening</div>
+                            </div>
+                        </a>
                     {/if}
                 </div>
             </div>
@@ -90,7 +89,7 @@
         border-radius: 10px;
         z-index: 1;
         backdrop-filter: blur(5px);
-        background: #009B4D;
+        background: #009b4d;
 
         border-radius: 26px;
         transition: all 0.5s;
@@ -100,7 +99,7 @@
         transform: scale(1.05);
         cursor: pointer;
     }
-    .title{
+    .title {
         font-size: 20px;
     }
 

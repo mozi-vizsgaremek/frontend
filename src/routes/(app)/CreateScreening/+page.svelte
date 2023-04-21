@@ -1,62 +1,70 @@
 <script lang="ts">
+    import type { PageData } from "./$types";
 
-    
-    import MovieCard from "$lib/svelte/MovieCard.svelte";
-import type { PageData } from "./$types";
-
-    
     export let data: PageData;
 
     let audid: string;
 
     let movieid: string;
-    
-
 </script>
 
 <body>
-    <div class="allCenter ">
-        
-        
+    <div class="allCenter">
         <div class="content pt-2.5 min-h-screen">
-           
-
             <div class="cardcontainer">
                 <div class="cards p-2.5">
                     <ul>
                         <h1>Rooms</h1>
-                    {#each data.auditorium as rooms}
-                    <li>
-                    <button on:click={()=>{audid = rooms.id}}>
-                        {rooms.name}
-                        {rooms.seats}
-                    </button>
-                    </li> 
-                    {/each}
-                </ul>
+                        {#each data.auditorium as rooms}
+                            <li>
+                                <button
+                                    on:click={() => {
+                                        audid = rooms.id;
+                                    }}>
+                                    {rooms.name}
+                                    {rooms.seats}
+                                </button>
+                            </li>
+                        {/each}
+                    </ul>
 
-                <ul>
-                    <h1>Movies</h1>
-                    {#each data.movies as movie}
-                    <li>
-                    <button on:click={()=>{movieid = movie.id}}>
-                        {movie.title}
-                    </button>
-                </li>
-                    {/each}
-                </ul>
+                    <ul>
+                        <h1>Movies</h1>
+                        {#each data.movies as movie}
+                            <li>
+                                <button
+                                    on:click={() => {
+                                        movieid = movie.id;
+                                    }}>
+                                    {movie.title}
+                                </button>
+                            </li>
+                        {/each}
+                    </ul>
 
-                <form method="POST" action="?/CreateScreening">
-                    <input type="text" name="auditorium" readonly placeholder="Auditorium Id" value={audid}>
-                    <input type="text" name="movie" readonly placeholder="Movie Id" value={movieid}>
-                    <input type="datetime-local" name="time">
-                    <button class="w-72 h-12 text-center shadow rounded-lg">Save</button>
-                </form>
+                    <form method="POST" action="?/CreateScreening">
+                        <input
+                            type="text"
+                            name="auditorium"
+                            readonly
+                            placeholder="Auditorium Id"
+                            value={audid}
+                        />
+                        <input
+                            type="text"
+                            name="movie"
+                            readonly
+                            placeholder="Movie Id"
+                            value={movieid}
+                        />
+                        <input type="datetime-local" name="time" />
+                        <button class="w-72 h-12 text-center shadow rounded-lg"
+                            >Save</button
+                        >
+                    </form>
                 </div>
             </div>
-           
         </div>
-        
     </div>
 </body>
 
@@ -68,51 +76,52 @@ import type { PageData } from "./$types";
     * {
         font-family: normalFont;
     }
-    body{
+    body {
         background: #161616;
     }
 
     .allCenter {
         padding-top: 50px;
     }
-    ul{
+    ul {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
         gap: 20px;
     }
-   
-    form{
+
+    form {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
         gap: 10px;
     }
-    form button{
-     
-     background: linear-gradient(142deg, rgba(129,65,62,1) 0%, rgba(106,0,0,1) 100%);
-     width: 90%;
-     color: white;
-  
+    form button {
+        background: linear-gradient(
+            142deg,
+            rgba(129, 65, 62, 1) 0%,
+            rgba(106, 0, 0, 1) 100%
+        );
+        width: 90%;
+        color: white;
     }
 
-    ul button{
+    ul button {
         padding: 10px;
         border: 1px solid white;
         color: white;
     }
-   
-  h1{
-    font-size: 30px;
-    color: white;
-  }
 
+    h1 {
+        font-size: 30px;
+        color: white;
+    }
 
     .content {
         width: 100%;
         height: 100%;
     }
-  
+
     .cardcontainer {
         display: flex;
         flex-direction: column;
@@ -124,35 +133,29 @@ import type { PageData } from "./$types";
         gap: 50px;
     }
     input {
-      font-family: italicFont;
-      width: 100%;
-      padding: 20px;
-      font-size: 20px;
-      color: #fff;
-      background-color: rgb(28, 28, 30);
-      box-shadow: 0 0 0.4vw rgba(0, 0, 0, 0.5), 0 0 0 0.15vw transparent;
-      border-radius: 10px;
-      border: none;
-      outline: none;
-      transition: 0.4s;
-   }
-   input:hover {
-      box-shadow: 0 0 0 0.15vw rgba(235, 135, 135, 0.186);
-   }
+        font-family: italicFont;
+        width: 100%;
+        padding: 20px;
+        font-size: 20px;
+        color: #fff;
+        background-color: rgb(28, 28, 30);
+        box-shadow: 0 0 0.4vw rgba(0, 0, 0, 0.5), 0 0 0 0.15vw transparent;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        transition: 0.4s;
+    }
+    input:hover {
+        box-shadow: 0 0 0 0.15vw rgba(235, 135, 135, 0.186);
+    }
 
-   input:focus {
-      box-shadow: 0 0 0 0.15vw #d2042d;
-   }
-   
+    input:focus {
+        box-shadow: 0 0 0 0.15vw #d2042d;
+    }
 
-   
     @media (max-width: 700px) {
-      
-        .allCenter{
+        .allCenter {
             padding-top: 0;
         }
-        
-       
-        
     }
 </style>

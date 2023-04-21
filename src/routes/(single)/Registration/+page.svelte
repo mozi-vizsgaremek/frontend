@@ -10,7 +10,7 @@
 
    if (data != null && data["loginOk"] && browser) {
       // redir
-      window.location.pathname = "./";
+      window.location.pathname = "../";
    }
    if (data != null && data["errorMessage"] && browser) {
       notifications.danger(data.errorMessage, 2000);
@@ -49,7 +49,7 @@
             />
 
             <input
-               required 
+               required
                class="h-12 outline-0 bg-transparent p-4 placeholder:text-sm placeholder:text-white text-xs w-72 border-2 rounded-lg"
                type="password"
                name="password"
@@ -148,10 +148,13 @@
       font-family: italicFont;
    }
    button {
-     
-     background: linear-gradient(142deg, rgba(129,65,62,1) 0%, rgba(106,0,0,1) 100%);
-     width: 90%;
-  }
+      background: linear-gradient(
+         142deg,
+         rgba(129, 65, 62, 1) 0%,
+         rgba(106, 0, 0, 1) 100%
+      );
+      width: 90%;
+   }
    .cin {
       font-size: 34px;
    }

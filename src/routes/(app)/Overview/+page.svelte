@@ -10,23 +10,26 @@
             <div class="cardcontainer">
                 <div class="cards p-2.5">
                     {#each data.upComing as entry}
-                    <a href={`./Overview/${entry.id}`} class="delete">
-                    <div class="dateCardDelete">
-                        <div class="word" />
-                        <div class="buttons">
-                        <div class="number">
-                            {format(entry.shiftFrom, "d. E")}<p>
-                                {format(entry.shiftFrom, "kk:mm")} - {format(entry.shiftTo, "kk:mm")}
-                        </div>
-                    </div>
-                       
-                    </div>
-                </a>
-            {/each}
+                        <a href={`./Overview/${entry.id}`} class="delete">
+                            <div class="dateCardDelete">
+                                <div class="word" />
+                                <div class="buttons">
+                                    <div class="number">
+                                        {format(entry.shiftFrom, "d. E")}
+                                        <p>
+                                            {format(entry.shiftFrom, "kk:mm")} -
+                                            {format(entry.shiftTo, "kk:mm")}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    {/each}
+                </div>
             </div>
         </div>
-    </div>
-</body>
+    </div></body
+>
 
 <style>
     @font-face {
@@ -80,20 +83,20 @@
         box-shadow: inset -8px -8px 16px 0px rgba(33, 35, 35, 0.6),
             inset 0px 11px 28px 0px rgb(255, 255, 255);
     }
-    .dateCardDelete:hover{
+    .dateCardDelete:hover {
         transform: scale(1.05);
         background-color: red;
-        
+
         box-shadow: inset -8px -8px 16px 0px rgba(33, 35, 35, 0.6),
             inset 0px 11px 28px 0px rgba(0, 0, 0, 0.744);
     }
-    .buttons{
+    .buttons {
         color: black;
         display: flex;
         font-size: 12px;
         gap: 5px;
     }
-   
+
     @media (max-width: 700px) {
         .allCenter {
             padding-top: 0;

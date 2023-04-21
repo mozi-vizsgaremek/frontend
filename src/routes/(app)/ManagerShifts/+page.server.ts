@@ -1,8 +1,5 @@
-import { baseUrl } from '$lib/config';
 import { authFetch } from '$lib/util';
 import type { Actions } from '../$types';
-
-import type { RequestEvent } from '../$types';
 
 /** @type {import('./$types').PageServerLoad} */
 
@@ -26,7 +23,6 @@ export const actions: Actions = {
 
     const payload = await res?.json();
 
-    console.log(payload);
 
     return {
       chageOk: res?.ok,

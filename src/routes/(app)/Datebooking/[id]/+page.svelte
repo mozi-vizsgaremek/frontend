@@ -2,7 +2,6 @@
     import { format } from "date-fns";
 
     export let data;
-
 </script>
 
 <body>
@@ -18,8 +17,7 @@
             <div class="all">
                 <div class="title">{data.movie.title}</div>
                 <div class="alcim">{data.movie.subtitle}</div>
-                <div class="category">
-                </div>
+                <div class="category" />
                 <div class="desc">
                     <p>{data.movie.description}</p>
                 </div>
@@ -75,16 +73,16 @@
         gap: 10px;
 
         transition: all 0.5s;
-        color: #FAF5E9;
+        color: #faf5e9;
         backdrop-filter: blur(5px);
 
-        background-color: #009B4D;
+        background-color: #009b4d;
 
         border-radius: 20px;
         box-shadow: inset -8px -8px 16px 0px rgba(33, 35, 35, 0.6),
             inset 0px 11px 28px 0px rgba(99, 99, 99, 0.253);
     }
-    .dateCard:hover{
+    .dateCard:hover {
         transform: scale(1.05);
     }
     .alcim {
@@ -130,18 +128,6 @@
         display: flex;
         justify-content: center;
         gap: 20px;
-    }
-    .catcard {
-        width: 100px;
-        height: 25px;
-        padding: 5px;
-        background-color: white;
-        border-radius: 2px;
-        color: black;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 10px;
     }
 
     @media (max-width: 700px) {

@@ -14,8 +14,8 @@ export const actions: Actions = {
 
     const res = await authFetch(event, 'PUT', '/auth/password', { body: reqBody });
 
-    if(res?.ok){
-      throw redirect(302,'../')
+    if (res?.ok) {
+      throw redirect(302, '../')
     }
 
     return {
@@ -26,7 +26,7 @@ export const actions: Actions = {
     const body = await event.request.formData();
     let reqBodyPayload: any = {
       password: body.get('password'),
-      
+
     };
 
     const totp = body.get('totp');
@@ -82,8 +82,8 @@ export const actions: Actions = {
 
     const res = await authFetch(event, 'DELETE', '/auth/totp', { body: reqBody });
 
-    if(res?.ok){
-      throw redirect(302,'../')
+    if (res?.ok) {
+      throw redirect(302, '../')
     }
 
     return {

@@ -1,5 +1,5 @@
 <script>
-// @ts-nocheck
+    // @ts-nocheck
 
     import MovieCard from "$lib/svelte/MovieCard.svelte";
 
@@ -7,17 +7,16 @@
 
     let alma = data.resBody;
 
-    
-	let filteredBooks = [];
+    let filteredBooks = [];
 
     let search = "";
 
-    const teszt = () => {	
-		return filteredBooks = alma.filter(movie => {
-			let movieTitle = movie.title.toLowerCase();
-			return movieTitle.includes(search.toLowerCase())
-		});
-	}
+    const teszt = () => {
+        return (filteredBooks = alma.filter((movie) => {
+            let movieTitle = movie.title.toLowerCase();
+            return movieTitle.includes(search.toLowerCase());
+        }));
+    };
 </script>
 
 <body>
@@ -45,7 +44,7 @@
                     </button>
                     <input
                         class="input"
-                        bind:value={search} 
+                        bind:value={search}
                         on:input={teszt}
                         placeholder="Search..."
                         required
@@ -72,23 +71,23 @@
             <div class="cardcontainer">
                 <div class="cards p-2.5">
                     {#if filteredBooks.length > 0}
-                    {#each filteredBooks as movie}
-                        <MovieCard
-                            idurl={movie.id}
-                            title={movie.title}
-                            secondTitle={movie.subtitle}
-                            url={movie.thumbnailUrl} 
-                        />
-                    {/each}
+                        {#each filteredBooks as movie}
+                            <MovieCard
+                                idurl={movie.id}
+                                title={movie.title}
+                                secondTitle={movie.subtitle}
+                                url={movie.thumbnailUrl}
+                            />
+                        {/each}
                     {:else}
-                    {#each data.resBody as movie}
-                        <MovieCard
-                            idurl={movie.id}
-                            title={movie.title}
-                            secondTitle={movie.subtitle}
-                            url={movie.thumbnailUrl} 
-                        />
-                    {/each}
+                        {#each data.resBody as movie}
+                            <MovieCard
+                                idurl={movie.id}
+                                title={movie.title}
+                                secondTitle={movie.subtitle}
+                                url={movie.thumbnailUrl}
+                            />
+                        {/each}
                     {/if}
                 </div>
             </div>
@@ -111,11 +110,10 @@
         padding-top: 30px;
     }
 
-
     .form button {
         border: none;
         background: none;
-        color: #D2042D;
+        color: #d2042d;
     }
     .form {
         margin-top: 20px;
@@ -124,10 +122,9 @@
         --width-of-input: 300px;
         --height-of-input: 40px;
         --border-height: 2px;
-        --input-bg:  linear-gradient(145deg, #141414, #181818);
-        box-shadow:  20px 20px 60px #0e0e0e,
-             -20px -20px 60px #1e1e1e;;
-        --border-color: #D2042D;
+        --input-bg: linear-gradient(145deg, #141414, #181818);
+        box-shadow: 20px 20px 60px #0e0e0e, -20px -20px 60px #1e1e1e;
+        --border-color: #d2042d;
         --border-radius: 10px;
         --after-border-radius: 5px;
         position: relative;
@@ -188,8 +185,6 @@
         margin-top: 3px;
     }
 
-  
-
     .content {
         width: 100%;
     }
@@ -207,17 +202,16 @@
     }
 
     @media (max-width: 700px) {
-       
         .allCenter {
             padding-top: 0;
         }
-       
+
         .cards {
             gap: 10px;
         }
     }
-        /* width */
-        ::-webkit-scrollbar {
+    /* width */
+    ::-webkit-scrollbar {
         width: 5px;
     }
 

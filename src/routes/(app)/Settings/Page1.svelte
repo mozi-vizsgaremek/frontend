@@ -2,9 +2,9 @@
     //@ts-nocheck
     import QRCode from "./QRJS.svelte";
     import Modal from "$lib/svelte/Modal.svelte";
-    
-   import { notifications } from "$lib/notifications";
-   import Toast from "$lib/svelte/Toast.svelte";
+
+    import { notifications } from "$lib/notifications";
+    import Toast from "$lib/svelte/Toast.svelte";
 
     import { page } from "$app/stores";
     export const data = $page.form;
@@ -13,17 +13,10 @@
 
     let showModal = false;
 
-    let deletemodal = false;
-
-    // @ts-ignore
     import { createForm } from "felte";
 
     export let initialValues;
     export let onSubmit;
-    let content;
-
-    // @ts-ignore
-    export let onSubmitDouble;
     let uri;
 
     const { form } = createForm({ onSubmit, initialValues });
@@ -43,7 +36,6 @@
         showModal = false;
     }
     if (data != null && data["deleteOnBoard"] && browser) {
-        
         notifications.danger(data.errorMessage, 2000);
     }
 
@@ -146,14 +138,13 @@
         text-align: center;
         border-radius: 10px;
         backdrop-filter: blur(5px);
-        background:transparent;
+        background: transparent;
 
-        box-shadow:
-            inset -8px -8px 16px 0px rgba(0, 0, 0, 0.6),
+        box-shadow: inset -8px -8px 16px 0px rgba(0, 0, 0, 0.6),
             inset 0px 11px 28px 0px rgba(255, 255, 255, 0.2);
         color: white;
     }
-    .on:hover{
+    .on:hover {
         cursor: pointer;
     }
     button {
@@ -195,16 +186,15 @@
         backdrop-filter: blur(5px);
         background: transparent;
         border-radius: 15px;
-        box-shadow:
-            inset -8px -8px 16px 0px rgba(255, 255, 255, 0.2) ,
+        box-shadow: inset -8px -8px 16px 0px rgba(255, 255, 255, 0.2),
             inset 0px 11px 28px 0px rgba(0, 0, 0, 0.6);
         font-size: 13px;
         padding: 15px;
         outline: none;
         color: white;
-        transition: all .5s;
+        transition: all 0.5s;
     }
-    ::-webkit-input-placeholder{
+    ::-webkit-input-placeholder {
         color: white;
     }
 
@@ -212,7 +202,7 @@
         display: flex;
         gap: 10px;
     }
-    .totpDelete form{
+    .totpDelete form {
         display: flex;
         flex-direction: column;
     }

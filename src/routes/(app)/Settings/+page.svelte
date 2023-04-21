@@ -21,14 +21,13 @@
 
     // @ts-ignore
     function onSubmit(values) {
-            if(pagese === 1) return;
-            pagesState[pagese] = values;
-            // @ts-ignore
-            pagesState = pagesState;
-            pagese += 1;
-        
+        if (pagese === 1) return;
+        pagesState[pagese] = values;
+        // @ts-ignore
+        pagesState = pagesState;
+        pagese += 1;
     }
-    
+
     // @ts-ignore
     function onBack(values) {
         if (pagese === 0) return;
@@ -37,7 +36,6 @@
         pagesState = pagesState; // Triggering update
         pagese -= 1;
     }
-   
 
     if (data != null && data["chageOk"] && browser) {
         // redir
@@ -53,11 +51,7 @@
 
 <body>
     <div class="allCenter flex w-full min-h-screen">
-        
-
         <div class="content pt-2.5">
-           
-
             <div class="cardcontainer">
                 <svelte:component
                     this={pages[pagese]}
@@ -90,14 +84,10 @@
         padding-top: 30px;
     }
 
-    
-   
-
     .content {
         width: 100%;
     }
 
-   
     .cardcontainer {
         display: flex;
         flex-direction: column;
@@ -110,10 +100,8 @@
     }
 
     @media (max-width: 700px) {
-      
         .allCenter {
             padding-top: 0;
         }
-
     }
 </style>
