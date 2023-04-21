@@ -76,7 +76,7 @@
         color: #faf5e9;
         backdrop-filter: blur(5px);
 
-        background-color: #009b4d;
+        background: linear-gradient(48deg, rgba(184,15,0,1) 0%, rgba(249,116,0,1) 100%);
 
         border-radius: 20px;
         box-shadow: inset -8px -8px 16px 0px rgba(33, 35, 35, 0.6),
@@ -86,7 +86,8 @@
         transform: scale(1.05);
     }
     .alcim {
-        color: #faf5e9;
+        
+        color: #bdb7a9;
     }
     .movieCover {
         background-image: url("$lib/images/cover.jpg");
@@ -100,6 +101,8 @@
         width: 100%;
         display: flex;
         justify-content: center;
+        font-size: 12px;
+        color: #928b7c;
     }
     .desc p {
         width: 400px;
@@ -122,7 +125,8 @@
 
     .title {
         font-size: 24px;
-        color: #ffcc00;
+        
+        color: white;
     }
     .category {
         display: flex;

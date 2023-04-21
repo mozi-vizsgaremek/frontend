@@ -78,7 +78,8 @@
     }
     button {
         color: white;
-        background: #009b4d;
+        
+      background: linear-gradient(48deg, rgba(184,15,0,1) 0%, rgba(249,116,0,1) 100%);
         width: 90%;
         height: 40px;
         border-radius: 10px;

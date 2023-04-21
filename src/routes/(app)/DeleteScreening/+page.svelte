@@ -11,11 +11,13 @@
                 <div class="cards p-2.5">
                     <ul>
                         {#each data.screenings as screening}
+                        <a href={`./DeleteScreening/${screening.id}`}>
                             <li>
-                                <a href={`./DeleteScreening/${screening.id}`}>
-                                    <h1>{screening.movieTitle}</h1>
-                                </a>
+                                
+                                    <h1 >{screening.movieTitle}</h1>
+                                
                             </li>
+                        </a>
                         {/each}
                     </ul>
                 </div>
@@ -38,6 +40,13 @@
 
     .allCenter {
         padding-top: 50px;
+    }
+    li{
+        border: 2px solid rgba(249,116,0,1);
+        padding: 20px;
+        min-width: 100px;
+        text-align: center;
+        border-radius: 5px;
     }
 
     .content {
